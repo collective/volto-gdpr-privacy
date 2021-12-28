@@ -1,4 +1,14 @@
+import CookieBanner from './components/CookieBanner/CookieBanner';
+export { CookieBanner };
 const applyConfig = (config) => {
+  config.settings.appExtras = [
+    ...(config.appExtras ?? []),
+    {
+      match: '',
+      component: CookieBanner,
+    },
+  ];
+
   config.gdprPrivacyConfig = {
     GANALYTICS: {
       type: 'technical',

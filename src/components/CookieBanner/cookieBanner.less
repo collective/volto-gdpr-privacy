@@ -1,0 +1,107 @@
+.gdpr-privacy-banner {
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+
+  background-color: #ddd;
+  line-height: 1.5;
+
+  .gdpr-privacy-content-wrapper {
+    position: relative;
+    padding: 4em 0;
+
+    .ui.button.close-button {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      border-radius: 100%;
+
+      svg {
+        border: none;
+      }
+    }
+
+    .gdpr-privacy-content {
+      .title {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .description {
+        margin-bottom: 2rem;
+      }
+    }
+
+    //SETTINGS
+    .gdpr-privacy-settings {
+      display: flex;
+      flex-wrap: wrap;
+
+      .settings-column {
+        flex: 1 1 50%;
+        padding: 1em 2em;
+        padding-left: 0;
+        margin-bottom: 3em;
+
+        .settings-title {
+          margin-bottom: 1rem;
+          font-size: 1.5rem;
+          font-weight: bold;
+
+          .ui.toggle.checkbox {
+            width: 4.5rem;
+
+            label {
+              &:before {
+                width: 4.5rem;
+                height: 2rem;
+              }
+
+              &:after {
+                width: 2rem;
+                height: 2rem;
+              }
+            }
+
+            input:checked ~ label {
+              &:after {
+                left: 2.7rem;
+              }
+            }
+          }
+        }
+
+        .settings-description {
+          margin-bottom: 2rem;
+          font-size: 0.9rem;
+        }
+
+        .toggle-wrapper {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+        }
+
+        .choice {
+          margin-bottom: 1rem;
+
+          .choice-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+          }
+
+          .choice-description {
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      .settings-column + .settings-column {
+        padding-right: 0;
+        padding-left: 2em;
+      }
+    }
+  }
+}
