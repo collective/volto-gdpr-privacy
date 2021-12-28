@@ -4,6 +4,7 @@ const defaultPanelConfig = {
   text: {
     //Testo che viene mostrato nel banner quando appare il banner
     it: {
+      title: 'Usiamo i cookies',
       description:
         'Questo sito utilizza i cookie tecnici bla bla bla.. Per i cookie di profilazione scegli cosa vuoi fare cliccando sul pulsante impostazioni. Per accettare tutti i cookie di profilazione clicca su accetta tutti...',
     },
