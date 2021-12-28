@@ -1,4 +1,6 @@
-export const defaultPanelConfig = {
+const defaultPanelConfig = {
+  last_updated: '2021-11-30T17:33:28+00:00', //serve per sapere se ripresentare il banner all'utente nel caso siano cambiate le scelte.
+
   text: {
     //Testo che viene mostrato nel banner quando appare il banner
     it: {
@@ -55,6 +57,7 @@ export const defaultPanelConfig = {
         },
       },
       {
+        config_key: 'YOUTUBE',
         text: {
           it: {
             title: 'Youtube',
@@ -66,6 +69,7 @@ export const defaultPanelConfig = {
         },
       },
       {
+        config_key: 'FACEBOOK',
         //url releated to this cookies, used to conditionally embed iframes
         referenceUrls: ['facebook.com', 'facebook.it'],
         text: {
@@ -78,6 +82,7 @@ export const defaultPanelConfig = {
         },
       },
       {
+        config_key: 'JUICER',
         referenceUrls: ['juicer.com'],
         text: {
           it: {
@@ -91,3 +96,5 @@ export const defaultPanelConfig = {
     ],
   },
 };
+
+export default defaultPanelConfig;
