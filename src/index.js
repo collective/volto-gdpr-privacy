@@ -21,7 +21,7 @@ const applyConfig = (config) => {
     gdprPrivacyConsent,
   };
 
-  config.gdprPrivacyConfig = {
+  config.settings.gdprPrivacyConfig = {
     GANALYTICS: {
       type: 'technical',
       //onAccept e onDecline not make sense for technical cookies, because these are active by default, and the user cannot change their activation
