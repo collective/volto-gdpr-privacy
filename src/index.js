@@ -2,21 +2,24 @@ const applyConfig = (config) => {
   config.gdprPrivacyConfig = {
     GANALYTICS: {
       type: 'technical',
+      //onAccept e onDecline not make sense for technical cookies, because these are active by default, and the user cannot change their activation
+      defaultTitle:
+        'Default title to show in the control panel and banner if nothing is set in the control panel',
+      defaultDescription:
+        'Default description to show in the control panel and banner if nothing is set in the control panel',
+    },
+    FACEBOOKPIXEL: {
+      type: 'profiling',
       onAccept: () => {},
       onDecline: () => {},
       defaultTitle:
-        'Titolo di default da mostrare nel pannello di controllo e nel banner se non è impostato nulla nel pannello di controllo',
+        'Default title to show in the control panel and banner if nothing is set in the control panel',
       defaultDescription:
-        'Descrizione di default da mostrare nel pannello di controllo e nel banner se non è impostato nulla nel pannello di controllo',
-    },
-    FACEBOOKPIXEL: {
-      // ...,
-      type: 'profiling',
-      // ...,
+        'Default description to show in the control panel and banner if nothing is set in the control panel',
     },
     // GTAGMANAGER:{....},
     // MATOMO:{....},
-    //...
+    //...your config keys...
   };
   return config;
 };
