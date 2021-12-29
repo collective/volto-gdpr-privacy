@@ -1,12 +1,19 @@
+import { updateContent } from '../../../../../omelette/src/actions/content/content';
+
 const defaultPanelConfig = {
-  last_updated: '2021-11-30T17:33:28+00:00', //serve per sapere se ripresentare il banner all'utente nel caso siano cambiate le scelte.
+  last_updated: '2021-11-30T17:33:28+00:00', //it is used to know whether to resubmit the banner to the user if the choices have changed.
 
   text: {
-    //Testo che viene mostrato nel banner quando appare il banner
+    //Text that is shown when the banner appears
     it: {
       title: 'Usiamo i cookies',
       description:
-        'Questo sito utilizza i cookie tecnici bla bla bla.. Per i cookie di profilazione scegli cosa vuoi fare cliccando sul pulsante impostazioni. Per accettare tutti i cookie di profilazione clicca su accetta tutti...',
+        "Questo sito utilizza i cookie tecnici di navigazione e di sessione per garantire un miglior servizio di navigazione del sito, e cookies analitici per raccogliere informazioni sull'uso del sito da parte degli utenti.  Utilizza anche cookies di profilazione dell'utente per fini statistici e di remarketing. Per i cookie di profilazione puoi decidere se abilitarli o meno cliccando sul pulsante 'Impostazioni'. Per saperne di più, su come disabilitare i cookies oppure abilitarne solo alcuni, consulta la nostra Cookie Policy.",
+    },
+    en: {
+      title: 'We use cookies',
+      description:
+        "This site uses technical navigation and session cookies to ensure a better site navigation service, and analytical cookies to collect information on the use of the site by users. It also uses user profiling cookies for statistical and remarketing purposes. For profiling cookies you can decide whether to enable them or not by clicking on the 'Settings' button. To find out more, on how to disable cookies or enable only some of them, consult our Cookie Policy.",
     },
   },
 
@@ -17,7 +24,12 @@ const defaultPanelConfig = {
       it: {
         title: 'Cookie tecnici',
         description:
-          'Il sito utilizza cookie tecnici per analizzare il traffico da e verso il sito.. bla bla bla..',
+          'Il sito utilizza cookie tecnici per analizzare il traffico da e verso il sito. I cookies tecnici consento anche di fornire un migliore servizio di navigazione sul sito, e raccolgono informazioni di navigazione a questo scopo.',
+      },
+      en: {
+        title: 'Technical cookies',
+        description:
+          'The site uses technical cookies to analyze traffic to and from the site. Technical cookies also allow us to provide a better navigation service on the site, and collect navigation information for this purpose.',
       },
     },
 
@@ -29,7 +41,12 @@ const defaultPanelConfig = {
           it: {
             title: 'Google Analytics',
             description:
-              'I cookie di Google analytics sono usati per migliorare la qualità del nostro sito e il suo contenuto bla bla bla.. ',
+              "I cookie di Google Analytics sono usati per analizzare la navigazione sul sito al fine di migliorarla e fornire all'utente un'esperienza di navigazione migliore possibile.",
+          },
+          en: {
+            title: 'Google Analytics',
+            description:
+              'Google Analytics cookies are used to analyze navigation on the site in order to improve it and provide the user with the best possible browsing experience.',
           },
         },
       },
@@ -42,7 +59,12 @@ const defaultPanelConfig = {
       it: {
         title: 'Cookie di profilazione',
         description:
-          'Il sito utilizza cookie di profilazione per analizzare il comportamente e le scelte degli utenti.. bla bla bla..',
+          "Il sito utilizza cookie di profilazione per analizzare il comportamento e le scelte degli utenti al fine di proporre contenuti mirati corrispondenti al profilo dell'utente",
+      },
+      en: {
+        title: 'Profiling cookies',
+        description:
+          "The site uses profiling cookies to analyze user behavior and choices in order to propose targeted content corresponding to the user's profile",
       },
     },
 
@@ -51,9 +73,14 @@ const defaultPanelConfig = {
         config_key: 'FACEBOOKPIXEL',
         text: {
           it: {
-            title: 'Facebook pixel',
+            title: 'Facebook Pixel',
             description:
-              'I cookie di Facebook pixel consentono di misurare, ottimizzare le campagne bla bla bla... ',
+              "I cookie di Facebook Pixel consentono di misurare, ottimizzare le campagne e le offerte di prodotti raccogliendo dati di profilazione dell'utente quali ad esempio sesso, età, interessi e altro.",
+          },
+          en: {
+            title: 'Facebook Pixel',
+            description:
+              'Facebook Pixel cookies allow you to measure and optimize campaigns and product offers by collecting user profiling data such as gender, age, interests and more.',
           },
         },
       },
@@ -62,10 +89,17 @@ const defaultPanelConfig = {
         text: {
           it: {
             title: 'Youtube',
-            description: 'Cookie correlati a Youtube bla bla bla.. ',
+            description: 'Cookie correlati a Youtube... ',
             //text to show in conditional embed if that cookies are not enabled
             conditional_embed_text:
               'Per vedere il video, accetta i cookies di Youtube.',
+          },
+          en: {
+            title: 'Youtube',
+            description: 'Related youtube cookies... ',
+            //text to show in conditional embed if that cookies are not enabled
+            conditional_embed_text:
+              'To view the video, please accept Youtube cookies.',
           },
         },
       },
@@ -76,9 +110,15 @@ const defaultPanelConfig = {
         text: {
           it: {
             title: 'Facebook',
-            description: 'Cookie correlati a Facebook bla bla bla.. ',
+            description: 'Cookie correlati a Facebook... ',
             conditional_embed_text:
-              'Per vedere il contenuto da Facebook, accetta i cookies di Facebook.',
+              'Per vedere i contenuti di Facebook, accetta i cookies relativi a Facebook.',
+          },
+          en: {
+            title: 'Facebook',
+            description: 'Related Facebook cookies... ',
+            conditional_embed_text:
+              'To view Facebook content, please accept Facebook cookies.',
           },
         },
       },
@@ -88,9 +128,15 @@ const defaultPanelConfig = {
         text: {
           it: {
             title: 'Juicer',
-            description: 'Cookie correlati a Juicer bla bla bla.. ',
+            description: 'Cookie correlati a Juicer...',
             conditional_embed_text:
-              'Per vedere il contenuto da Juicer, accetta i cookies di Facebook.',
+              'Per vedere il contenuto da Juicer, accetta i cookies di Juicer.',
+          },
+          en: {
+            title: 'Juicer',
+            description: 'Related Juicer cookies...',
+            conditional_embed_text:
+              'To view the Juicer content, please accept Juicer cookies.',
           },
         },
       },
