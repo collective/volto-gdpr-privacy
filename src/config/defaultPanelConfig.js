@@ -1,5 +1,3 @@
-import { updateContent } from '../../../../../omelette/src/actions/content/content';
-
 const defaultPanelConfig = {
   last_updated: '2021-11-30T17:33:28+00:00', //it is used to know whether to resubmit the banner to the user if the choices have changed.
 
