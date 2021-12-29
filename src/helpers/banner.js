@@ -9,16 +9,29 @@ export const showBanner = (cookies, cookiesConfig) => {
   if (version !== cookiesConfig.last_updated) {
     return true;
   }
+
+  return false;
+};
+
+export const loadPreferences = (cookies, cookiesConfig) => {
   const technicalKeys = getCookiesKeys(cookiesConfig.technical);
   const profilingKeys = getCookiesKeys(cookiesConfig.profiling);
 
-  const technicalPref = technicalKeys.map((k) => cookies.get(k));
-  const profilingPref = profilingKeys.map((k) => cookies.get(k));
+  let preferences = { cookies_version: cookies.get('cookies_version') };
+  technicalKeys.forEach((k) => {
+    const c = cookies.get(k);
+    const v = c === 'true' ? true : c === 'false' ? false : c;
+    preferences[k] = v ?? true;
+  });
+  profilingKeys.forEach((k) => {
+    const c = cookies.get(k);
+    const v = c === 'true' ? true : c === 'false' ? false : c;
+    preferences[k] = v ?? false;
+  });
+  return preferences;
+};
 
-  return (
-    technicalPref.indexOf(undefined) >= 0 ||
-    technicalPref.indexOf(null) >= 0 ||
-    profilingPref.indexOf(undefined) >= 0 ||
-    profilingPref.indexOf(null) >= 0
-  );
+export const groupIsAccepted = (groupConfig, preferences) => {
+  const keys = getCookiesKeys(groupConfig);
+  return keys.reduce((acc, k) => (acc === false ? acc : preferences[k]));
 };

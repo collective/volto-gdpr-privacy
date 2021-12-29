@@ -2,6 +2,7 @@ import React from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { Radio } from 'semantic-ui-react';
 import { getLocaleConf, getCookiesKeys } from '../../helpers/config';
+import { groupIsAccepted } from '../../helpers/banner';
 import config from '@plone/volto/registry';
 
 const messages = defineMessages({
@@ -28,6 +29,26 @@ const CookieSettings = ({ preferences, setPreferences, cookiesConfig }) => {
     intl.locale,
   );
 
+  const onChangeGroup = (groupConfig, value) => {
+    const keys = getCookiesKeys(groupConfig);
+    let newPreferences = { ...preferences };
+    keys.forEach((k) => {
+      newPreferences[k] = value;
+    });
+
+    setPreferences(newPreferences);
+  };
+
+  const profilingIsAccepted = groupIsAccepted(
+    cookiesConfig.profiling,
+    preferences,
+  );
+  const technicalIsAccepted = groupIsAccepted(
+    cookiesConfig.technical,
+    preferences,
+  );
+
+  console.log('preferrences', preferences);
   return (
     <div className="gdpr-privacy-settings">
       {/******** TECHNICAL ********/}
@@ -37,10 +58,16 @@ const CookieSettings = ({ preferences, setPreferences, cookiesConfig }) => {
             {technicalText.title}{' '}
             <Radio
               toggle
-              checked={true}
+              checked={technicalIsAccepted}
               disabled
-              aria-label={intl.formatMessage(messages.enabled)}
-              size="big"
+              aria-label={
+                technicalIsAccepted
+                  ? intl.formatMessage(messages.enabled)
+                  : intl.formatMessage(messages.disabled)
+              }
+              onChange={(e, { checked }) => {
+                onChangeGroup(cookiesConfig.technical, checked);
+              }}
             />
           </div>
         </div>
@@ -53,6 +80,7 @@ const CookieSettings = ({ preferences, setPreferences, cookiesConfig }) => {
 
         <div className="choices">
           {cookiesConfig.technical.choices.map((choiceConfig) => {
+            const key = choiceConfig.config_key;
             const choice = getLocaleConf(
               choiceConfig.text,
               config,
@@ -60,15 +88,25 @@ const CookieSettings = ({ preferences, setPreferences, cookiesConfig }) => {
             );
 
             return (
-              <div className="choice">
+              <div className="choice" key={key}>
                 <div className="choice-title">
                   <div className="toggle-wrapper">
                     {choice.title}
                     <Radio
                       toggle
-                      checked={true}
+                      checked={preferences[key]}
                       disabled
-                      aria-label={intl.formatMessage(messages.enabled)}
+                      aria-label={
+                        preferences[key]
+                          ? intl.formatMessage(messages.enabled)
+                          : intl.formatMessage(messages.disabled)
+                      }
+                      onChange={(e, { checked }) => {
+                        setPreferences({
+                          ...preferences,
+                          [key]: checked,
+                        });
+                      }}
                     />
                   </div>
                 </div>
@@ -86,15 +124,18 @@ const CookieSettings = ({ preferences, setPreferences, cookiesConfig }) => {
       <div className="settings-column profiling">
         <div className="settings-title">
           <div className="toggle-wrapper">
-            {profilingText.title}{' '}
+            {profilingText.title}
             <Radio
               toggle
-              // checked={false}
-              // aria-label={intl.formatMessage(messages.enabled)}
-              size="big"
-              // onChange={(e, { value }) => {
-              //   console.log('activate all profiling cookies');
-              // }}
+              checked={profilingIsAccepted}
+              aria-label={
+                profilingIsAccepted
+                  ? intl.formatMessage(messages.enabled)
+                  : intl.formatMessage(messages.disabled)
+              }
+              onChange={(e, { checked }) => {
+                onChangeGroup(cookiesConfig.profiling, checked);
+              }}
             />
           </div>
         </div>
@@ -107,6 +148,7 @@ const CookieSettings = ({ preferences, setPreferences, cookiesConfig }) => {
 
         <div className="choices">
           {cookiesConfig.profiling.choices.map((choiceConfig) => {
+            const key = choiceConfig.config_key;
             const choice = getLocaleConf(
               choiceConfig.text,
               config,
@@ -114,17 +156,24 @@ const CookieSettings = ({ preferences, setPreferences, cookiesConfig }) => {
             );
 
             return (
-              <div className="choice">
+              <div className="choice" key={key}>
                 <div className="choice-title">
                   <div className="toggle-wrapper">
                     {choice.title}
                     <Radio
                       toggle
-                      // checked={true}
-                      // aria-label={intl.formatMessage(messages.enabled)}
-                      // onChange={(e, { value }) => {
-                      //   console.log('activate all profiling cookies');
-                      // }}
+                      checked={preferences[key]}
+                      aria-label={
+                        preferences[key]
+                          ? intl.formatMessage(messages.enabled)
+                          : intl.formatMessage(messages.disabled)
+                      }
+                      onChange={(e, { checked }) => {
+                        setPreferences({
+                          ...preferences,
+                          [key]: checked,
+                        });
+                      }}
                     />
                   </div>
                 </div>

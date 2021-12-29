@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Cookies from '../../helpers/Cookies';
-import { showBanner } from '../../helpers/banner';
+import { showBanner, loadPreferences } from '../../helpers/banner';
 import cookiesConfig from '../../config/defaultPanelConfig.js';
 import { getLocaleConf, getCookiesKeys } from '../../helpers/config';
 import { defineMessages, useIntl } from 'react-intl';
@@ -40,11 +40,9 @@ const CookieBanner = () => {
   const profilingKeys = getCookiesKeys(cookiesConfig.profiling);
   const technicalKeys = getCookiesKeys(cookiesConfig.technical);
 
-  const [preferences, setPreferences] = useState({
-    cookies_version: cookies.get('cookies_version'),
-    //..technical cookies keys
-    //..profiling cookies keys
-  });
+  const [preferences, setPreferences] = useState(
+    loadPreferences(cookies, cookiesConfig),
+  );
 
   const [showSettings, setShowSettings] = useState(false);
 
@@ -52,42 +50,70 @@ const CookieBanner = () => {
     if (__SERVER__) {
       return;
     }
-    if (cookiesConfig.last_updated !== cookies.get('cookies_version')) {
+
+    //if cookies_version is changed, ask user to accept new version
+    if (
+      preferences.cookies_version &&
+      cookiesConfig.last_updated !== preferences.cookies_version
+    ) {
       cookies.remove('cookies_version');
-      setPreferences({ ...preferences, cookies_version: null });
+      setPreferences({ ...preferences, cookies_version: undefined });
     }
   }, []);
 
   const acceptTechnicalCookies = () => {
-    technicalKeys.forEach((k) => cookies.set(k, true));
-    profilingKeys.forEach((k) => cookies.set(k, false));
-    cookies.set('cookies_version', cookiesConfig.last_updated);
-
-    setPreferences({
-      ...preferences,
-      cookies_version: cookiesConfig.last_updated,
+    let newPreferences = { cookies_version: cookiesConfig.last_updated };
+    technicalKeys.forEach((k) => {
+      newPreferences[k] = true;
     });
+    profilingKeys.forEach((k) => {
+      cookies.set(k, false);
+      newPreferences[k] = false;
+    });
+
+    //set cookies
+    Object.keys(newPreferences).forEach((k) =>
+      cookies.set(k, newPreferences[k]),
+    );
+
+    setPreferences(newPreferences);
   };
 
   const acceptAllCookies = () => {
-    technicalKeys.forEach((k) => cookies.set(k, true));
-    profilingKeys.forEach((k) => cookies.set(k, true));
-    cookies.set('cookies_version', cookiesConfig.last_updated);
-    setPreferences({
-      ...preferences,
-      cookies_version: cookiesConfig.last_updated,
+    let newPreferences = { cookies_version: cookiesConfig.last_updated };
+    technicalKeys.forEach((k) => {
+      newPreferences[k] = true;
     });
+    profilingKeys.forEach((k) => {
+      cookies.set(k, false);
+      newPreferences[k] = true;
+    });
+
+    //set cookies
+    Object.keys(newPreferences).forEach((k) =>
+      cookies.set(k, newPreferences[k]),
+    );
+
+    setPreferences(newPreferences);
   };
 
-  const acceptSettings = () => {};
+  const acceptSettings = () => {
+    const newPreferences = {
+      ...preferences,
+      cookies_version: cookiesConfig.last_updated,
+    };
+
+    Object.keys(newPreferences).forEach((k) =>
+      cookies.set(k, newPreferences[k]),
+    );
+    setPreferences(newPreferences);
+  };
 
   const display = showBanner(cookies, cookiesConfig);
 
-  //on dispaly banner, remove all CookiePerferences
+  //on dispaly banner, remove cookie version
   if (display) {
     cookies.remove('cookies_version');
-    technicalKeys.forEach((k) => cookies.remove(k));
-    profilingKeys.forEach((k) => cookies.remove(k));
   }
 
   const bannerText = getLocaleConf(cookiesConfig.text, config, intl.locale);
