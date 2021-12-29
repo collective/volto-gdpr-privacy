@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Cookies from '../../helpers/Cookies';
-import { showBanner, loadPreferences } from '../../helpers/banner';
+import {
+  showBanner,
+  loadPreferences,
+  executeCallbacks,
+} from '../../helpers/banner';
 import cookiesConfig from '../../config/defaultPanelConfig.js';
 import { getLocaleConf, getCookiesKeys } from '../../helpers/config';
 import { defineMessages, useIntl } from 'react-intl';
@@ -77,6 +81,7 @@ const CookieBanner = () => {
     );
 
     setPreferences(newPreferences);
+    executeCallbacks(config, newPreferences);
   };
 
   const acceptAllCookies = () => {
@@ -95,6 +100,7 @@ const CookieBanner = () => {
     );
 
     setPreferences(newPreferences);
+    executeCallbacks(config, newPreferences);
   };
 
   const acceptSettings = () => {
@@ -107,6 +113,7 @@ const CookieBanner = () => {
       cookies.set(k, newPreferences[k]),
     );
     setPreferences(newPreferences);
+    executeCallbacks(config, newPreferences);
   };
 
   const display = showBanner(cookies, cookiesConfig);

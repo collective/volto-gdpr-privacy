@@ -1,11 +1,13 @@
 import CookieBanner from './components/CookieBanner/CookieBanner';
-export { CookieBanner };
+import GdprPrivacyManager from './components/GdprPrivacyManager/GdprPrivacyManager';
+export { CookieBanner, GdprPrivacyManager };
+
 const applyConfig = (config) => {
   config.settings.appExtras = [
-    ...(config.appExtras ?? []),
+    ...(config.settings.appExtras ?? []),
     {
       match: '',
-      component: CookieBanner,
+      component: GdprPrivacyManager,
     },
   ];
 
@@ -20,7 +22,11 @@ const applyConfig = (config) => {
     },
     FACEBOOKPIXEL: {
       type: 'profiling',
-      onAccept: () => {},
+      onAccept: (config) => {
+        console.log('on accept facebook pixel');
+
+        return <h1>Aggiunto all'accettazione</h1>;
+      },
       onDecline: () => {},
       defaultTitle:
         'Default title to show in the control panel and banner if nothing is set in the control panel',
