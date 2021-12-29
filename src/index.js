@@ -1,5 +1,6 @@
 import CookieBanner from './components/CookieBanner/CookieBanner';
 import GdprPrivacyManager from './components/GdprPrivacyManager/GdprPrivacyManager';
+import { gdprPrivacyConsent } from './reducers';
 export { CookieBanner, GdprPrivacyManager };
 
 const applyConfig = (config) => {
@@ -10,6 +11,15 @@ const applyConfig = (config) => {
       component: GdprPrivacyManager,
     },
   ];
+
+  config.settings.persistentReducers = [
+    ...config.settings.persistentReducers,
+    'gdprPrivacyConsent',
+  ];
+  config.addonReducers = {
+    ...config.addonReducers,
+    gdprPrivacyConsent,
+  };
 
   config.gdprPrivacyConfig = {
     GANALYTICS: {
@@ -22,12 +32,9 @@ const applyConfig = (config) => {
     },
     FACEBOOKPIXEL: {
       type: 'profiling',
-      onAccept: (config) => {
-        console.log('on accept facebook pixel');
-
-        return <h1>Aggiunto all'accettazione</h1>;
+      component: () => {
+        return <>Facebook pixel</>;
       },
-      onDecline: () => {},
       defaultTitle:
         'Default title to show in the control panel and banner if nothing is set in the control panel',
       defaultDescription:

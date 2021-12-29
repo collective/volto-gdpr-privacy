@@ -1,18 +1,5 @@
 import { getCookiesKeys } from './config';
 
-export const showBanner = (cookies, cookiesConfig) => {
-  const version = cookies.get('cookies_version');
-
-  if (!version) {
-    return true;
-  }
-  if (version !== cookiesConfig.last_updated) {
-    return true;
-  }
-
-  return false;
-};
-
 export const loadPreferences = (cookies, cookiesConfig) => {
   const technicalKeys = getCookiesKeys(cookiesConfig.technical);
   const profilingKeys = getCookiesKeys(cookiesConfig.profiling);
@@ -33,19 +20,12 @@ export const loadPreferences = (cookies, cookiesConfig) => {
 
 export const groupIsAccepted = (groupConfig, preferences) => {
   const keys = getCookiesKeys(groupConfig);
-  return keys.reduce((acc, k) => (acc === false ? acc : preferences[k]));
-};
-
-export const executeCallbacks = (config, preferences) => {
-  console.log(config.settings, preferences);
-  Object.keys(config.settings.gdprPrivacyConfig).forEach((k) => {
-    console.log(k, k.onAccept, preferences[k]);
-    const keyConfig = config.settings.gdprPrivacyConfig[k];
-    if (keyConfig.onAccept && preferences[k]) {
-      keyConfig.onAccept(config);
-    }
-    if (keyConfig.onDecline && !preferences[k]) {
-      keyConfig.onDecline(config);
+  let ret = true;
+  keys.forEach((k) => {
+    if (!preferences[k]) {
+      ret = preferences[k];
     }
   });
+
+  return ret;
 };
