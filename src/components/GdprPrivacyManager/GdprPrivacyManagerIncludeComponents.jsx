@@ -12,8 +12,6 @@ const GdprPrivacyManagerIncludeComponents = ({ cookies }) => {
   const [includeComponents, setIncludeComponents] = useState({});
 
   useEffect(() => {
-    console.log('changed gdprPreferences', gdprPreferences);
-
     if (gdprPreferences) {
       let activateComponents = {};
       Object.keys(gdprPreferences).forEach((k) => {
@@ -23,17 +21,15 @@ const GdprPrivacyManagerIncludeComponents = ({ cookies }) => {
         }
       });
 
-      const activateKeys = Object.keys(activateComponents);
-      const includedKeys = Object.keys(includeComponents);
+      const activateKeys = Object.keys(activateComponents).sort();
+      const includedKeys = Object.keys(includeComponents).sort();
 
-      if (activateKeys.filter((k) => includedKeys.indexOf(k) < 0).length > 0) {
+      if (activateKeys.join(',') !== includedKeys.join(',')) {
         setIncludeComponents(activateComponents);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gdprPreferences]);
-
-  console.log('includeComponents', includeComponents);
 
   return (
     <>

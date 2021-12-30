@@ -143,6 +143,7 @@ const CookieBanner = ({ display = false, cookies }) => {
         <Container className="gdpr-privacy-content">
           <div className="title">{bannerText.title}</div>
           <div className="description">{bannerText.description}</div>
+
           {/********* SETTINGS *******/}
           {showSettings && (
             <CookieSettings

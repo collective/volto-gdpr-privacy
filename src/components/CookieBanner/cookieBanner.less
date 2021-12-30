@@ -1,15 +1,17 @@
 .gdpr-privacy-banner {
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   bottom: 0;
   width: 100%;
 
   background-color: #ddd;
   line-height: 1.5;
+  max-height: 98vh;
+  overflow: auto;
 
   .gdpr-privacy-content-wrapper {
     position: relative;
-    padding: 4em 0;
+    padding: 4rem 0 3rem;
 
     .ui.button.close-button {
       position: absolute;
@@ -24,20 +26,28 @@
 
     .gdpr-privacy-content {
       .title {
+        margin-bottom: 1rem;
         font-size: 2em;
         font-weight: bold;
-        margin-bottom: 1rem;
       }
 
       .description {
+        overflow: auto;
+        max-height: 40vh;
         margin-bottom: 2rem;
+      }
+
+      .buttons {
+        .ui.button {
+          margin-right: 0.5rem;
+          margin-bottom: 1rem;
+        }
       }
     }
 
     //SETTINGS
     .gdpr-privacy-settings {
       display: flex;
-      flex-wrap: wrap;
 
       .settings-column {
         flex: 1 1 50%;
@@ -88,8 +98,8 @@
           margin-bottom: 1rem;
 
           .choice-title {
-            font-weight: bold;
             margin-bottom: 0.5rem;
+            font-weight: bold;
           }
 
           .choice-description {
@@ -101,6 +111,39 @@
       .settings-column + .settings-column {
         padding-right: 0;
         padding-left: 2em;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .gdpr-privacy-content-wrapper {
+      .gdpr-privacy-content {
+        .description {
+          font-size: 0.8rem;
+        }
+      }
+
+      .gdpr-privacy-settings {
+        flex-direction: column;
+
+        .settings-column {
+          padding-right: 0;
+          margin-bottom: 2rem;
+
+          .settings-description {
+            font-size: 0.8rem;
+          }
+
+          .choice {
+            .choice-description {
+              font-size: 0.7rem;
+            }
+          }
+        }
+
+        .settings-column + .settings-column {
+          padding-left: 0;
+        }
       }
     }
   }
