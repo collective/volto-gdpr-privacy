@@ -21,6 +21,7 @@ const CookieSettings = ({ preferences, setPreferences, panelConfig }) => {
           disabled={false}
           preferences={preferences}
           setPreferences={setPreferences}
+          autofocus={true}
         />
       </div>
     </div>

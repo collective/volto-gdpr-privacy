@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 
 import { getLocaleConf, getCookiesKeys } from '../../helpers/config';
@@ -22,6 +22,7 @@ const CookieGroupSettings = ({
   disabled = false,
   preferences,
   setPreferences,
+  autofocus = false,
 }) => {
   const intl = useIntl();
 
@@ -38,10 +39,18 @@ const CookieGroupSettings = ({
     setPreferences(newPreferences);
   };
 
+  const groupInputRef = useRef();
+
+  useEffect(() => {
+    if (autofocus && groupInputRef.current) {
+      groupInputRef.current.children[0].children[0].focus();
+    }
+  }, []);
+
   return (
-    <div className="settings-group-wrapper">
+    <div className="settings-group-wrapper" role="radiogroup">
       <div className="settings-title">
-        <div className="toggle-wrapper">
+        <div className="toggle-wrapper" ref={groupInputRef}>
           {text.title}
           <Radio
             toggle
@@ -53,7 +62,15 @@ const CookieGroupSettings = ({
                 : intl.formatMessage(messages.disabled)
             }
             onChange={(e, { checked }) => {
-              onChangeGroup(groupConfig, checked);
+              if (e.type !== 'change') {
+                onChangeGroup(groupConfig, checked);
+              }
+            }}
+            onKeyDown={(e) => {
+              e.stopPropagation();
+              if (e.code === 'Space') {
+                onChangeGroup(groupConfig, !isAccepted);
+              }
             }}
           />
         </div>
@@ -64,7 +81,7 @@ const CookieGroupSettings = ({
       )}
 
       <div className="choices">
-        {groupConfig.choices.map((choiceConfig) => {
+        {groupConfig.choices.map((choiceConfig, i) => {
           const key = choiceConfig.config_key;
           const choice = getLocaleConf(choiceConfig.text, config, intl.locale);
 
@@ -74,6 +91,7 @@ const CookieGroupSettings = ({
                 <div className="toggle-wrapper">
                   {choice.title}
                   <Radio
+                    tabIndex={i + 1}
                     toggle
                     checked={preferences[key]}
                     disabled={disabled}
@@ -83,10 +101,21 @@ const CookieGroupSettings = ({
                         : intl.formatMessage(messages.disabled)
                     }
                     onChange={(e, { checked }) => {
-                      setPreferences({
-                        ...preferences,
-                        [key]: checked,
-                      });
+                      if (e.type !== 'change') {
+                        setPreferences({
+                          ...preferences,
+                          [key]: checked,
+                        });
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      e.stopPropagation();
+                      if (e.code === 'Space') {
+                        setPreferences({
+                          ...preferences,
+                          [key]: !preferences[key],
+                        });
+                      }
                     }}
                   />
                 </div>

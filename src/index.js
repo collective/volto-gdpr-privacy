@@ -42,16 +42,16 @@ const applyConfig = (config) => {
       /******
        * Example: profiling cookies: dinamically include components based on user choices
        * ******/
-      /*FACEBOOKPIXEL: {
-        type: 'profiling',
-        component: () => {
-          return <>Facebook pixel</>;
-        },
-        defaultTitle:
-          'Default title to show in the control panel if nothing is set in the control panel',
-        defaultDescription:
-          'Default description to show in the control panel if nothing is set in the control panel',
-      },*/
+      // FACEBOOKPIXEL: {
+      //   type: 'profiling',
+      //   component: () => {
+      //     return <>Facebook pixel</>;
+      //   },
+      //   defaultTitle:
+      //     'Default title to show in the control panel if nothing is set in the control panel',
+      //   defaultDescription:
+      //     'Default description to show in the control panel if nothing is set in the control panel',
+      // },
       // GTAGMANAGER:{....},
       // MATOMO:{....},
       //...your config keys...
