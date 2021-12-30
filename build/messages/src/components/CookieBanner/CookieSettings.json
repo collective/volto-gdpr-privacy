@@ -1,0 +1,10 @@
+[
+  {
+    "id": "volto-gdpr-privacy-enabled",
+    "defaultMessage": "Enabled"
+  },
+  {
+    "id": "volto-gdpr-privacy-disabled",
+    "defaultMessage": "Disabled"
+  }
+]

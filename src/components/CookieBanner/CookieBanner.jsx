@@ -18,11 +18,11 @@ import config from '@plone/volto/registry';
 
 const messages = defineMessages({
   acceptTechnicalCookies: {
-    id: 'volto-gdpr-privacy-acceptTechnicalCookiess',
+    id: 'volto-gdpr-privacy-acceptTechnicalCookies',
     defaultMessage: 'Only necessary cookies',
   },
   acceptAllCookies: {
-    id: 'volto-gdpr-privacy-acceptAllCookiess',
+    id: 'volto-gdpr-privacy-acceptAllCookies',
     defaultMessage: 'Accept all',
   },
   changeSettings: {
