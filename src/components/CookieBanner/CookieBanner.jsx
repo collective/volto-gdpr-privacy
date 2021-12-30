@@ -5,7 +5,6 @@ import { Button, Container } from 'semantic-ui-react';
 import { Icon } from '@plone/volto/components';
 import clearSVG from '@plone/volto/icons/clear.svg';
 
-import cookiesConfig from '../../config/defaultPanelConfig.js';
 import { updateGdprPrivacyConsent, displayBanner } from '../../actions';
 
 import { loadPreferences } from '../../helpers/banner';
@@ -42,11 +41,12 @@ const messages = defineMessages({
 const CookieBanner = ({ display = false, cookies }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
-  const profilingKeys = getCookiesKeys(cookiesConfig.profiling);
-  const technicalKeys = getCookiesKeys(cookiesConfig.technical);
+  const panelConfig = config.settings.gdprPrivacyConfig.defaultPanelConfig;
+  const profilingKeys = getCookiesKeys(panelConfig.profiling);
+  const technicalKeys = getCookiesKeys(panelConfig.technical);
 
   const [preferences, setPreferences] = useState(
-    loadPreferences(cookies, cookiesConfig),
+    loadPreferences(cookies, panelConfig),
   );
 
   const [showSettings, setShowSettings] = useState(false);
@@ -59,7 +59,7 @@ const CookieBanner = ({ display = false, cookies }) => {
     //if user hasn't yet accepted cookies, or cookies_version is changed, ask user to accept new version
     if (
       !preferences.cookies_version ||
-      cookiesConfig.last_updated !== preferences.cookies_version
+      panelConfig.last_updated !== preferences.cookies_version
     ) {
       setPreferences({ ...preferences, cookies_version: undefined });
       dispatch(displayBanner(true));
@@ -85,7 +85,7 @@ const CookieBanner = ({ display = false, cookies }) => {
   };
 
   const acceptTechnicalCookies = () => {
-    let newPreferences = { cookies_version: cookiesConfig.last_updated };
+    let newPreferences = { cookies_version: panelConfig.last_updated };
     technicalKeys.forEach((k) => {
       newPreferences[k] = true;
     });
@@ -98,7 +98,7 @@ const CookieBanner = ({ display = false, cookies }) => {
   };
 
   const acceptAllCookies = () => {
-    let newPreferences = { cookies_version: cookiesConfig.last_updated };
+    let newPreferences = { cookies_version: panelConfig.last_updated };
     technicalKeys.forEach((k) => {
       newPreferences[k] = true;
     });
@@ -113,13 +113,13 @@ const CookieBanner = ({ display = false, cookies }) => {
   const acceptSettings = () => {
     const newPreferences = {
       ...preferences,
-      cookies_version: cookiesConfig.last_updated,
+      cookies_version: panelConfig.last_updated,
     };
 
     update(newPreferences);
   };
 
-  const bannerText = getLocaleConf(cookiesConfig.text, config, intl.locale);
+  const bannerText = getLocaleConf(panelConfig.text, config, intl.locale);
 
   return display ? (
     <div className="gdpr-privacy-banner">
@@ -149,7 +149,7 @@ const CookieBanner = ({ display = false, cookies }) => {
             <CookieSettings
               preferences={preferences}
               setPreferences={setPreferences}
-              cookiesConfig={cookiesConfig}
+              panelConfig={panelConfig}
             />
           )}
           <div className="buttons">

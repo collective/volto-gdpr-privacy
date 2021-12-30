@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { loadPreferences } from '../../helpers/banner';
-import cookiesConfig from '../../config/defaultPanelConfig.js';
 import config from '@plone/volto/registry';
 
 const GdprPrivacyManagerIncludeComponents = ({ cookies }) => {
-  const defaultPreferences = loadPreferences(cookies, cookiesConfig);
+  const panelConfig = config.settings.gdprPrivacyConfig.defaultPanelConfig;
+  const defaultPreferences = loadPreferences(cookies, panelConfig);
   const gdprPreferences = useSelector(
     (state) => state.gdprPrivacyConsent.preferences ?? defaultPreferences,
   );
@@ -15,7 +15,7 @@ const GdprPrivacyManagerIncludeComponents = ({ cookies }) => {
     if (gdprPreferences) {
       let activateComponents = {};
       Object.keys(gdprPreferences).forEach((k) => {
-        const c = config.settings?.gdprPrivacyConfig?.[k]?.component;
+        const c = config.settings?.gdprPrivacyConfig?.settings?.[k]?.component;
         if (gdprPreferences[k] && c !== null && c !== undefined) {
           activateComponents[k] = c;
         }
