@@ -1,8 +1,9 @@
 import React from 'react';
 import { defineMessages, useIntl } from 'react-intl';
-import { Radio } from 'semantic-ui-react';
+
 import { getLocaleConf, getCookiesKeys } from '../../helpers/config';
 import { groupIsAccepted } from '../../helpers/banner';
+import Radio from './ui/Radio';
 import config from '@plone/volto/registry';
 
 const messages = defineMessages({

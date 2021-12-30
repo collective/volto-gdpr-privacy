@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { defineMessages, useIntl } from 'react-intl';
-import { Button, Container } from 'semantic-ui-react';
+
 import { Icon } from '@plone/volto/components';
 import clearSVG from '@plone/volto/icons/clear.svg';
 
@@ -10,6 +10,8 @@ import { updateGdprPrivacyConsent, displayBanner } from '../../actions';
 import { loadPreferences } from '../../helpers/banner';
 import { getLocaleConf, getCookiesKeys } from '../../helpers/config';
 
+import Button from './ui/Button';
+import Container from './ui/Container';
 import CookieSettings from './CookieSettings';
 
 import './cookie-banner.less';
