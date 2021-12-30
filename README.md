@@ -29,6 +29,46 @@ export const settings = {
 };
 ```
 
+### Configuration
+
+In your config provide this configuration:
+
+```jsx
+config.settings.gdprPrivacyConfig = {
+  defaultPanelConfig: defaultPanelConfig, //default control panel configuration.
+  settings: {
+    /******
+     * Example: technical cookies defaults
+     * ******/
+
+    GANALYTICS: {
+      type: 'technical',
+      //onAccept e onDecline not make sense for technical cookies, because these are active by default, and the user cannot change their activation
+      defaultTitle:
+        'Default title to show in the control panel if nothing is set in the control panel',
+      defaultDescription:
+        'Default description to show in the control panel if nothing is set in the control panel',
+    },
+    /******
+     * Example: profiling cookies: dinamically include components based on user choices
+     * ******/
+    FACEBOOKPIXEL: {
+      type: 'profiling',
+      component: () => {
+        return <>Facebook pixel</>;
+      },
+      defaultTitle:
+        'Default title to show in the control panel if nothing is set in the control panel',
+      defaultDescription:
+        'Default description to show in the control panel if nothing is set in the control panel',
+    },
+    // GTAGMANAGER:{....},
+    // MATOMO:{....},
+    //...your config keys...
+  },
+};
+```
+
 ### Styling
 
 If you want to change or adapt styles, you should start adapting [cookie-banner.less](src/components/CookieBanner/cookie-banner.less).
