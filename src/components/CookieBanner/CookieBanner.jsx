@@ -43,7 +43,7 @@ const messages = defineMessages({
 const CookieBanner = ({ display = false, cookies }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
-  const panelConfig = config.settings.gdprPrivacyConfig.defaultPanelConfig;
+  const panelConfig = config.settings['volto-gdpr-privacy'].defaultPanelConfig;
   const profilingKeys = getCookiesKeys(panelConfig.profiling);
   const technicalKeys = getCookiesKeys(panelConfig.technical);
 

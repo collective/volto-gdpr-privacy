@@ -4,7 +4,7 @@ import { loadPreferences } from '../../helpers/banner';
 import config from '@plone/volto/registry';
 
 const GdprPrivacyManagerIncludeComponents = ({ cookies }) => {
-  const panelConfig = config.settings.gdprPrivacyConfig.defaultPanelConfig;
+  const panelConfig = config.settings['volto-gdpr-privacy'].defaultPanelConfig;
   const defaultPreferences = loadPreferences(cookies, panelConfig);
   const gdprPreferences = useSelector(
     (state) => state.gdprPrivacyConsent.preferences ?? defaultPreferences,
@@ -15,7 +15,8 @@ const GdprPrivacyManagerIncludeComponents = ({ cookies }) => {
     if (gdprPreferences) {
       let activateComponents = {};
       Object.keys(gdprPreferences).forEach((k) => {
-        const c = config.settings?.gdprPrivacyConfig?.settings?.[k]?.component;
+        const c =
+          config.settings['volto-gdpr-privacy']?.settings?.[k]?.component;
         if (gdprPreferences[k] && c !== null && c !== undefined) {
           activateComponents[k] = c;
         }

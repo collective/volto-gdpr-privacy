@@ -24,7 +24,7 @@ const applyConfig = (config) => {
     gdprPrivacyConsent,
   };
 
-  config.settings.gdprPrivacyConfig = {
+  config.settings['volto-gdpr-privacy'] = {
     defaultPanelConfig: defaultPanelConfig,
     settings: {
       /******
