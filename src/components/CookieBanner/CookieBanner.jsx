@@ -13,7 +13,7 @@ import { getLocaleConf, getCookiesKeys } from '../../helpers/config';
 
 import CookieSettings from './CookieSettings';
 
-import './cookieBanner.less';
+import './cookie-banner.less';
 import config from '@plone/volto/registry';
 
 const messages = defineMessages({

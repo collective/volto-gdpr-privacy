@@ -1,8 +1,9 @@
 {
   "name": "volto-gdpr-privacy",
   "version": "0.1.0",
-  "description": "volto-gdpr-privacy: Volto add-on",
+  "description": "Volto GDPR privacy add-on",
   "main": "src/index.js",
+  "author": "Giulia Ghisini",
   "license": "MIT",
   "keywords": [
     "volto-addon",
@@ -11,7 +12,14 @@
     "react"
   ],
   "scripts": {
-    "i18n": "NODE_ENV=production node src/i18n.js"
+    "i18n": "NODE_ENV=production node src/i18n.js",
+    "release": "release-it"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "peerDependencies": {
+    "@plone/volto": ">=12.0.0"
+  },
+  "devDependencies": {
+    "release-it": "*"
+  }
 }
