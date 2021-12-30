@@ -1,5 +1,27 @@
+import CookieBanner from './components/CookieBanner/CookieBanner';
+import GdprPrivacyManager from './components/GdprPrivacyManager/GdprPrivacyManager';
+import { gdprPrivacyConsent } from './reducers';
+export { CookieBanner, GdprPrivacyManager };
+
 const applyConfig = (config) => {
-  config.gdprPrivacyConfig = {
+  config.settings.appExtras = [
+    ...(config.settings.appExtras ?? []),
+    {
+      match: '',
+      component: GdprPrivacyManager,
+    },
+  ];
+
+  config.settings.persistentReducers = [
+    ...config.settings.persistentReducers,
+    'gdprPrivacyConsent',
+  ];
+  config.addonReducers = {
+    ...config.addonReducers,
+    gdprPrivacyConsent,
+  };
+
+  config.settings.gdprPrivacyConfig = {
     GANALYTICS: {
       type: 'technical',
       //onAccept e onDecline not make sense for technical cookies, because these are active by default, and the user cannot change their activation
@@ -10,8 +32,9 @@ const applyConfig = (config) => {
     },
     FACEBOOKPIXEL: {
       type: 'profiling',
-      onAccept: () => {},
-      onDecline: () => {},
+      component: () => {
+        return <>Facebook pixel</>;
+      },
       defaultTitle:
         'Default title to show in the control panel and banner if nothing is set in the control panel',
       defaultDescription:

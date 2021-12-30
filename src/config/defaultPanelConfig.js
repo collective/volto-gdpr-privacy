@@ -34,7 +34,7 @@ const defaultPanelConfig = {
     //technical cookies
     choices: [
       {
-        config_key: 'GANLYTICS', //reference to config.gdprPrivacyConfig keys
+        config_key: 'GANALYTICS', //reference to config.gdprPrivacyConfig keys
         text: {
           it: {
             title: 'Google Analytics',
