@@ -3,6 +3,11 @@
 Volto GDPR Privacy addon to manage user consent.
 
 To be used with mrs-developer, see [Volto docs](https://docs.voltocms.com/customizing/add-ons/) for further usage informations.
+Otherwise, install it with:
+
+```bash
+yarn add volto-gdpr-privacy -W
+```
 
 ## Usage
 
