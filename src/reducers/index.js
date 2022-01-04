@@ -1,2 +1,6 @@
 import { gdprPrivacyConsentReducer } from './gdprPrivacyConsent';
-export { gdprPrivacyConsentReducer as gdprPrivacyConsent };
+import { gdprPrivacyConfigReducer } from './gdprPrivacyConfig';
+export {
+  gdprPrivacyConsentReducer as gdprPrivacyConsent,
+  gdprPrivacyConfigReducer as gdprPrivacyConfig,
+};

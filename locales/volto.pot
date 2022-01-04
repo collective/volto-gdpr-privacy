@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2021-12-30T10:18:30.150Z\n"
+"POT-Creation-Date: 2022-01-04T17:15:38.804Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -38,14 +38,27 @@ msgstr ""
 msgid "volto-gdpr-privacy-close"
 msgstr ""
 
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: Click {enable_cookie_button} to enable them, or click {manage_preferences_button} to manage your preferences.
+msgid "volto-gdpr-privacy-conditional-embed-accept-message"
+msgstr ""
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: here
+msgid "volto-gdpr-privacy-conditional-embed-click-here"
+msgstr ""
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: Please, accept {cookie_type} cookies to view this content.
+msgid "volto-gdpr-privacy-conditional-embed-default-description"
+msgstr ""
+
 #: components/CookieBanner/CookieGroupSettings
-#: components/CookieBanner/CookieSettings
 # defaultMessage: Disabled
 msgid "volto-gdpr-privacy-disabled"
 msgstr ""
 
 #: components/CookieBanner/CookieGroupSettings
-#: components/CookieBanner/CookieSettings
 # defaultMessage: Enabled
 msgid "volto-gdpr-privacy-enabled"
 msgstr ""

@@ -17,31 +17,51 @@ msgstr ""
 "X-Is-Fallback-For: it-ch it-it\n"
 
 #: components/CookieBanner/CookieBanner
+# defaultMessage: Accept all
 msgid "volto-gdpr-privacy-acceptAllCookies"
 msgstr "Accetta tutti"
 
 #: components/CookieBanner/CookieBanner
+# defaultMessage: Accept
 msgid "volto-gdpr-privacy-acceptSettings"
 msgstr "Accetta"
 
 #: components/CookieBanner/CookieBanner
+# defaultMessage: Only necessary cookies
 msgid "volto-gdpr-privacy-acceptTechnicalCookies"
 msgstr "Accetta solo i cookies necessari"
 
 #: components/CookieBanner/CookieBanner
+# defaultMessage: Change settings
 msgid "volto-gdpr-privacy-changeSettings"
 msgstr "Cambia le impostazioni"
 
 #: components/CookieBanner/CookieBanner
+# defaultMessage: Accept only necessary cookies and close
 msgid "volto-gdpr-privacy-close"
 msgstr "Accetta solo i cookies necessari e chiudi"
 
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: Click {enable_cookie_button} to enable them, or click {manage_preferences_button} to manage your preferences.
+msgid "volto-gdpr-privacy-conditional-embed-accept-message"
+msgstr "Clicca {enable_cookie_button} per abilitarli, oppure clicca {manage_preferences_button} per gestire le tue preferenze."
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: here
+msgid "volto-gdpr-privacy-conditional-embed-click-here"
+msgstr "qui"
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: Please, accept {cookie_type} cookies to view this content.
+msgid "volto-gdpr-privacy-conditional-embed-default-description"
+msgstr "Per visualizzare questo contenuto, devi accettare i cookie {cookie_type}."
+
 #: components/CookieBanner/CookieGroupSettings
-#: components/CookieBanner/CookieSettings
+# defaultMessage: Disabled
 msgid "volto-gdpr-privacy-disabled"
 msgstr "Disabilitati"
 
 #: components/CookieBanner/CookieGroupSettings
-#: components/CookieBanner/CookieSettings
+# defaultMessage: Enabled
 msgid "volto-gdpr-privacy-enabled"
 msgstr "Abilitati"

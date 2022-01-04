@@ -17,31 +17,51 @@ msgstr ""
 "X-Is-Fallback-For: fr-be fr-ca fr-ch fr-fr fr-lu fr-mc\n"
 
 #: components/CookieBanner/CookieBanner
+# defaultMessage: Accept all
 msgid "volto-gdpr-privacy-acceptAllCookies"
 msgstr "Accepter tous"
 
 #: components/CookieBanner/CookieBanner
+# defaultMessage: Accept
 msgid "volto-gdpr-privacy-acceptSettings"
 msgstr "J'accepte"
 
 #: components/CookieBanner/CookieBanner
+# defaultMessage: Only necessary cookies
 msgid "volto-gdpr-privacy-acceptTechnicalCookies"
 msgstr "Accepter uniquement les cookies nécessaires"
 
 #: components/CookieBanner/CookieBanner
+# defaultMessage: Change settings
 msgid "volto-gdpr-privacy-changeSettings"
 msgstr "Modifier les paramètres"
 
 #: components/CookieBanner/CookieBanner
+# defaultMessage: Accept only necessary cookies and close
 msgid "volto-gdpr-privacy-close"
 msgstr "Acceptez uniquement les cookies nécessaires et fermez"
 
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: Click {enable_cookie_button} to enable them, or click {manage_preferences_button} to manage your preferences.
+msgid "volto-gdpr-privacy-conditional-embed-accept-message"
+msgstr "Cliquez sur {enable_cookie_button} pour les activer, ou cliquez sur {manage_preferences_button} pour gérer vos préférences."
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: here
+msgid "volto-gdpr-privacy-conditional-embed-click-here"
+msgstr "ici"
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: Please, accept {cookie_type} cookies to view this content.
+msgid "volto-gdpr-privacy-conditional-embed-default-description"
+msgstr "Veuillez accepter les cookies {cookie_type} pour voir ce contenu."
+
 #: components/CookieBanner/CookieGroupSettings
-#: components/CookieBanner/CookieSettings
+# defaultMessage: Disabled
 msgid "volto-gdpr-privacy-disabled"
 msgstr "Désactivée"
 
 #: components/CookieBanner/CookieGroupSettings
-#: components/CookieBanner/CookieSettings
+# defaultMessage: Enabled
 msgid "volto-gdpr-privacy-enabled"
 msgstr "Activée"

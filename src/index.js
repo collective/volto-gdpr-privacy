@@ -1,8 +1,6 @@
-import React from 'react';
-
 import CookieBanner from './components/CookieBanner/CookieBanner';
 import GdprPrivacyManager from './components/GdprPrivacyManager/GdprPrivacyManager';
-import { gdprPrivacyConsent } from './reducers';
+import { gdprPrivacyConsent, gdprPrivacyConfig } from './reducers';
 import defaultPanelConfig from './config/defaultPanelConfig.js';
 export { CookieBanner, GdprPrivacyManager };
 
@@ -22,6 +20,7 @@ const applyConfig = (config) => {
   config.addonReducers = {
     ...config.addonReducers,
     gdprPrivacyConsent,
+    gdprPrivacyConfig,
   };
 
   config.settings['volto-gdpr-privacy'] = {

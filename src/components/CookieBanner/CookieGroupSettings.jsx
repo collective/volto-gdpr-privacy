@@ -4,7 +4,6 @@ import { defineMessages, useIntl } from 'react-intl';
 import { getLocaleConf, getCookiesKeys } from '../../helpers/config';
 import { groupIsAccepted } from '../../helpers/banner';
 import Radio from './ui/Radio';
-import config from '@plone/volto/registry';
 
 const messages = defineMessages({
   enabled: {
@@ -26,7 +25,7 @@ const CookieGroupSettings = ({
 }) => {
   const intl = useIntl();
 
-  const text = getLocaleConf(groupConfig.text, config, intl.locale);
+  const text = getLocaleConf(groupConfig.text, intl.locale);
   const isAccepted = groupIsAccepted(groupConfig, preferences);
 
   const onChangeGroup = (groupConfig, value) => {
@@ -83,7 +82,7 @@ const CookieGroupSettings = ({
       <div className="choices">
         {groupConfig.choices.map((choiceConfig, i) => {
           const key = choiceConfig.config_key;
-          const choice = getLocaleConf(choiceConfig.text, config, intl.locale);
+          const choice = getLocaleConf(choiceConfig.text, intl.locale);
 
           return (
             <div className="choice" key={key}>

@@ -121,7 +121,7 @@ const CookieBanner = ({ display = false, cookies }) => {
     update(newPreferences);
   };
 
-  const bannerText = getLocaleConf(panelConfig.text, config, intl.locale);
+  const bannerText = getLocaleConf(panelConfig.text, intl.locale);
 
   return display ? (
     <div className="gdpr-privacy-banner">

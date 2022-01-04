@@ -84,6 +84,7 @@ const defaultPanelConfig = {
       },
       {
         config_key: 'YOUTUBE',
+        referenceUrls: ['youtube.com', 'youtube-nocookie.com'],
         text: {
           it: {
             title: 'Youtube',
