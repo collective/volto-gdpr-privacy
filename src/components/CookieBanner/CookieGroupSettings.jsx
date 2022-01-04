@@ -57,7 +57,7 @@ const CookieGroupSettings = ({
             checked={isAccepted}
             disabled={disabled}
             aria-label={
-              isAccepted
+              text.title + ' ' + isAccepted
                 ? intl.formatMessage(messages.enabled)
                 : intl.formatMessage(messages.disabled)
             }
@@ -96,7 +96,7 @@ const CookieGroupSettings = ({
                     checked={preferences[key]}
                     disabled={disabled}
                     aria-label={
-                      preferences[key]
+                      choice.title + ' ' + preferences[key]
                         ? intl.formatMessage(messages.enabled)
                         : intl.formatMessage(messages.disabled)
                     }
