@@ -67,7 +67,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
     const key = referenceChoice.config_key;
     ret = (
       <div className="volto-gdpr-embed-disabled">
-        {text.conditionalEmbedText ??
+        {text.conditional_embed_text ??
           intl.formatMessage(
             messages.conditionalEmbedAcceptCookiesDefaultDescription,
             { cookie_type: key },

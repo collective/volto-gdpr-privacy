@@ -84,18 +84,20 @@ const defaultPanelConfig = {
       },
       {
         config_key: 'YOUTUBE',
-        referenceUrls: ['youtube.com', 'youtube-nocookie.com'],
+        referenceUrls: ['youtube.com', 'youtube-nocookie.com', 'youtu.be'],
         text: {
           it: {
             title: 'Youtube',
-            description: 'Cookie correlati a Youtube... ',
+            description:
+              "I cookie di profilazione di Youtube permettono di mostrarti le pubblicità che potrebbero interessarti di più, fare analisi di accesso alla pagina e sul comportamento dell'utente, facilitare l'accesso ai servizi di Google.",
             //text to show in conditional embed if that cookies are not enabled
             conditional_embed_text:
               'Per vedere il video, accetta i cookies di Youtube.',
           },
           en: {
             title: 'Youtube',
-            description: 'Related youtube cookies... ',
+            description:
+              'Youtube profiling cookies allow you to show advertisements that may interest you the most, analyze page access and user behavior, facilitate access to Google services. ',
             //text to show in conditional embed if that cookies are not enabled
             conditional_embed_text:
               'To view the video, please accept Youtube cookies.',
@@ -103,42 +105,86 @@ const defaultPanelConfig = {
         },
       },
       {
-        config_key: 'FACEBOOK',
-        //url releated to this cookies, used to conditionally embed iframes
-        referenceUrls: ['facebook.com', 'facebook.it'],
+        config_key: 'VIMEO',
+        referenceUrls: ['vimeo.com'],
         text: {
           it: {
-            title: 'Facebook',
-            description: 'Cookie correlati a Facebook... ',
+            title: 'Vimeo',
+            description:
+              "I cookie di profilazione di Vimeo permettono di fare analisi di accesso alla pagina e sul comportamento dell'utente, e di mostrarti le pubblicità che potrebbero interessarti di più.",
+            //text to show in conditional embed if that cookies are not enabled
             conditional_embed_text:
-              'Per vedere i contenuti di Facebook, accetta i cookies relativi a Facebook.',
+              'Per vedere il video, accetta i cookies di Vimeo.',
           },
           en: {
-            title: 'Facebook',
-            description: 'Related Facebook cookies... ',
+            title: 'Vimeo',
+            description:
+              'Vimeo profiling cookies allow you to analyze page access and user behavior, and to show you the advertisements that may interest you the most.',
+            //text to show in conditional embed if that cookies are not enabled
             conditional_embed_text:
-              'To view Facebook content, please accept Facebook cookies.',
+              'To view the video, please accept Vimeo cookies.',
           },
         },
       },
       {
-        config_key: 'JUICER',
-        referenceUrls: ['juicer.com'],
+        config_key: 'GOOGLEMAPS',
+        referenceUrls: ['google.com/maps'],
         text: {
           it: {
-            title: 'Juicer',
-            description: 'Cookie correlati a Juicer...',
+            title: 'Google Maps',
+            description:
+              "I cookie di profilazione di Google permettono di fare analisi di accesso alla pagina e sul comportamento dell'utente, e di mostrarti le pubblicità che potrebbero interessarti di più.",
+            //text to show in conditional embed if that cookies are not enabled
             conditional_embed_text:
-              'Per vedere il contenuto da Juicer, accetta i cookies di Juicer.',
+              'Per vedere la mappa, accetta i cookies di Google Maps.',
           },
           en: {
-            title: 'Juicer',
-            description: 'Related Juicer cookies...',
+            title: 'Google Maps',
+            description:
+              'Google profiling cookies allow you to analyze page access and user behavior, and to show you the advertisements that may interest you the most.',
+            //text to show in conditional embed if that cookies are not enabled
             conditional_embed_text:
-              'To view the Juicer content, please accept Juicer cookies.',
+              'To view map, please accept Google Maps cookies.',
           },
         },
       },
+      // {
+      //   config_key: 'FACEBOOK',
+      //   //url releated to this cookies, used to conditionally embed iframes
+      //   referenceUrls: ['facebook.com', 'facebook.it'],
+      //   text: {
+      //     it: {
+      //       title: 'Facebook',
+      //       description: 'Cookie di profilazione correlati a Facebook. ',
+      //       conditional_embed_text:
+      //         'Per vedere i contenuti di Facebook, accetta i cookies relativi a Facebook.',
+      //     },
+      //     en: {
+      //       title: 'Facebook',
+      //       description: 'Related Facebook profiling cookies. ',
+      //       conditional_embed_text:
+      //         'To view Facebook content, please accept Facebook cookies.',
+      //     },
+      //   },
+      // },
+      // {
+      //   config_key: 'JUICER',
+      //   referenceUrls: ['juicer.com'],
+      //   text: {
+      //     it: {
+      //       title: 'Juicer',
+      //       description: 'Cookie di profilazione correlati a Juicer.',
+      //       conditional_embed_text:
+      //         'Per vedere il contenuto da Juicer, accetta i cookies di Juicer.',
+      //     },
+      //     en: {
+      //       title: 'Juicer',
+      //       description: 'Related profiling Juicer cookies.',
+      //       conditional_embed_text:
+      //         'To view the Juicer content, please accept Juicer cookies.',
+      //     },
+      //   },
+      // },
     ],
   },
 };
