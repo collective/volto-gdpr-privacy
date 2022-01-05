@@ -26,6 +26,7 @@ const ShowGdprBanner = () => {
         e.preventDefault();
         dispatch(displayBanner(true));
       }}
+      title={intl.formatMessage(messages.buttonShowLabel)}
     >
       <img src={cookieSVG} alt={intl.formatMessage(messages.buttonShowLabel)} />
     </Button>
