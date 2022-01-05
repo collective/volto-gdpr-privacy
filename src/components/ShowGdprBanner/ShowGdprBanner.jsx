@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { defineMessages, useIntl } from 'react-intl';
 import { displayBanner } from '../../actions';
-import { Button } from 'semantic-ui-react';
 import cookieSVG from './user-lock-solid.svg';
 
 import './show-gdpr-banner.less';
@@ -19,8 +18,7 @@ const ShowGdprBanner = () => {
   const dispatch = useDispatch();
 
   return (
-    <Button
-      icon
+    <button
       className="gdpr-privacy-show-banner"
       onClick={(e) => {
         e.preventDefault();
@@ -29,7 +27,7 @@ const ShowGdprBanner = () => {
       title={intl.formatMessage(messages.buttonShowLabel)}
     >
       <img src={cookieSVG} alt={intl.formatMessage(messages.buttonShowLabel)} />
-    </Button>
+    </button>
   );
 };
 

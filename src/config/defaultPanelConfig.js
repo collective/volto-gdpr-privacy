@@ -68,21 +68,6 @@ const defaultPanelConfig = {
 
     choices: [
       {
-        config_key: 'FACEBOOKPIXEL',
-        text: {
-          it: {
-            title: 'Facebook Pixel',
-            description:
-              "I cookie di Facebook Pixel consentono di misurare, ottimizzare le campagne e le offerte di prodotti raccogliendo dati di profilazione dell'utente quali ad esempio sesso, età, interessi e altro.",
-          },
-          en: {
-            title: 'Facebook Pixel',
-            description:
-              'Facebook Pixel cookies allow you to measure and optimize campaigns and product offers by collecting user profiling data such as gender, age, interests and more.',
-          },
-        },
-      },
-      {
         config_key: 'YOUTUBE',
         referenceUrls: ['youtube.com', 'youtube-nocookie.com', 'youtu.be'],
         text: {
@@ -148,6 +133,21 @@ const defaultPanelConfig = {
           },
         },
       },
+      // {
+      //   config_key: 'FACEBOOKPIXEL',
+      //   text: {
+      //     it: {
+      //       title: 'Facebook Pixel',
+      //       description:
+      //         "I cookie di Facebook Pixel consentono di misurare, ottimizzare le campagne e le offerte di prodotti raccogliendo dati di profilazione dell'utente quali ad esempio sesso, età, interessi e altro.",
+      //     },
+      //     en: {
+      //       title: 'Facebook Pixel',
+      //       description:
+      //         'Facebook Pixel cookies allow you to measure and optimize campaigns and product offers by collecting user profiling data such as gender, age, interests and more.',
+      //     },
+      //   },
+      // },
       // {
       //   config_key: 'FACEBOOK',
       //   //url releated to this cookies, used to conditionally embed iframes
