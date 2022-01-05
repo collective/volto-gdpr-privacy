@@ -1,3 +1,10 @@
+### [1.1.1](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.0...v1.1.1) (2022-01-05)
+
+
+### Maintenance
+
+* updated readme ([bf6753c](https://github.com/collective/volto-gdpr-privacy/commit/bf6753c01e9bdd39ffa79681ddb7b4eeb31e99ab))
+
 ## 1.1.0 (2022-01-05)
 
 
