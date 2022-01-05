@@ -1,0 +1,59 @@
+## 1.1.0 (2022-01-05)
+
+
+### Features
+
+* added banner ([8b8fe80](https://github.com/collective/volto-gdpr-privacy/commit/8b8fe8080b9e1f57cad755731160c947010988f4))
+* added ConditionalEmbed to Maps and Video Volto's blocks ([5d4312e](https://github.com/collective/volto-gdpr-privacy/commit/5d4312e1a0c95adf8c94d5548f7f20a662a8b3a6))
+* added ConditionalEmbedComponent ([518a97e](https://github.com/collective/volto-gdpr-privacy/commit/518a97e529e6bb23b926f64e0ca0ba227519b612))
+* added gdprPrivacyConsent action and reducer ([62b2b66](https://github.com/collective/volto-gdpr-privacy/commit/62b2b660f797a1f14fba0ee269542027a66bdfba))
+* added show gdpr banner button ([1dcdc96](https://github.com/collective/volto-gdpr-privacy/commit/1dcdc96a3d43c86985628cb5bdc9d4edd76c1fdd))
+* added ui components to facilitate customization ([d29d501](https://github.com/collective/volto-gdpr-privacy/commit/d29d50169172c9c83641051b8cd32a957eba4398))
+
+
+### Bug Fixes
+
+* fix defaultPanelConfig ([50c9ec3](https://github.com/collective/volto-gdpr-privacy/commit/50c9ec30a5273c61fbedc6a1411d4e442beb0fc0))
+* fix ShowGdprBanner styless ([934f99b](https://github.com/collective/volto-gdpr-privacy/commit/934f99b50d15763529d1c6566066e5802e0b01bb))
+* fixed  isCmsUI ([c21a09f](https://github.com/collective/volto-gdpr-privacy/commit/c21a09f60da90d22ccedf23d71d1dd4a74996df1))
+* fixed accessibility ([7a882b2](https://github.com/collective/volto-gdpr-privacy/commit/7a882b21bb0f370dc3fee3d815985ef2e3f7a22e))
+* fixed gdprPrivacyConfig ([db494eb](https://github.com/collective/volto-gdpr-privacy/commit/db494eb5e6d42590127bf06816b590fccd97c28e))
+* fixed isCmsUi ([2c3a7da](https://github.com/collective/volto-gdpr-privacy/commit/2c3a7da555d3b0d211a568a16141598270c09ae3))
+* manage include components and mobile styles ([836c5c7](https://github.com/collective/volto-gdpr-privacy/commit/836c5c7c25bb30bc45deb0e9ac8df9f7e63c1908))
+* removed unused file ([3e3564a](https://github.com/collective/volto-gdpr-privacy/commit/3e3564a504fc11030c9789bca7434fe3b85f6f5a))
+
+
+### Maintenance
+
+* accessibility ([00a9fad](https://github.com/collective/volto-gdpr-privacy/commit/00a9fadb0574adc094e37ec44107884bcde70acd))
+* add commitlint and husky ([43c3fd8](https://github.com/collective/volto-gdpr-privacy/commit/43c3fd8576f9193fedacfeef0ca44bf4a26eb306))
+* add editorconfig ([3791270](https://github.com/collective/volto-gdpr-privacy/commit/3791270be59868a81446f4fbb211170b017f6f91))
+* added action getGdprPrivacyConfig ([7024a7e](https://github.com/collective/volto-gdpr-privacy/commit/7024a7eb3624c2e12acade9ba74d6828118d51f7))
+* added basic files ([e398c64](https://github.com/collective/volto-gdpr-privacy/commit/e398c649e9b109c173ef57c7cbfcc263b1665017))
+* added CookieGroupSettings component ([ddf5532](https://github.com/collective/volto-gdpr-privacy/commit/ddf5532345093afb301b3d9699f846198c0cc451))
+* added default class to button ([ac20f72](https://github.com/collective/volto-gdpr-privacy/commit/ac20f72afa9f8c6385169740927d8b7979ecc6a8))
+* added default config ([a393898](https://github.com/collective/volto-gdpr-privacy/commit/a39389814ff262dc84a3a9773bce3f405eafa43e))
+* added en translations in defaultPanelConfig ([e08d8b7](https://github.com/collective/volto-gdpr-privacy/commit/e08d8b7756d9eedbdc7fd235f4da8d1168337a10))
+* added GdprPrivacyManager component ([02931af](https://github.com/collective/volto-gdpr-privacy/commit/02931af94ff2261bec507cf3b007d97e267bfcb5))
+* added it and fr translations ([2aab69c](https://github.com/collective/volto-gdpr-privacy/commit/2aab69cd33fa7504f701a69c71dba0f8ea40713b))
+* added label on ShowGdprBanner ([6be8934](https://github.com/collective/volto-gdpr-privacy/commit/6be89341f3040abccbfcacd80dd558c50251f7b1))
+* added physical button ([e4d9e49](https://github.com/collective/volto-gdpr-privacy/commit/e4d9e499c50aec1970adcfc6b3f710b316ce526d))
+* added style and function of show gdpr banner button ([3fd42f6](https://github.com/collective/volto-gdpr-privacy/commit/3fd42f6dcef7d48ccc5837ebbaee3c4614ebd546))
+* added usePanelConfigAndPreferences hook ([131ca23](https://github.com/collective/volto-gdpr-privacy/commit/131ca2333dd924e1e580e710f2a5b57d34442b0f))
+* changed messages, expire after 180 days, and others ([278d86e](https://github.com/collective/volto-gdpr-privacy/commit/278d86e5d653683fcfe01baed46b577deacb4439))
+* handled cookie settings ([6164346](https://github.com/collective/volto-gdpr-privacy/commit/61643462638306519c16c6269f024ae15c1f39ca))
+* manage include components ([b632b03](https://github.com/collective/volto-gdpr-privacy/commit/b632b03b64170baedaf87dce36f60c31054da7dc))
+* moved configuration under config.settings['volto-gdpr-privacy'] ([2572f19](https://github.com/collective/volto-gdpr-privacy/commit/2572f19def60cbcbe855cbb45b2dec73342eb50e))
+* moved panel config into config ([aedb242](https://github.com/collective/volto-gdpr-privacy/commit/aedb242e418d2b16e3b38b0fb731f68fe5194945))
+* preepare release ([26024c5](https://github.com/collective/volto-gdpr-privacy/commit/26024c57a11b43e5ad332af547c1871cd957aa9b))
+* prepare release ([dde864f](https://github.com/collective/volto-gdpr-privacy/commit/dde864f6e626883484957c55b7572b37e9e1803d))
+* revert version ([42ef713](https://github.com/collective/volto-gdpr-privacy/commit/42ef7131c2a965ae14458bec260364e3d04a81b5))
+* update configs for volto 14 ([b061e20](https://github.com/collective/volto-gdpr-privacy/commit/b061e20180ddbe3a2528f4a38286741610e7a7e6))
+* update release-it config using conventional-changelog ([d5f518e](https://github.com/collective/volto-gdpr-privacy/commit/d5f518e92932ab2b988e791319900e32c6a4cab0))
+* updated config ([aa54612](https://github.com/collective/volto-gdpr-privacy/commit/aa5461291630652e8595e8315e01ea37c26555cc))
+* updated config ([8bd5fcf](https://github.com/collective/volto-gdpr-privacy/commit/8bd5fcf04fdc3bc85874477ceb060eed9903f2df))
+* updated config and README ([9c9072f](https://github.com/collective/volto-gdpr-privacy/commit/9c9072ff354dacac62c3206f65a3972789f4b340))
+* updated imports ([1731aaf](https://github.com/collective/volto-gdpr-privacy/commit/1731aaf5b0b35c6ce04d415b1d5ac7e212dd115f))
+* updated labels ([2ee967d](https://github.com/collective/volto-gdpr-privacy/commit/2ee967de0411faf5216bec4f7641785bddbc6c1e))
+* updated styles for close button ([1ac6fd4](https://github.com/collective/volto-gdpr-privacy/commit/1ac6fd413fde6e7d641d293f4e58bd9f6a493925))
+
