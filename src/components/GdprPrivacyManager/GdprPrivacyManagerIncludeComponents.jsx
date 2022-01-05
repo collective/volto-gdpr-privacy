@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { loadPreferences } from '../../helpers/banner';
+import { usePanelConfigAndPreferences } from '../../helpers';
+
 import config from '@plone/volto/registry';
 
 const GdprPrivacyManagerIncludeComponents = ({ cookies }) => {
-  const panelConfig = config.settings['volto-gdpr-privacy'].defaultPanelConfig;
-  const defaultPreferences = loadPreferences(cookies, panelConfig);
+  const { defaultPreferences } = usePanelConfigAndPreferences(cookies);
   const gdprPreferences = useSelector(
     (state) => state.gdprPrivacyConsent.preferences ?? defaultPreferences,
   );
@@ -31,6 +31,10 @@ const GdprPrivacyManagerIncludeComponents = ({ cookies }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gdprPreferences]);
+
+  if (__SERVER__) {
+    return <></>;
+  }
 
   return (
     <>

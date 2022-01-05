@@ -1,8 +1,9 @@
 import CookieBanner from './components/CookieBanner/CookieBanner';
 import GdprPrivacyManager from './components/GdprPrivacyManager/GdprPrivacyManager';
+import ConditionalEmbed from './components/ConditionalEmbed/ConditionalEmbed';
 import { gdprPrivacyConsent, gdprPrivacyConfig } from './reducers';
 import defaultPanelConfig from './config/defaultPanelConfig.js';
-export { CookieBanner, GdprPrivacyManager };
+export { CookieBanner, GdprPrivacyManager, ConditionalEmbed };
 
 const applyConfig = (config) => {
   config.settings.appExtras = [

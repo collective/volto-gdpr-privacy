@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import Cookies from '../../helpers/Cookies';
+import { usePanelConfigAndPreferences, Cookies } from '../../helpers';
 
 import CookieBanner from '../CookieBanner/CookieBanner';
 import GdprPrivacyManagerIncludeComponents from './GdprPrivacyManagerIncludeComponents';
@@ -12,6 +12,8 @@ const GdprPrivacyManager = () => {
   const displayBanner = useSelector(
     (state) => state.gdprPrivacyConsent.display,
   );
+
+  usePanelConfigAndPreferences(cookies); //to init data from panel
 
   return (
     <>
