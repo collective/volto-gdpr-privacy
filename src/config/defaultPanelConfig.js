@@ -6,12 +6,12 @@ const defaultPanelConfig = {
     it: {
       title: 'Usiamo i cookies',
       description:
-        "Questo sito utilizza i cookie tecnici di navigazione e di sessione per garantire un miglior servizio di navigazione del sito, e cookies analitici per raccogliere informazioni sull'uso del sito da parte degli utenti.  Utilizza anche cookies di profilazione dell'utente per fini statistici e di remarketing. Per i cookie di profilazione puoi decidere se abilitarli o meno cliccando sul pulsante 'Impostazioni'. Per saperne di più, su come disabilitare i cookies oppure abilitarne solo alcuni, consulta la nostra Cookie Policy.",
+        "Questo sito utilizza i cookie tecnici di navigazione e di sessione per garantire un miglior servizio di navigazione del sito, e cookies analitici per raccogliere informazioni sull'uso del sito da parte degli utenti.  Utilizza anche cookies di profilazione dell'utente per fini statistici e di remarketing. Per i cookie di profilazione puoi decidere se abilitarli o meno cliccando sul pulsante 'Cambia le impostazioni'. Per saperne di più, su come disabilitare i cookies oppure abilitarne solo alcuni, consulta la nostra Cookie Policy.",
     },
     en: {
       title: 'We use cookies',
       description:
-        "This site uses technical navigation and session cookies to ensure a better site navigation service, and analytical cookies to collect information on the use of the site by users. It also uses user profiling cookies for statistical and remarketing purposes. For profiling cookies you can decide whether to enable them or not by clicking on the 'Settings' button. To find out more, on how to disable cookies or enable only some of them, consult our Cookie Policy.",
+        "This site uses technical navigation and session cookies to ensure a better site navigation service, and analytical cookies to collect information on the use of the site by users. It also uses user profiling cookies for statistical and remarketing purposes. For profiling cookies you can decide whether to enable them or not by clicking on the 'Change settings' button. To find out more, on how to disable cookies or enable only some of them, consult our Cookie Policy.",
     },
   },
 
