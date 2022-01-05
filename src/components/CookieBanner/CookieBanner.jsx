@@ -33,7 +33,7 @@ const messages = defineMessages({
   },
   acceptSettings: {
     id: 'volto-gdpr-privacy-acceptSettings',
-    defaultMessage: 'Save my settings',
+    defaultMessage: 'Save my preferences',
   },
   close: {
     id: 'volto-gdpr-privacy-close',
