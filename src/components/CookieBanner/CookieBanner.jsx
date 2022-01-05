@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { defineMessages, useIntl } from 'react-intl';
-
+import { useLocation } from 'react-router-dom';
 import { Icon } from '@plone/volto/components';
 import clearSVG from '@plone/volto/icons/clear.svg';
 
@@ -33,7 +33,7 @@ const messages = defineMessages({
   },
   acceptSettings: {
     id: 'volto-gdpr-privacy-acceptSettings',
-    defaultMessage: 'Accept',
+    defaultMessage: 'Save my settings',
   },
   close: {
     id: 'volto-gdpr-privacy-close',
@@ -43,6 +43,7 @@ const messages = defineMessages({
 
 const CookieBanner = ({ display = false, cookies }) => {
   const intl = useIntl();
+  const location = useLocation();
   const dispatch = useDispatch();
   const { panelConfig, defaultPreferences } = usePanelConfigAndPreferences(
     cookies,
@@ -70,10 +71,15 @@ const CookieBanner = ({ display = false, cookies }) => {
 
   useEffect(() => {
     if (panelConfig && defaultPreferences) {
-      //if user hasn't yet accepted cookies, or cookies_version is changed, ask user to accept new version
+      //if user hasn't yet accepted cookies, or cookies_version is changed, or 180 days have passed since the choice, ask user to accept new version
+      let now = new Date();
+      let lastUpdated = new Date(panelConfig.last_updated);
+      let passedDays = Math.ceil((now - lastUpdated) / (1000 * 60 * 60 * 24));
+
       if (
         !defaultPreferences.cookies_version ||
-        panelConfig.last_updated !== defaultPreferences.cookies_version
+        panelConfig.last_updated !== defaultPreferences.cookies_version ||
+        passedDays >= 180
       ) {
         dispatch(displayBanner(true));
       }
@@ -137,7 +143,7 @@ const CookieBanner = ({ display = false, cookies }) => {
 
   const bannerText = getLocaleConf(panelConfig?.text, intl.locale);
 
-  if (__SERVER__) {
+  if (__SERVER__ || location.pathname.endsWith('/edit')) {
     return <></>;
   }
 

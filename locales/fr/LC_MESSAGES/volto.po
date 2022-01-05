@@ -22,9 +22,9 @@ msgid "volto-gdpr-privacy-acceptAllCookies"
 msgstr "Accepter tous"
 
 #: components/CookieBanner/CookieBanner
-# defaultMessage: Accept
+# defaultMessage: Save my settings
 msgid "volto-gdpr-privacy-acceptSettings"
-msgstr "J'accepte"
+msgstr "Enregistrer mes paramètres"
 
 #: components/CookieBanner/CookieBanner
 # defaultMessage: Only necessary cookies

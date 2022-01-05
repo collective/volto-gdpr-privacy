@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2022-01-04T17:15:38.804Z\n"
+"POT-Creation-Date: 2022-01-05T13:51:59.666Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgid "volto-gdpr-privacy-acceptAllCookies"
 msgstr ""
 
 #: components/CookieBanner/CookieBanner
-# defaultMessage: Accept
+# defaultMessage: Save my settings
 msgid "volto-gdpr-privacy-acceptSettings"
 msgstr ""
 
