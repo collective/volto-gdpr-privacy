@@ -1,0 +1,29 @@
+.gdpr-privacy-show-banner,
+.gdpr-privacy-show-banner.ui.icon.button,
+#main .gdpr-privacy-show-banner.ui.icon.button {
+    opacity: 0.7;
+    position: fixed;
+    right: 0;
+    bottom: calc(50% - 19px);
+    padding: 5px 6px 4px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    margin-right: -1px;
+
+    img {
+       padding: 1px 0 0;
+       width: 25px;
+       height: 25px;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:focus {
+        outline: 1px solid currentColor !important;
+        opacity: 1;
+    }
+}
