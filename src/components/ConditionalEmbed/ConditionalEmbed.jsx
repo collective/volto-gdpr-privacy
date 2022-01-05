@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useIntl, defineMessages } from 'react-intl';
-import {
-  getGdprPrivacyConfig,
-  displayBanner,
-  updateGdprPrivacyConsent,
-} from '../../actions';
+import { displayBanner, updateGdprPrivacyConsent } from '../../actions';
 
-import { loadPreferences } from '../../helpers/banner';
-import Cookies from '../../helpers/Cookies';
-import { getLocaleConf } from '../../helpers/config';
+import {
+  usePanelConfigAndPreferences,
+  Cookies,
+  getLocaleConf,
+} from '../../helpers';
+
 import './conditional-embed.less';
 
 const messages = defineMessages({
@@ -34,8 +33,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
   const embed = code ?? url ?? '';
   const dispatch = useDispatch();
 
-  const panelConfig = useSelector((state) => state.gdprPrivacyConfig);
-  const [defaultPreferences, setDefaultPreferences] = useState(null);
+  const { defaultPreferences } = usePanelConfigAndPreferences(cookies);
   const profilingConfig = useSelector((state) =>
     state.gdprPrivacyConfig?.config?.profiling?.choices?.filter(
       (c) => c?.referenceUrls?.length > 0,
@@ -45,15 +43,6 @@ const ConditionalEmbed = ({ code, url, children }) => {
     (state) => state.gdprPrivacyConsent.preferences ?? defaultPreferences,
   );
   const [referenceChoice, setReferenceChoice] = useState(null);
-
-  useEffect(() => {
-    if (!panelConfig.loaded && !panelConfig.loading) {
-      dispatch(getGdprPrivacyConfig());
-    }
-    if (panelConfig.loaded && !panelConfig.loading && !defaultPreferences) {
-      setDefaultPreferences(loadPreferences(cookies, panelConfig.config));
-    }
-  }, [dispatch, panelConfig]);
 
   useEffect(() => {
     if (profilingConfig && !referenceChoice) {

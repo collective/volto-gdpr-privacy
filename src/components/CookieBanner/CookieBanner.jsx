@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { defineMessages, useIntl } from 'react-intl';
 
 import { Icon } from '@plone/volto/components';
 import clearSVG from '@plone/volto/icons/clear.svg';
 
-import {
-  updateGdprPrivacyConsent,
-  displayBanner,
-  getGdprPrivacyConfig,
-} from '../../actions';
-
+import { updateGdprPrivacyConsent, displayBanner } from '../../actions';
+import { usePanelConfigAndPreferences } from '../../helpers';
 import { loadPreferences } from '../../helpers/banner';
 import { getLocaleConf, getCookiesKeys } from '../../helpers/config';
 
@@ -46,42 +42,43 @@ const messages = defineMessages({
 const CookieBanner = ({ display = false, cookies }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
-  const panelConfigStatus = useSelector((state) => state.gdprPrivacyConfig);
-  const panelConfig = useSelector((state) => state.gdprPrivacyConfig?.config);
+  const { panelConfig, defaultPreferences } = usePanelConfigAndPreferences(
+    cookies,
+  );
+
   const [profilingKeys, setProfilingKeys] = useState(null);
   const [technicalKeys, setTechnicalKeys] = useState(null);
-  const [preferences, setPreferences] = useState(null);
+  const [preferences, setPreferences] = useState(defaultPreferences);
   const [showSettings, setShowSettings] = useState(false);
-
-  useEffect(() => {
-    if (__SERVER__) {
-      return;
-    }
-    if (!panelConfigStatus.loaded && !panelConfigStatus.loading) {
-      dispatch(getGdprPrivacyConfig());
-    }
-  }, []);
 
   useEffect(() => {
     if (panelConfig) {
       if (!profilingKeys && !technicalKeys) {
         setProfilingKeys(getCookiesKeys(panelConfig.profiling));
         setTechnicalKeys(getCookiesKeys(panelConfig.technical));
-        setPreferences(loadPreferences(cookies, panelConfig));
-      }
-
-      //if user hasn't yet accepted cookies, or cookies_version is changed, ask user to accept new version
-      if (
-        !preferences?.cookies_version ||
-        panelConfig.last_updated !== preferences?.cookies_version
-      ) {
-        setPreferences({ ...preferences, cookies_version: undefined });
-        dispatch(displayBanner(true));
       }
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [panelConfig]);
+
+  useEffect(() => {
+    setPreferences(defaultPreferences);
+  }, [defaultPreferences]);
+
+  useEffect(() => {
+    if (panelConfig && defaultPreferences) {
+      //if user hasn't yet accepted cookies, or cookies_version is changed, ask user to accept new version
+      if (
+        !defaultPreferences.cookies_version ||
+        panelConfig.last_updated !== defaultPreferences.cookies_version
+      ) {
+        dispatch(displayBanner(true));
+      }
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [panelConfig, defaultPreferences]);
 
   useEffect(() => {
     //on dispaly banner, remove cookie version
@@ -137,6 +134,10 @@ const CookieBanner = ({ display = false, cookies }) => {
   };
 
   const bannerText = getLocaleConf(panelConfig?.text, intl.locale);
+
+  if (__SERVER__) {
+    return;
+  }
 
   return display && panelConfig ? (
     <div className="gdpr-privacy-banner">

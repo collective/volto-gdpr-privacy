@@ -5,18 +5,28 @@ import { loadPreferences } from './banner';
 
 const usePanelConfigAndPreferences = (cookies) => {
   const dispatch = useDispatch();
-  const panelConfig = useSelector((state) => state.gdprPrivacyConfig);
+  const panelConfigStatus = useSelector((state) => state.gdprPrivacyConfig);
+  const panelConfig = useSelector((state) => state.gdprPrivacyConfig.config);
   const [defaultPreferences, setDefaultPreferences] = useState(null);
+
   useEffect(() => {
-    if (!panelConfig.loaded && !panelConfig.loading) {
+    if (!panelConfigStatus.loaded && !panelConfigStatus.loading) {
       dispatch(getGdprPrivacyConfig());
     }
-    if (panelConfig.loaded && !panelConfig.loading && !defaultPreferences) {
-      setDefaultPreferences(loadPreferences(cookies, panelConfig.config));
+    if (
+      panelConfigStatus.loaded &&
+      !panelConfigStatus.loading &&
+      !defaultPreferences
+    ) {
+      setDefaultPreferences(loadPreferences(cookies, panelConfigStatus.config));
     }
-  }, [dispatch, panelConfig]);
+  }, [dispatch, panelConfigStatus, cookies, defaultPreferences]);
 
-  return { panelConfig, defaultPreferences };
+  return {
+    panelConfig,
+    panelConfigStatus,
+    defaultPreferences,
+  };
 };
 
 export default usePanelConfigAndPreferences;
