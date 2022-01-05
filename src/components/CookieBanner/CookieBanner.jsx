@@ -4,7 +4,7 @@ import { defineMessages, useIntl } from 'react-intl';
 import { useLocation } from 'react-router-dom';
 import { Icon } from '@plone/volto/components';
 import clearSVG from '@plone/volto/icons/clear.svg';
-
+import { isCmsUi } from '@plone/volto/helpers';
 import { updateGdprPrivacyConsent, displayBanner } from '../../actions';
 import {
   usePanelConfigAndPreferences,
@@ -45,6 +45,7 @@ const CookieBanner = ({ display = false, cookies }) => {
   const intl = useIntl();
   const location = useLocation();
   const dispatch = useDispatch();
+  const isCmsUI = isCmsUi(location.pathname);
   const { panelConfig, defaultPreferences } = usePanelConfigAndPreferences(
     cookies,
   );
