@@ -1,6 +1,11 @@
 # volto-gdpr-privacy
 
 Volto GDPR Privacy addon to manage user consent.
+Display banner to user if gdprPrivacyConfiguration has changed or if 180 days have passed since last choice.
+It also insert in page a button to enable user to re-open the banner to change his preferences.
+
+For now, gdprPrivacyConfiguration is definible from config.
+Next implementations step, is to make it configurable from Volto control panel.
 
 To be used with mrs-developer, see [Volto docs](https://docs.voltocms.com/customizing/add-ons/) for further usage informations.
 Otherwise, install it with:
@@ -14,7 +19,7 @@ yarn add volto-gdpr-privacy -W
 Wherever you want to add the component, import and use it like this:
 
 ```jsx
-import CookieBanner from 'volto-gdpr-privacy/GdprPrivacyManager';
+import { GdprPrivacyManager } from '@collective/volto-gdpr-privacy';
 
 const YourAppComponent = () => <GdprPrivacyManager />;
 ```
@@ -36,42 +41,40 @@ export const settings = {
 
 ### Configuration
 
-In your config provide this configuration:
+In your config file, provide a configuration to define:
+
+- component to inject in page when user accept that type of cookie
+- default title and description suggested in control panel
 
 ```jsx
 config.settings.gdprPrivacyConfig = {
-  defaultPanelConfig: defaultPanelConfig, //default control panel configuration.
+  defaultPanelConfig: defaultPanelConfig, //Default control-panel configuration.
   settings: {
     /******
-     * Example: technical cookies defaults
-     * ******/
-
-    GANALYTICS: {
-      type: 'technical',
-      //onAccept e onDecline not make sense for technical cookies, because these are active by default, and the user cannot change their activation
-      defaultTitle:
-        'Default title to show in the control panel if nothing is set in the control panel',
-      defaultDescription:
-        'Default description to show in the control panel if nothing is set in the control panel',
-    },
-    /******
-     * Example: profiling cookies: dinamically include components based on user choices
+     * Example: dinamically include components based on user choices
      * ******/
     FACEBOOKPIXEL: {
-      type: 'profiling',
       component: () => {
         return <>Facebook pixel</>;
       },
-      defaultTitle:
-        'Default title to show in the control panel if nothing is set in the control panel',
-      defaultDescription:
-        'Default description to show in the control panel if nothing is set in the control panel',
     },
     // GTAGMANAGER:{....},
     // MATOMO:{....},
     //...your config keys...
   },
 };
+```
+
+#### Panel configuration
+
+Until control panel is not available, a default control-panel configuration is used.
+You could extend [defaultPanelConfig.js](src/config/defaultPanelConfig.js) configuration, or create your configuration and pass it in the config file:
+
+```jsx
+config.settings.gdprPrivacyConfig = {
+  defaultPanelConfig: defaultPanelConfig, //Default control-panel configuration.
+  //...
+  },
 ```
 
 ### Styling

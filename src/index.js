@@ -28,29 +28,12 @@ const applyConfig = (config) => {
     defaultPanelConfig: defaultPanelConfig,
     settings: {
       /******
-       * Example: technical cookies defaults
-       * ******/
-      /*
-      GANALYTICS: {
-        type: 'technical',
-        //onAccept e onDecline not make sense for technical cookies, because these are active by default, and the user cannot change their activation
-        defaultTitle:
-          'Default title to show in the control panel if nothing is set in the control panel',
-        defaultDescription:
-          'Default description to show in the control panel if nothing is set in the control panel',
-      },*/
-      /******
-       * Example: profiling cookies: dinamically include components based on user choices
+       * Example: dinamically include components based on user choices
        * ******/
       // FACEBOOKPIXEL: {
-      //   type: 'profiling',
       //   component: () => {
       //     return <>Facebook pixel</>;
       //   },
-      //   defaultTitle:
-      //     'Default title to show in the control panel if nothing is set in the control panel',
-      //   defaultDescription:
-      //     'Default description to show in the control panel if nothing is set in the control panel',
       // },
       // GTAGMANAGER:{....},
       // MATOMO:{....},
