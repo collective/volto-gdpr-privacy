@@ -1,11 +1,13 @@
 /**
  * View html block.
  * @module components/manage/Blocks/HTML/View
+ *
+ * Customizations: added ConditionalEmbed wrapper component
  */
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import ConditionalEmbed from '../../../../../components/ConditionalEmbed/ConditionalEmbed';
+import { ConditionalEmbed } from '../../../../../';
 
 /**
  * View html block class.
