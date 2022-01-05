@@ -1,6 +1,9 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { defineMessages, useIntl } from 'react-intl';
-import { Button } from 'semantic-ui-react';
+import { displayBanner } from '../../actions';
+
+import './show-gdpr-banner.less';
 
 const messages = defineMessages({
   buttonShowLabel: {
@@ -11,17 +14,19 @@ const messages = defineMessages({
 
 const ShowGdprBanner = () => {
   const intl = useIntl();
+  const dispatch = useDispatch();
 
   return (
-    <Button
+    <button
       basic
       className="gdpr-privacy-show-banner"
       onClick={(e) => {
-        console.log('evento', e);
+        e.preventDefault();
+        dispatch(displayBanner(true));
       }}
     >
       {intl.formatMessage(messages.buttonShowLabel)}
-    </Button>
+    </button>
   );
 };
 
