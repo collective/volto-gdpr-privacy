@@ -6,9 +6,11 @@ import { Icon } from '@plone/volto/components';
 import clearSVG from '@plone/volto/icons/clear.svg';
 
 import { updateGdprPrivacyConsent, displayBanner } from '../../actions';
-import { usePanelConfigAndPreferences } from '../../helpers';
-import { loadPreferences } from '../../helpers/banner';
-import { getLocaleConf, getCookiesKeys } from '../../helpers/config';
+import {
+  usePanelConfigAndPreferences,
+  getLocaleConf,
+  getCookiesKeys,
+} from '../../helpers';
 
 import Button from './ui/Button';
 import Container from './ui/Container';
@@ -136,7 +138,7 @@ const CookieBanner = ({ display = false, cookies }) => {
   const bannerText = getLocaleConf(panelConfig?.text, intl.locale);
 
   if (__SERVER__) {
-    return;
+    return <></>;
   }
 
   return display && panelConfig ? (

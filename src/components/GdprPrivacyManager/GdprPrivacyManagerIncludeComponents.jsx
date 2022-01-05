@@ -33,7 +33,7 @@ const GdprPrivacyManagerIncludeComponents = ({ cookies }) => {
   }, [gdprPreferences]);
 
   if (__SERVER__) {
-    return;
+    return <></>;
   }
 
   return (

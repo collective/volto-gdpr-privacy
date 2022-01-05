@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
-
-import { getLocaleConf, getCookiesKeys } from '../../helpers/config';
-import { groupIsAccepted } from '../../helpers/banner';
+import { getLocaleConf, getCookiesKeys, groupIsAccepted } from '../../helpers';
 import Radio from './ui/Radio';
 
 const messages = defineMessages({

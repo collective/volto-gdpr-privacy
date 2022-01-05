@@ -1,5 +1,12 @@
 import usePanelConfigAndPreferences from './usePanelConfigAndPreferences';
 import Cookies from './Cookies';
-import { getLocaleConf } from './config';
+import { getLocaleConf, getCookiesKeys } from './config';
+import { groupIsAccepted } from './banner';
 
-export { usePanelConfigAndPreferences, Cookies, getLocaleConf };
+export {
+  usePanelConfigAndPreferences,
+  Cookies,
+  getLocaleConf,
+  getCookiesKeys,
+  groupIsAccepted,
+};
