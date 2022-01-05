@@ -6,16 +6,17 @@ import { Icon } from '@plone/volto/components';
 import clearSVG from '@plone/volto/icons/clear.svg';
 
 import { updateGdprPrivacyConsent, displayBanner } from '../../actions';
-
-import { loadPreferences } from '../../helpers/banner';
-import { getLocaleConf, getCookiesKeys } from '../../helpers/config';
+import {
+  usePanelConfigAndPreferences,
+  getLocaleConf,
+  getCookiesKeys,
+} from '../../helpers';
 
 import Button from './ui/Button';
 import Container from './ui/Container';
 import CookieSettings from './CookieSettings';
 
 import './cookie-banner.less';
-import config from '@plone/volto/registry';
 
 const messages = defineMessages({
   acceptTechnicalCookies: {
@@ -43,30 +44,43 @@ const messages = defineMessages({
 const CookieBanner = ({ display = false, cookies }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
-  const panelConfig = config.settings['volto-gdpr-privacy'].defaultPanelConfig;
-  const profilingKeys = getCookiesKeys(panelConfig.profiling);
-  const technicalKeys = getCookiesKeys(panelConfig.technical);
-
-  const [preferences, setPreferences] = useState(
-    loadPreferences(cookies, panelConfig),
+  const { panelConfig, defaultPreferences } = usePanelConfigAndPreferences(
+    cookies,
   );
 
+  const [profilingKeys, setProfilingKeys] = useState(null);
+  const [technicalKeys, setTechnicalKeys] = useState(null);
+  const [preferences, setPreferences] = useState(defaultPreferences);
   const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {
-    if (__SERVER__) {
-      return;
+    if (panelConfig) {
+      if (!profilingKeys && !technicalKeys) {
+        setProfilingKeys(getCookiesKeys(panelConfig.profiling));
+        setTechnicalKeys(getCookiesKeys(panelConfig.technical));
+      }
     }
 
-    //if user hasn't yet accepted cookies, or cookies_version is changed, ask user to accept new version
-    if (
-      !preferences.cookies_version ||
-      panelConfig.last_updated !== preferences.cookies_version
-    ) {
-      setPreferences({ ...preferences, cookies_version: undefined });
-      dispatch(displayBanner(true));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [panelConfig]);
+
+  useEffect(() => {
+    setPreferences(defaultPreferences);
+  }, [defaultPreferences]);
+
+  useEffect(() => {
+    if (panelConfig && defaultPreferences) {
+      //if user hasn't yet accepted cookies, or cookies_version is changed, ask user to accept new version
+      if (
+        !defaultPreferences.cookies_version ||
+        panelConfig.last_updated !== defaultPreferences.cookies_version
+      ) {
+        dispatch(displayBanner(true));
+      }
     }
-  }, []);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [panelConfig, defaultPreferences]);
 
   useEffect(() => {
     //on dispaly banner, remove cookie version
@@ -121,9 +135,13 @@ const CookieBanner = ({ display = false, cookies }) => {
     update(newPreferences);
   };
 
-  const bannerText = getLocaleConf(panelConfig.text, intl.locale);
+  const bannerText = getLocaleConf(panelConfig?.text, intl.locale);
 
-  return display ? (
+  if (__SERVER__) {
+    return <></>;
+  }
+
+  return display && panelConfig ? (
     <div className="gdpr-privacy-banner">
       <div className="gdpr-privacy-content-wrapper">
         <Button
