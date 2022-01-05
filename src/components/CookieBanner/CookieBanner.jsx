@@ -144,7 +144,7 @@ const CookieBanner = ({ display = false, cookies }) => {
 
   const bannerText = getLocaleConf(panelConfig?.text, intl.locale);
 
-  if (__SERVER__ || location.pathname.endsWith('/edit')) {
+  if (__SERVER__ || isCmsUI) {
     return <></>;
   }
 
