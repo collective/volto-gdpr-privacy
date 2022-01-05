@@ -69,8 +69,10 @@ const ConditionalEmbed = ({ code, url, children }) => {
 
   //return value
   let ret = __SERVER__ ? <></> : <>{children}</>;
+  const embedDisabled =
+    referenceChoice != null && !gdprPreferences[referenceChoice.config_key];
 
-  if (referenceChoice != null && !gdprPreferences[referenceChoice.config_key]) {
+  if (embedDisabled) {
     //embed disabled
     const text = getLocaleConf(referenceChoice.text, intl.locale);
     const key = referenceChoice.config_key;

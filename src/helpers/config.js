@@ -7,7 +7,7 @@ export const getCookiesKeys = (config) => {
 };
 
 export const getLocaleConf = (privacyConfig, locale) => {
-  return (
-    privacyConfig[locale] ?? privacyConfig?.[config.settings.defaultLanguage]
-  );
+  return privacyConfig
+    ? privacyConfig[locale] ?? privacyConfig?.[config.settings.defaultLanguage]
+    : null;
 };
