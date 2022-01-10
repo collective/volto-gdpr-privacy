@@ -6,13 +6,13 @@ import defaultPanelConfig from './config/defaultPanelConfig.js';
 export { CookieBanner, GdprPrivacyManager, ConditionalEmbed };
 
 const applyConfig = (config) => {
-  config.settings.appExtras = [
-    ...(config.settings.appExtras ?? []),
-    {
-      match: '',
-      component: GdprPrivacyManager,
-    },
-  ];
+  // config.settings.appExtras = [
+  //   ...(config.settings.appExtras ?? []),
+  //   {
+  //     match: '',
+  //     component: GdprPrivacyManager,
+  //   },
+  // ];
 
   config.settings.persistentReducers = [
     ...config.settings.persistentReducers,
