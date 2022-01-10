@@ -1,3 +1,10 @@
+### [1.1.3](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.2...v1.1.3) (2022-01-10)
+
+
+### Maintenance
+
+* moved less to css ([d7be096](https://github.com/collective/volto-gdpr-privacy/commit/d7be096af4e7e705989300ab35a9f74de5ac2a48))
+
 ### [1.1.2](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.1...v1.1.2) (2022-01-10)
 
 
