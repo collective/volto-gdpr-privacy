@@ -1,3 +1,10 @@
+### [1.1.2](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.1...v1.1.2) (2022-01-10)
+
+
+### Bug Fixes
+
+* fix key listener on cradio buttons ([fb2588c](https://github.com/collective/volto-gdpr-privacy/commit/fb2588cc1ce7d0e827f18b6aee74ba952d389ecb))
+
 ### [1.1.1](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.0...v1.1.1) (2022-01-05)
 
 
