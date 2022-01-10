@@ -1,7 +1,7 @@
 import CookieBanner from './components/CookieBanner/CookieBanner';
-import { Button as CookieBannerButton } from './components/CookieBanner/ui/Button';
-import { Container as CookieBannerContainer } from './components/CookieBanner/ui/Container';
-import { Radio as CookieBannerRadio } from './components/CookieBanner/ui/Radio';
+import Button from './components/CookieBanner/ui/Button';
+import Container from './components/CookieBanner/ui/Container';
+import Radio from './components/CookieBanner/ui/Radio';
 import GdprPrivacyManager from './components/GdprPrivacyManager/GdprPrivacyManager';
 import ConditionalEmbed from './components/ConditionalEmbed/ConditionalEmbed';
 import { gdprPrivacyConsent, gdprPrivacyConfig } from './reducers';
@@ -10,9 +10,9 @@ export {
   CookieBanner,
   GdprPrivacyManager,
   ConditionalEmbed,
-  CookieBannerButton,
-  CookieBannerContainer,
-  CookieBannerRadio,
+  Button,
+  Container,
+  Radio,
 };
 
 const applyConfig = (config) => {
