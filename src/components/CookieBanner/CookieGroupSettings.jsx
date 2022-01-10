@@ -65,7 +65,7 @@ const CookieGroupSettings = ({
             }}
             onKeyDown={(e) => {
               e.stopPropagation();
-              if (e.code === 'Space') {
+              if (e.code === 'Space' || e.keyCode === 32) {
                 onChangeGroup(groupConfig, !isAccepted);
               }
             }}
@@ -107,7 +107,7 @@ const CookieGroupSettings = ({
                     }}
                     onKeyDown={(e) => {
                       e.stopPropagation();
-                      if (e.code === 'Space') {
+                      if (e.code === 'Space' || e.keyCode === 32) {
                         setPreferences({
                           ...preferences,
                           [key]: !preferences[key],
