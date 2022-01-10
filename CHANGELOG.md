@@ -1,3 +1,10 @@
+### [1.1.5](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.4...v1.1.5) (2022-01-10)
+
+
+### Maintenance
+
+* removed appExtras ([8dad215](https://github.com/collective/volto-gdpr-privacy/commit/8dad2159ace87301d81ea35b39d23f56feefc4b6))
+
 ### [1.1.4](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.3...v1.1.4) (2022-01-10)
 
 
