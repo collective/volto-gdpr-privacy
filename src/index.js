@@ -1,18 +1,28 @@
 import CookieBanner from './components/CookieBanner/CookieBanner';
+import { Button as CookieBannerButton } from './components/CookieBanner/ui/Button';
+import { Container as CookieBannerContainer } from './components/CookieBanner/ui/Container';
+import { Radio as CookieBannerRadio } from './components/CookieBanner/ui/Radio';
 import GdprPrivacyManager from './components/GdprPrivacyManager/GdprPrivacyManager';
 import ConditionalEmbed from './components/ConditionalEmbed/ConditionalEmbed';
 import { gdprPrivacyConsent, gdprPrivacyConfig } from './reducers';
 import defaultPanelConfig from './config/defaultPanelConfig.js';
-export { CookieBanner, GdprPrivacyManager, ConditionalEmbed };
+export {
+  CookieBanner,
+  GdprPrivacyManager,
+  ConditionalEmbed,
+  CookieBannerButton,
+  CookieBannerContainer,
+  CookieBannerRadio,
+};
 
 const applyConfig = (config) => {
-  // config.settings.appExtras = [
-  //   ...(config.settings.appExtras ?? []),
-  //   {
-  //     match: '',
-  //     component: GdprPrivacyManager,
-  //   },
-  // ];
+  config.settings.appExtras = [
+    ...(config.settings.appExtras ?? []),
+    {
+      match: '',
+      component: GdprPrivacyManager,
+    },
+  ];
 
   config.settings.persistentReducers = [
     ...config.settings.persistentReducers,

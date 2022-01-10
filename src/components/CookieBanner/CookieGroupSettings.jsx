@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { getLocaleConf, getCookiesKeys, groupIsAccepted } from '../../helpers';
-import Radio from './ui/Radio';
+import Radio from 'volto-gdpr-privacy/components/CookieBanner/ui/Radio';
 
 const messages = defineMessages({
   enabled: {
