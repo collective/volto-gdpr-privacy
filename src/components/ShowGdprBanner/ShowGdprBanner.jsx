@@ -4,7 +4,7 @@ import { defineMessages, useIntl } from 'react-intl';
 import { displayBanner } from '../../actions';
 import cookieSVG from './user-lock-solid.svg';
 
-import './show-gdpr-banner.less';
+import './show-gdpr-banner.css';
 
 const messages = defineMessages({
   buttonShowLabel: {

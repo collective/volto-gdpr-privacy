@@ -9,7 +9,7 @@ import {
   getLocaleConf,
 } from '../../helpers';
 
-import './conditional-embed.less';
+import './conditional-embed.css';
 
 const messages = defineMessages({
   conditionalEmbedAcceptCookiesDefaultDescription: {

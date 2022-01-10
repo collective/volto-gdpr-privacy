@@ -1,6 +1,5 @@
 button.gdpr-privacy-show-banner {
     position: fixed;
-
     right: 0;
 
     bottom: calc(50% - 19px);
@@ -19,18 +18,18 @@ button.gdpr-privacy-show-banner {
     display: flex;
     align-items: center;
     justify-content: center;
+}
 
-    img {
-        width: 25px;
-        height: 25px;
-    }
+button.gdpr-privacy-show-banner img {
+    width: 25px;
+    height: 25px;
+}
 
-    &:hover {
-        opacity: 1;
-    }
+button.gdpr-privacy-show-banner:hover {
+    opacity: 1;
+}
 
-    &:focus {
-        outline: 1px solid currentColor !important;
-        opacity: 1;
-    }
+button.gdpr-privacy-show-banner:focus {
+    outline: 1px solid currentColor !important;
+    opacity: 1;
 }

@@ -16,7 +16,7 @@ import Button from './ui/Button';
 import Container from './ui/Container';
 import CookieSettings from './CookieSettings';
 
-import './cookie-banner.less';
+import './cookie-banner.css';
 
 const messages = defineMessages({
   acceptTechnicalCookies: {
