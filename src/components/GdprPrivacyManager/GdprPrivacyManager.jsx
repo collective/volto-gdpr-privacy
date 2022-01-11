@@ -10,16 +10,12 @@ import GdprPrivacyManagerIncludeComponents from './GdprPrivacyManagerIncludeComp
 const GdprPrivacyManager = () => {
   const cookies = new Cookies(true);
 
-  const displayBanner = useSelector(
-    (state) => state.gdprPrivacyConsent.display,
-  );
-
   usePanelConfigAndPreferences(cookies); //to init data from panel
 
   return (
     <>
       <ShowGdprBanner />
-      <CookieBanner display={displayBanner} cookies={cookies} />
+      <CookieBanner cookies={cookies} />
       <GdprPrivacyManagerIncludeComponents cookies={cookies} />
     </>
   );

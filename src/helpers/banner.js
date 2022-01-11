@@ -22,7 +22,7 @@ export const groupIsAccepted = (groupConfig, preferences) => {
   const keys = getCookiesKeys(groupConfig);
   let ret = true;
   keys.forEach((k) => {
-    if (!preferences[k]) {
+    if (!preferences?.[k]) {
       ret = preferences[k];
     }
   });

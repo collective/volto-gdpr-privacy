@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { getLocaleConf, getCookiesKeys, groupIsAccepted } from '../../helpers';
-import Radio from 'volto-gdpr-privacy/components/CookieBanner/ui/Radio';
+import Radio from '@collective/volto-gdpr-privacy/components/CookieBanner/ui/Radio';
 
 const messages = defineMessages({
   enabled: {
@@ -74,7 +74,10 @@ const CookieGroupSettings = ({
       </div>
 
       {text.description && (
-        <div className="settings-description">{text.description}</div>
+        <div
+          className="settings-description"
+          dangerouslySetInnerHTML={{ __html: text.description }}
+        />
       )}
 
       <div className="choices">
@@ -119,7 +122,10 @@ const CookieGroupSettings = ({
               </div>
 
               {choice.description && (
-                <div className="choice-description">{choice.description}</div>
+                <div
+                  className="choice-description"
+                  dangerouslySetInnerHTML={{ __html: choice.description }}
+                />
               )}
             </div>
           );

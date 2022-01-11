@@ -22,7 +22,7 @@ const ShowGdprBanner = () => {
       className="gdpr-privacy-show-banner"
       onClick={(e) => {
         e.preventDefault();
-        dispatch(displayBanner(true));
+        dispatch(displayBanner(true, true));
       }}
       title={intl.formatMessage(messages.buttonShowLabel)}
     >

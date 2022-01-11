@@ -9,9 +9,10 @@ export function updateGdprPrivacyConsent(preferences) {
   };
 }
 
-export function displayBanner(display) {
+export function displayBanner(display, displaySettings = false) {
   return {
     type: GDPR_PRIVACY_CONSENT_DISPLAY_BANNER,
     display,
+    displaySettings,
   };
 }

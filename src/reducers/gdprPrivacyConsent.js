@@ -11,7 +11,11 @@ export function gdprPrivacyConsentReducer(state = [], action) {
       newState = { ...newState, preferences: action.preferences };
       break;
     case GDPR_PRIVACY_CONSENT_DISPLAY_BANNER:
-      newState = { ...newState, display: action.display };
+      newState = {
+        ...newState,
+        display: action.display,
+        displaySettings: action.displaySettings,
+      };
       break;
     default:
       break;

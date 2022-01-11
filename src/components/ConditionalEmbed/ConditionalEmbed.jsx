@@ -42,29 +42,30 @@ const ConditionalEmbed = ({ code, url, children }) => {
   const gdprPreferences = useSelector(
     (state) => state.gdprPrivacyConsent.preferences ?? defaultPreferences,
   );
-  const [referenceChoice, setReferenceChoice] = useState(null);
+  const [urlReferenceConfig, setUrlReferenceConfig] = useState(null);
 
   useEffect(() => {
-    if (profilingConfig && !referenceChoice) {
+    if (profilingConfig && !urlReferenceConfig) {
       let conditionalConfig = profilingConfig.filter(
         (c) =>
           c.referenceUrls.filter((r) => embed?.indexOf(r) >= 0)?.length > 0,
       );
 
-      setReferenceChoice(conditionalConfig?.[0] ?? null);
+      setUrlReferenceConfig(conditionalConfig?.[0] ?? null);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [profilingConfig, setReferenceChoice, referenceChoice, embed]);
+  }, [profilingConfig, setUrlReferenceConfig, urlReferenceConfig, embed]);
 
   //return value
-  let ret = __SERVER__ ? <></> : <>{children}</>;
+  let ret = __SERVER__ ? <div></div> : <>{children}</>;
   const embedDisabled =
-    referenceChoice != null && !gdprPreferences[referenceChoice.config_key];
+    urlReferenceConfig != null &&
+    !gdprPreferences[urlReferenceConfig.config_key];
 
   if (embedDisabled) {
     //embed disabled
-    const text = getLocaleConf(referenceChoice.text, intl.locale);
-    const key = referenceChoice.config_key;
+    const text = getLocaleConf(urlReferenceConfig.text, intl.locale);
+    const key = urlReferenceConfig.config_key;
     ret = (
       <div className="volto-gdpr-embed-disabled">
         {text.conditional_embed_text ??
@@ -95,7 +96,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  dispatch(displayBanner(true));
+                  dispatch(displayBanner(true, true));
                 }}
               >
                 {intl.formatMessage(messages.here)}

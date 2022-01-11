@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { defineMessages, useIntl } from 'react-intl';
 import { useLocation } from 'react-router-dom';
 import { Icon } from '@plone/volto/components';
@@ -12,8 +12,8 @@ import {
   getCookiesKeys,
 } from '../../helpers';
 
-import Button from 'volto-gdpr-privacy/components/CookieBanner/ui/Button';
-import Container from 'volto-gdpr-privacy/components/CookieBanner/ui/Container';
+import Button from '@collective/volto-gdpr-privacy/components/CookieBanner/ui/Button';
+import Container from '@collective/volto-gdpr-privacy/components/CookieBanner/ui/Container';
 import CookieSettings from './CookieSettings';
 
 import './cookie-banner.css';
@@ -41,19 +41,26 @@ const messages = defineMessages({
   },
 });
 
-const CookieBanner = ({ display = false, cookies }) => {
+const CookieBanner = ({ cookies }) => {
   const intl = useIntl();
   const location = useLocation();
   const dispatch = useDispatch();
   const isCmsUI = isCmsUi(location.pathname);
+  const display = useSelector(
+    (state) => state.gdprPrivacyConsent.display ?? false,
+  );
+  const showSettings = useSelector(
+    (state) => state.gdprPrivacyConsent.displaySettings ?? false,
+  );
+
   const { panelConfig, defaultPreferences } = usePanelConfigAndPreferences(
     cookies,
+    display,
   );
 
   const [profilingKeys, setProfilingKeys] = useState(null);
   const [technicalKeys, setTechnicalKeys] = useState(null);
   const [preferences, setPreferences] = useState(defaultPreferences);
-  const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {
     if (panelConfig) {
@@ -88,13 +95,6 @@ const CookieBanner = ({ display = false, cookies }) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [panelConfig, defaultPreferences]);
-
-  useEffect(() => {
-    //on dispaly banner, remove cookie version
-    if (display) {
-      cookies.remove('cookies_version');
-    }
-  }, [display, cookies]);
 
   const update = (newPreferences) => {
     //set cookies
@@ -155,7 +155,7 @@ const CookieBanner = ({ display = false, cookies }) => {
           basic
           icon
           onClick={(e) => {
-            acceptTechnicalCookies();
+            dispatch(displayBanner(false));
           }}
           className="close-button"
         >
@@ -169,7 +169,10 @@ const CookieBanner = ({ display = false, cookies }) => {
         </Button>
         <Container className="gdpr-privacy-content">
           <div className="title">{bannerText.title}</div>
-          <div className="description">{bannerText.description}</div>
+          <div
+            className="description"
+            dangerouslySetInnerHTML={{ __html: bannerText.description }}
+          />
 
           {/********* SETTINGS *******/}
           {showSettings && (
@@ -204,7 +207,7 @@ const CookieBanner = ({ display = false, cookies }) => {
                   <Button
                     color="black"
                     onClick={(e) => {
-                      setShowSettings(true);
+                      dispatch(displayBanner(true, true));
                     }}
                   >
                     {intl.formatMessage(messages.changeSettings)}
