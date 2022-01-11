@@ -155,7 +155,7 @@ const CookieBanner = ({ cookies }) => {
           basic
           icon
           onClick={(e) => {
-            dispatch(displayBanner(false));
+            acceptTechnicalCookies();
           }}
           className="close-button"
         >

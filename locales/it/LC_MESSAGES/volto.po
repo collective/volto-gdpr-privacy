@@ -29,7 +29,7 @@ msgstr "Salva le mie preferenze"
 #: components/CookieBanner/CookieBanner
 # defaultMessage: Only necessary cookies
 msgid "volto-gdpr-privacy-acceptTechnicalCookies"
-msgstr "Accetta solo i cookies necessari"
+msgstr "Solo cookies tecnici"
 
 #: components/ShowGdprBanner/ShowGdprBanner
 # defaultMessage: Show cookies settings
@@ -44,7 +44,7 @@ msgstr "Cambia le impostazioni"
 #: components/CookieBanner/CookieBanner
 # defaultMessage: Accept only necessary cookies and close
 msgid "volto-gdpr-privacy-close"
-msgstr "Accetta solo i cookies necessari e chiudi"
+msgstr "Accetta solo i cookies tecnici e chiudi"
 
 #: components/ConditionalEmbed/ConditionalEmbed
 # defaultMessage: Click {enable_cookie_button} to enable them, or click {manage_preferences_button} to manage your preferences.
