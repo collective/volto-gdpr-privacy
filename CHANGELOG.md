@@ -1,3 +1,10 @@
+### [1.1.9](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.8...v1.1.9) (2022-01-11)
+
+
+### Bug Fixes
+
+* fixed imports ([69c3904](https://github.com/collective/volto-gdpr-privacy/commit/69c3904aa8380a6a44943c11ecd70cfa210224bc))
+
 ### [1.1.8](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.7...v1.1.8) (2022-01-11)
 
 
