@@ -1,3 +1,10 @@
+### [1.1.11](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.10...v1.1.11) (2022-01-11)
+
+
+### Bug Fixes
+
+* fixed ssr on conditional emened ([c6244eb](https://github.com/collective/volto-gdpr-privacy/commit/c6244eb2ebd22477e9848229a3b5ed704ce156c1))
+
 ### [1.1.10](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.9...v1.1.10) (2022-01-11)
 
 
