@@ -1,3 +1,10 @@
+### [1.1.10](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.9...v1.1.10) (2022-01-11)
+
+
+### Bug Fixes
+
+* accept Technical cookies on close as CookieLaw says ([81f09be](https://github.com/collective/volto-gdpr-privacy/commit/81f09bea8c1cef6a2ec3860f9a5de2f3786ae37d))
+
 ### [1.1.9](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.8...v1.1.9) (2022-01-11)
 
 
