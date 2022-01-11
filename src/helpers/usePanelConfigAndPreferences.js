@@ -30,7 +30,6 @@ const usePanelConfigAndPreferences = (cookies, forceLoad) => {
       !panelConfigStatus.loading &&
       defaultPreferences
     ) {
-      console.log('forceLoad');
       setDefaultPreferences(loadPreferences(cookies, panelConfigStatus.config));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

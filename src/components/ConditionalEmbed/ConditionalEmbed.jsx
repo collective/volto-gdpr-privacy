@@ -57,7 +57,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
   }, [profilingConfig, setUrlReferenceConfig, urlReferenceConfig, embed]);
 
   //return value
-  let ret = __SERVER__ ? <div></div> : <>{children}</>;
+  let ret = <>{children}</>;
   const embedDisabled =
     urlReferenceConfig != null &&
     !gdprPreferences[urlReferenceConfig.config_key];
@@ -107,6 +107,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
       </div>
     );
   }
+
   return ret;
 };
 
