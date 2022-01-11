@@ -12,8 +12,8 @@ import {
   getCookiesKeys,
 } from '../../helpers';
 
-import Button from '@collective/volto-gdpr-privacy/components/CookieBanner/ui/Button';
-import Container from '@collective/volto-gdpr-privacy/components/CookieBanner/ui/Container';
+import Button from 'volto-gdpr-privacy/components/CookieBanner/ui/Button';
+import Container from 'volto-gdpr-privacy/components/CookieBanner/ui/Container';
 import CookieSettings from './CookieSettings';
 
 import './cookie-banner.css';
