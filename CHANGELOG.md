@@ -1,3 +1,10 @@
+### [1.1.8](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.7...v1.1.8) (2022-01-11)
+
+
+### Bug Fixes
+
+* fix close button, inject html in descriptions and other fixing ([c97c022](https://github.com/collective/volto-gdpr-privacy/commit/c97c0221cb23eeec5fe36effa9fc803edf1bfb0f))
+
 ### [1.1.7](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.6...v1.1.7) (2022-01-10)
 
 
