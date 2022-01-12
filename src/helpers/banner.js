@@ -23,7 +23,7 @@ export const groupIsAccepted = (groupConfig, preferences) => {
   let ret = true;
   keys.forEach((k) => {
     if (!preferences?.[k]) {
-      ret = preferences[k];
+      ret = preferences?.[k] ?? false;
     }
   });
 
