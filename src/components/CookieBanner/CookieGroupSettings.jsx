@@ -93,10 +93,10 @@ const CookieGroupSettings = ({
                   <Radio
                     tabIndex={i + 1}
                     toggle
-                    checked={preferences[key]}
+                    checked={preferences?.[key]}
                     disabled={disabled}
                     aria-label={
-                      choice.title + ' ' + preferences[key]
+                      choice.title + ' ' + preferences?.[key]
                         ? intl.formatMessage(messages.enabled)
                         : intl.formatMessage(messages.disabled)
                     }
