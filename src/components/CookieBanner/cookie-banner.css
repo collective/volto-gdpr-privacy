@@ -8,6 +8,7 @@
     line-height: 1.5;
     max-height: 98vh;
     overflow: auto;
+    font-size: 1rem;
 }
 
 .gdpr-privacy-banner .gdpr-privacy-content-wrapper {
@@ -83,7 +84,7 @@
     .settings-column
     .settings-title {
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.5em;
     font-weight: bold;
 }
 
@@ -135,7 +136,7 @@
     .settings-column
     .settings-description {
     margin-bottom: 2rem;
-    font-size: 0.9rem;
+    font-size: 0.9em;
 }
 
 .gdpr-privacy-banner
@@ -172,7 +173,7 @@
     .settings-column
     .choice
     .choice-description {
-    font-size: 0.8rem;
+    font-size: 0.8em;
 }
 
 .gdpr-privacy-banner
@@ -184,12 +185,22 @@
     padding-left: 2em;
 }
 
+@media (min-width: 768px) {
+    body.has-toolbar .gdpr-privacy-banner {
+        width: calc(100vw - 80px) !important;
+    }
+
+    body.has-toolbar-collapsed .gdpr-privacy-banner {
+        width: calc(100vw - 20px) !important;
+    }
+}
+
 @media (max-width: 600px) {
     .gdpr-privacy-banner
         .gdpr-privacy-content-wrapper
         .gdpr-privacy-content
         .description {
-        font-size: 0.8rem;
+        font-size: 0.8em;
     }
 
     .gdpr-privacy-banner .gdpr-privacy-content-wrapper .gdpr-privacy-settings {
@@ -201,7 +212,7 @@
         .gdpr-privacy-settings
         .settings-column {
         padding-right: 0;
-        margin-bottom: 2rem;
+        margin-bottom: 2em;
     }
 
     .gdpr-privacy-banner
@@ -209,7 +220,7 @@
         .gdpr-privacy-settings
         .settings-column
         .settings-description {
-        font-size: 0.8rem;
+        font-size: 0.8em;
     }
 
     .gdpr-privacy-banner
@@ -218,7 +229,7 @@
         .settings-column
         .choice
         .choice-description {
-        font-size: 0.7rem;
+        font-size: 0.7em;
     }
 
     .gdpr-privacy-banner
