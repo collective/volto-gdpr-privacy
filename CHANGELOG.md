@@ -1,3 +1,10 @@
+### [1.1.15](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.14...v1.1.15) (2022-01-13)
+
+
+### Bug Fixes
+
+* fix undefined bug in CookieGroupSettings ([d3238cd](https://github.com/collective/volto-gdpr-privacy/commit/d3238cd1eadb2c70aee481cf3ab74b3e80961dab))
+
 ### [1.1.14](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.13...v1.1.14) (2022-01-13)
 
 
