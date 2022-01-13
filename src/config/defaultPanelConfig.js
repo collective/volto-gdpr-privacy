@@ -6,7 +6,7 @@ const defaultPanelConfig = {
     it: {
       title: 'Usiamo i cookies',
       description:
-        "Questo sito utilizza i cookie tecnici di navigazione e di sessione per garantire un miglior servizio di navigazione del sito, e cookies analitici per raccogliere informazioni sull'uso del sito da parte degli utenti.  Utilizza anche cookies di profilazione dell'utente per fini statistici. I cookie di profilazione puoi decidere se abilitarli o meno cliccando sul pulsante 'Cambia le impostazioni'. Per saperne di più su come disabilitare i cookies oppure abilitarne solo alcuni, consulta la nostra <a href='/privacy-policy' target='_blank'>Cookie Policy.</a>",
+        "Questo sito utilizza i cookie tecnici di navigazione e di sessione per garantire un miglior servizio di navigazione del sito, e cookie analitici per raccogliere informazioni sull'uso del sito da parte degli utenti.  Utilizza anche cookie di profilazione dell'utente per fini statistici. I cookie di profilazione puoi decidere se abilitarli o meno cliccando sul pulsante 'Cambia le impostazioni'. Per saperne di più su come disabilitare i cookie oppure abilitarne solo alcuni, consulta la nostra <a href='/privacy-policy' target='_blank'>Cookie Policy.</a>",
     },
     en: {
       title: 'We use cookies',
@@ -97,7 +97,7 @@ const defaultPanelConfig = {
               "I cookie di profilazione di Youtube permettono di mostrarti le pubblicità che potrebbero interessarti di più, fare analisi di accesso alla pagina e sul comportamento dell'utente, facilitare l'accesso ai servizi di Google.",
             //text to show in conditional embed if that cookies are not enabled
             conditional_embed_text:
-              'Per vedere il video, accetta i cookies di Youtube.',
+              'Per vedere il video, accetta i cookie di Youtube.',
           },
           en: {
             title: 'Youtube',
@@ -127,7 +127,7 @@ const defaultPanelConfig = {
               "I cookie di profilazione di Vimeo permettono di fare analisi di accesso alla pagina e sul comportamento dell'utente, e di mostrarti le pubblicità che potrebbero interessarti di più.",
             //text to show in conditional embed if that cookies are not enabled
             conditional_embed_text:
-              'Per vedere il video, accetta i cookies di Vimeo.',
+              'Per vedere il video, accetta i cookie di Vimeo.',
           },
           en: {
             title: 'Vimeo',
@@ -157,7 +157,7 @@ const defaultPanelConfig = {
               "I cookie di profilazione di Google permettono di fare analisi di accesso alla pagina e sul comportamento dell'utente, e di mostrarti le pubblicità che potrebbero interessarti di più.",
             //text to show in conditional embed if that cookies are not enabled
             conditional_embed_text:
-              'Per vedere la mappa, accetta i cookies di Google Maps.',
+              'Per vedere la mappa, accetta i cookie di Google Maps.',
           },
           en: {
             title: 'Google Maps',
@@ -201,7 +201,7 @@ const defaultPanelConfig = {
       //       title: 'Facebook',
       //       description: 'Cookie di profilazione correlati a Facebook. ',
       //       conditional_embed_text:
-      //         'Per vedere i contenuti di Facebook, accetta i cookies relativi a Facebook.',
+      //         'Per vedere i contenuti di Facebook, accetta i cookie relativi a Facebook.',
       //     },
       //     en: {
       //       title: 'Facebook',
@@ -219,7 +219,7 @@ const defaultPanelConfig = {
       //       title: 'Juicer',
       //       description: 'Cookie di profilazione correlati a Juicer.',
       //       conditional_embed_text:
-      //         'Per vedere il contenuto da Juicer, accetta i cookies di Juicer.',
+      //         'Per vedere il contenuto da Juicer, accetta i cookie di Juicer.',
       //     },
       //     en: {
       //       title: 'Juicer',
