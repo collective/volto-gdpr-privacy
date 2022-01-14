@@ -6,6 +6,7 @@ import GdprPrivacyManager from './components/GdprPrivacyManager/GdprPrivacyManag
 import ConditionalEmbed from './components/ConditionalEmbed/ConditionalEmbed';
 import { gdprPrivacyConsent, gdprPrivacyConfig } from './reducers';
 import defaultPanelConfig from './config/defaultPanelConfig.js';
+import { displayBanner } from './actions';
 export {
   CookieBanner,
   GdprPrivacyManager,
@@ -13,6 +14,7 @@ export {
   Button,
   Container,
   Radio,
+  displayBanner,
 };
 
 const applyConfig = (config) => {
