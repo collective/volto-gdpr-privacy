@@ -1,3 +1,10 @@
+### [1.1.16](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.15...v1.1.16) (2022-01-14)
+
+
+### Maintenance
+
+* exported displayBanner ([8485361](https://github.com/collective/volto-gdpr-privacy/commit/8485361f3b0b7f3cf231d9607bcf5090e9660434))
+
 ### [1.1.15](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.14...v1.1.15) (2022-01-13)
 
 
