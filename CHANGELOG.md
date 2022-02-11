@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.16...v1.2.0) (2022-02-11)
+
+
+### Features
+
+* added cookieExpires config. Setted it by default to 6 month ([96e3534](https://github.com/collective/volto-gdpr-privacy/commit/96e3534a1255e2634e5ef7a02eaaa6ab72094962))
+
 ### [1.1.16](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.15...v1.1.16) (2022-01-14)
 
 
