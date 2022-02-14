@@ -1,4 +1,4 @@
-import cookie from "react-cookie";
+import Cookies from "universal-cookie";
 import config from "@plone/volto/registry";
 
 export const COOKIES_PREFIX = "vgdpr_";
@@ -14,18 +14,20 @@ export const getExpirationDate = (date = null, expiringDays) => {
 };
 
 export default class Cookies {
+  cookies = new Cookies();
+
   get(name) {
-    return cookie.load(COOKIES_PREFIX + name);
+    return cookies.get(COOKIES_PREFIX + name);
   }
 
   set(name, value, cookieExpiration) {
-    cookie.save(COOKIES_PREFIX + name, value, {
+    cookies.set(COOKIES_PREFIX + name, value, {
       expires: cookieExpiration || getExpirationDate(),
       path: "/",
     });
   }
 
   remove(name) {
-    cookie.remove(COOKIES_PREFIX + name, { path: "/" });
+    cookies.remove(COOKIES_PREFIX + name, { path: "/" });
   }
 }
