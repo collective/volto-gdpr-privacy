@@ -1,4 +1,4 @@
-import Cookies from "universal-cookie";
+import Cookies as UniversalCookies from "universal-cookie";
 import config from "@plone/volto/registry";
 
 export const COOKIES_PREFIX = "vgdpr_";
@@ -14,7 +14,7 @@ export const getExpirationDate = (date = null, expiringDays) => {
 };
 
 export default class Cookies {
-  cookies = new Cookies();
+  cookies = new UniversalCookies();
 
   get(name) {
     return cookies.get(COOKIES_PREFIX + name);
