@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/collective/volto-gdpr-privacy/compare/v1.2.0...v1.3.0) (2022-02-15)
+
+
+### Features
+
+* disable cookiebanner with pagespeed/lighthouse ([39d6bee](https://github.com/collective/volto-gdpr-privacy/commit/39d6bee7ebc1835512f54e38e3319b71d7ad802f))
+
 ## [1.2.0](https://github.com/collective/volto-gdpr-privacy/compare/v1.1.16...v1.2.0) (2022-02-11)
 
 
