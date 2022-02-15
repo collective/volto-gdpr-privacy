@@ -10,6 +10,7 @@ import {
   usePanelConfigAndPreferences,
   getLocaleConf,
   getCookiesKeys,
+  isPageSpeedBot,
 } from '../../helpers';
 
 import Button from 'volto-gdpr-privacy/components/CookieBanner/ui/Button';
@@ -46,6 +47,7 @@ const CookieBanner = ({ cookies }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const isCmsUI = isCmsUi(location.pathname);
+
   const display = useSelector(
     (state) => state.gdprPrivacyConsent.display ?? false,
   );
@@ -144,7 +146,7 @@ const CookieBanner = ({ cookies }) => {
 
   const bannerText = getLocaleConf(panelConfig?.text, intl.locale);
 
-  if (__SERVER__ || isCmsUI) {
+  if (__SERVER__ || isCmsUI || isPageSpeedBot()) {
     return <></>;
   }
 
