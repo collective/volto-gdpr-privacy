@@ -5,7 +5,7 @@ import { displayBanner, updateGdprPrivacyConsent } from '../../actions';
 
 import {
   usePanelConfigAndPreferences,
-  Cookies,
+  GDPRCookies,
   getLocaleConf,
 } from '../../helpers';
 
@@ -29,7 +29,7 @@ const messages = defineMessages({
 });
 const ConditionalEmbed = ({ code, url, children }) => {
   const intl = useIntl();
-  const cookies = new Cookies(true);
+  const cookies = new GDPRCookies();
   const embed = code ?? url ?? '';
   const dispatch = useDispatch();
 

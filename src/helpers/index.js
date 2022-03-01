@@ -1,5 +1,5 @@
 import usePanelConfigAndPreferences from './usePanelConfigAndPreferences';
-import Cookies from './Cookies';
+import GDPRCookies from './GDPRCookies';
 import { getLocaleConf, getCookiesKeys } from './config';
 import { groupIsAccepted } from './banner';
 
@@ -12,7 +12,7 @@ const isPageSpeedBot = () => {
 
 export {
   usePanelConfigAndPreferences,
-  Cookies,
+  GDPRCookies,
   getLocaleConf,
   getCookiesKeys,
   groupIsAccepted,

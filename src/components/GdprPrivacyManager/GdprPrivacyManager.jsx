@@ -1,11 +1,11 @@
 import React from 'react';
-import { usePanelConfigAndPreferences, Cookies } from '../../helpers';
+import { usePanelConfigAndPreferences, GDPRCookies } from '../../helpers';
 import CookieBanner from '../CookieBanner/CookieBanner';
 import ShowGdprBanner from '../ShowGdprBanner/ShowGdprBanner';
 import GdprPrivacyManagerIncludeComponents from './GdprPrivacyManagerIncludeComponents';
 
 const GdprPrivacyManager = () => {
-  const cookies = new Cookies(true);
+  const cookies = new GDPRCookies();
 
   usePanelConfigAndPreferences(cookies); //to init data from panel
 
