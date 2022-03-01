@@ -1,5 +1,4 @@
-import { withCookies } from 'react-cookie';
-import { compose } from 'redux';
+import Cookies from 'universal-cookie';
 import config from '@plone/volto/registry';
 
 export const COOKIES_PREFIX = 'vgdpr_';
@@ -14,21 +13,24 @@ export const getExpirationDate = (date = null, expiringDays) => {
   return expireDate;
 };
 
-class Cookies {
+class GDPRCookies {
+  constructor() {
+    this.cookies = new Cookies();
+  }
   get(name) {
-    return this.props.cookies.get(COOKIES_PREFIX + name);
+    return this.cookies.get(COOKIES_PREFIX + name);
   }
 
   set(name, value, cookieExpiration) {
-    this.props.cookies.set(COOKIES_PREFIX + name, value, {
+    this.cookies.set(COOKIES_PREFIX + name, value, {
       expires: cookieExpiration || getExpirationDate(),
       path: '/',
     });
   }
 
   remove(name) {
-    this.props.cookies.remove(COOKIES_PREFIX + name, { path: '/' });
+    this.cookies.remove(COOKIES_PREFIX + name, { path: '/' });
   }
 }
 
-export default compose(withCookies)(Cookies);
+export default GDPRCookies;

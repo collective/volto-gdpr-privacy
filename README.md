@@ -19,7 +19,7 @@ yarn add volto-gdpr-privacy -W
 Wherever you want to add the component, import and use it like this:
 
 ```jsx
-import { GdprPrivacyManager } from "@collective/volto-gdpr-privacy";
+import { GdprPrivacyManager } from '@collective/volto-gdpr-privacy';
 
 const YourAppComponent = () => <GdprPrivacyManager />;
 ```
@@ -32,7 +32,7 @@ export const settings = {
   appExtras: [
     ...defaultSettings.appExtras,
     {
-      match: "",
+      match: '',
       component: GdprPrivacyManager,
     },
   ],
@@ -47,7 +47,7 @@ In your config file, provide a configuration to define:
 - default title and description suggested in control panel
 
 ```jsx
-config.settings["volto-gdpr-privacy"] = {
+config.settings['volto-gdpr-privacy'] = {
   defaultPanelConfig: defaultPanelConfig, //Default control-panel configuration.
   settings: {
     /******
@@ -70,7 +70,7 @@ config.settings["volto-gdpr-privacy"] = {
 It's possibile to define a cookie expire time. By default it's 6 month, but you could change your expiration days in the config:
 
 ```jsx
- config.settings["volto-gdpr-privacy"]?.cookieExpires=1 //setting cookie expiration after 1 day
+config.settings['volto-gdpr-privacy']?.cookieExpires = 1; //setting cookie expiration after 1 day
 ```
 
 #### Panel configuration
@@ -98,3 +98,7 @@ This product has been translated into:
 - French
 
 Please, contribute to this project adding translations for your language.
+
+## Versions
+
+If you want to use it with a version of Volto <= 15.0.0-alpha.3, use volto-gdpr-privacy 1.3.0 version.
