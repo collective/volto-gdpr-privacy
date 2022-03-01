@@ -1,3 +1,18 @@
+### [1.3.1](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.0...v1.3.1) (2022-03-01)
+
+
+### Bug Fixes
+
+* fix cookies ([b9fc111](https://github.com/collective/volto-gdpr-privacy/commit/b9fc1119a0f149f6fdfb7aa1c72fbd28e3a25a35))
+* fix cookies library ([33c59b4](https://github.com/collective/volto-gdpr-privacy/commit/33c59b4d74f4b2395657b751bb5b440d075f0e52))
+* fix usage of react-cookie lib ([9eb9f24](https://github.com/collective/volto-gdpr-privacy/commit/9eb9f24ab02c082339b10d19e747717541ca2d90))
+
+
+### Maintenance
+
+* fixed imports ([a951d88](https://github.com/collective/volto-gdpr-privacy/commit/a951d88dc8bce18c82e936fbf3df2af323268dce))
+* updated cookies libraries ([616d6f6](https://github.com/collective/volto-gdpr-privacy/commit/616d6f673ef2e57e63f789c81d1bf7796e76d5fb))
+
 ## [1.3.0](https://github.com/collective/volto-gdpr-privacy/compare/v1.2.0...v1.3.0) (2022-02-15)
 
 
