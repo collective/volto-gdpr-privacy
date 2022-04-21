@@ -58,6 +58,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
 
   //return value
   let ret = <>{children}</>;
+
   const embedDisabled =
     urlReferenceConfig != null &&
     !gdprPreferences[urlReferenceConfig.config_key];
@@ -108,6 +109,9 @@ const ConditionalEmbed = ({ code, url, children }) => {
     );
   }
 
+  if (__SERVER__) {
+    ret = <></>;
+  }
   return ret;
 };
 
