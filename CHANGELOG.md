@@ -1,3 +1,10 @@
+### [1.3.2](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.1...v1.3.2) (2022-04-21)
+
+
+### Bug Fixes
+
+* fix SSR prerender of disabled embed ([67f3539](https://github.com/collective/volto-gdpr-privacy/commit/67f3539e325e515c1fe5386eb1f97aa5fdf09a91))
+
 ### [1.3.1](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.0...v1.3.1) (2022-03-01)
 
 
