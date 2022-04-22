@@ -1,3 +1,10 @@
+### [1.3.3](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.2...v1.3.3) (2022-04-22)
+
+
+### Bug Fixes
+
+* fix prerender embed ([5a56bc8](https://github.com/collective/volto-gdpr-privacy/commit/5a56bc8293f7a32d95096e3345ea979c21971f63))
+
 ### [1.3.2](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.1...v1.3.2) (2022-04-21)
 
 
