@@ -57,13 +57,16 @@ const ConditionalEmbed = ({ code, url, children }) => {
   }, [profilingConfig, setUrlReferenceConfig, urlReferenceConfig, embed]);
 
   //return value
-  let ret = <>{children}</>;
+  let ret = <></>;
+  let embedDisabled = true;
 
-  const embedDisabled =
+  embedDisabled =
     urlReferenceConfig != null &&
     !gdprPreferences[urlReferenceConfig.config_key];
 
-  if (embedDisabled) {
+  if (__SERVER__ || !gdprPreferences) {
+    return <></>;
+  } else if (embedDisabled) {
     //embed disabled
     const text = getLocaleConf(urlReferenceConfig.text, intl.locale);
     const key = urlReferenceConfig.config_key;
@@ -107,11 +110,10 @@ const ConditionalEmbed = ({ code, url, children }) => {
         )}
       </div>
     );
+  } else {
+    ret = <>{children}</>;
   }
 
-  if (__SERVER__) {
-    ret = <></>;
-  }
   return ret;
 };
 
