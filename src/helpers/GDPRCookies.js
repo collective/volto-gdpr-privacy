@@ -1,4 +1,5 @@
 import Cookies from 'universal-cookie';
+import { getCookieOptions } from '@plone/volto/helpers';
 import config from '@plone/volto/registry';
 
 export const COOKIES_PREFIX = 'vgdpr_';
@@ -22,10 +23,13 @@ class GDPRCookies {
   }
 
   set(name, value, cookieExpiration) {
-    this.cookies.set(COOKIES_PREFIX + name, value, {
-      expires: cookieExpiration || getExpirationDate(),
-      path: '/',
-    });
+    this.cookies.set(
+      COOKIES_PREFIX + name,
+      value,
+      getCookieOptions({
+        expires: cookieExpiration || getExpirationDate(),
+      }),
+    );
   }
 
   remove(name) {
