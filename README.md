@@ -102,3 +102,4 @@ Please, contribute to this project adding translations for your language.
 ## Versions
 
 If you want to use it with a version of Volto <= 15.0.0-alpha.3, use volto-gdpr-privacy 1.3.0 version.
+If you want to use it with a version of Volto < 15.7.0, use volto-gdpr-privacy 1.3.3 version.
