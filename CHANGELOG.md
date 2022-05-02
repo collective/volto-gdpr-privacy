@@ -1,3 +1,11 @@
+### [1.3.4](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.3...v1.3.4) (2022-05-02)
+
+
+### Maintenance
+
+* updated peerDependencies and readme ([78f7ebb](https://github.com/collective/volto-gdpr-privacy/commit/78f7ebb3e7c28ba502f4412f1c0b2b834a1d564c))
+* used getCookieOptions from volto, to set secure option for cookies for https site ([aa72d48](https://github.com/collective/volto-gdpr-privacy/commit/aa72d48fc5ed13edd8b29644bb96bd9ce2b6287b))
+
 ### [1.3.3](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.2...v1.3.3) (2022-04-22)
 
 
