@@ -1,3 +1,10 @@
+### [1.3.5](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.4...v1.3.5) (2022-05-06)
+
+
+### Maintenance
+
+* updated video block customization ([73998ed](https://github.com/collective/volto-gdpr-privacy/commit/73998ed7859df0ffd226efc0dc930294d9690ffe))
+
 ### [1.3.4](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.3...v1.3.4) (2022-05-02)
 
 
