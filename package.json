@@ -17,7 +17,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "@plone/volto": ">=15.7.0"
+    "@plone/volto": ">=15.9.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.0.1",
