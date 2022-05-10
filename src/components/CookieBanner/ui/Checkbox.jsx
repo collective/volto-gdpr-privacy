@@ -1,10 +1,10 @@
 import React from 'react';
-import { Radio as SemanticRadio } from 'semantic-ui-react';
+import { Checkbox as SemanticRadio } from 'semantic-ui-react';
 
 /*This component facilitates the customization of Radio*/
 
-const Radio = (props) => {
+const Checkbox = (props) => {
   return <SemanticRadio {...props} />;
 };
 
-export default Radio;
+export default Checkbox;

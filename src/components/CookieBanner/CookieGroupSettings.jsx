@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { getLocaleConf, getCookiesKeys, groupIsAccepted } from '../../helpers';
-import Radio from 'volto-gdpr-privacy/components/CookieBanner/ui/Radio';
+import Checkbox from 'volto-gdpr-privacy/components/CookieBanner/ui/Checkbox';
 
 const messages = defineMessages({
   enabled: {
@@ -15,6 +15,7 @@ const messages = defineMessages({
 });
 
 const CookieGroupSettings = ({
+  id,
   groupConfig,
   disabled = false,
   preferences,
@@ -45,29 +46,30 @@ const CookieGroupSettings = ({
   }, []);
 
   return (
-    <div className="settings-group-wrapper" role="radiogroup">
+    <div className="settings-group-wrapper" role="group">
       <div className="settings-title">
         <div className="toggle-wrapper" ref={groupInputRef}>
-          {text.title}
-          <Radio
+          <Checkbox
             toggle
             checked={isAccepted}
             disabled={disabled}
+            label={text.title}
+            id={text.title.replace(' ', '')}
+            aria-describedby={'desc_' + id}
             aria-label={
-              text.title + ' ' + isAccepted
+              text.title +
+              ' ' +
+              (isAccepted
                 ? intl.formatMessage(messages.enabled)
-                : intl.formatMessage(messages.disabled)
+                : intl.formatMessage(messages.disabled))
             }
-            onChange={(e, { checked }) => {
-              if (e.type !== 'change') {
-                onChangeGroup(groupConfig, checked);
+            onClick={() => {
+              if (isAccepted) {
+                onChangeGroup(groupConfig, false);
               }
             }}
-            onKeyDown={(e) => {
-              e.stopPropagation();
-              if (e.code === 'Space' || e.keyCode === 32) {
-                onChangeGroup(groupConfig, !isAccepted);
-              }
+            onChange={(e, { checked }) => {
+              onChangeGroup(groupConfig, checked);
             }}
           />
         </div>
@@ -75,6 +77,7 @@ const CookieGroupSettings = ({
 
       {text.description && (
         <div
+          id={'desc_' + id}
           className="settings-description"
           dangerouslySetInnerHTML={{ __html: text.description }}
         />
@@ -89,33 +92,33 @@ const CookieGroupSettings = ({
             <div className="choice" key={key}>
               <div className="choice-title">
                 <div className="toggle-wrapper">
-                  {choice.title}
-                  <Radio
-                    tabIndex={i + 1}
+                  <Checkbox
                     toggle
                     checked={preferences?.[key]}
                     disabled={disabled}
+                    id={choice.title.replace(' ', '')}
+                    label={choice.title}
                     aria-label={
-                      choice.title + ' ' + preferences?.[key]
+                      choice.title +
+                      ' ' +
+                      (preferences?.[key]
                         ? intl.formatMessage(messages.enabled)
-                        : intl.formatMessage(messages.disabled)
+                        : intl.formatMessage(messages.disabled))
                     }
-                    onChange={(e, { checked }) => {
-                      if (e.type !== 'change') {
+                    aria-describedby={'desc_' + id + '_' + i}
+                    onClick={() => {
+                      if (preferences?.[key]) {
                         setPreferences({
                           ...preferences,
-                          [key]: checked,
+                          [key]: false,
                         });
                       }
                     }}
-                    onKeyDown={(e) => {
-                      e.stopPropagation();
-                      if (e.code === 'Space' || e.keyCode === 32) {
-                        setPreferences({
-                          ...preferences,
-                          [key]: !preferences[key],
-                        });
-                      }
+                    onChange={(e, { checked }) => {
+                      setPreferences({
+                        ...preferences,
+                        [key]: checked,
+                      });
                     }}
                   />
                 </div>
@@ -123,6 +126,7 @@ const CookieGroupSettings = ({
 
               {choice.description && (
                 <div
+                  id={'desc_' + id + '_' + i}
                   className="choice-description"
                   dangerouslySetInnerHTML={{ __html: choice.description }}
                 />

@@ -2,13 +2,13 @@
     position: fixed;
     z-index: 100;
     bottom: 0;
+    overflow: auto;
     width: 100%;
 
-    background-color: #ddd;
-    line-height: 1.5;
     max-height: 98vh;
-    overflow: auto;
+    background-color: #ddd;
     font-size: 1rem;
+    line-height: 1.5;
 }
 
 .gdpr-privacy-banner .gdpr-privacy-content-wrapper {
@@ -22,10 +22,10 @@
     position: absolute;
     top: 1em;
     right: 1em;
-    border-radius: 100%;
     padding: 0;
-    background: transparent;
     border: none;
+    background: transparent;
+    border-radius: 100%;
     box-shadow: none;
 }
 
@@ -63,6 +63,15 @@
     margin-bottom: 1rem;
 }
 
+.gdpr-privacy-banner
+    .gdpr-privacy-content-wrapper
+    .gdpr-privacy-content
+    .buttons
+    button.gdpr-privacy-banner-button:focus {
+    box-shadow: 1px 1px 2px 0px rgb(#f90, 0.2);
+    outline: 2px solid #f90;
+}
+
 /*settings*/
 .gdpr-privacy-banner .gdpr-privacy-content-wrapper .gdpr-privacy-settings {
     display: flex;
@@ -84,8 +93,18 @@
     .settings-column
     .settings-title {
     margin-bottom: 1rem;
+}
+
+.gdpr-privacy-banner
+    .gdpr-privacy-content-wrapper
+    .gdpr-privacy-settings
+    .settings-column
+    .settings-title
+    label {
+    padding-left: 0;
     font-size: 1.5em;
     font-weight: bold;
+    transition: all 0.1s linear;
 }
 
 .gdpr-privacy-banner
@@ -94,7 +113,35 @@
     .settings-column
     .settings-title
     .ui.toggle.checkbox {
-    width: 4.5rem;
+    width: 100%;
+}
+
+.gdpr-privacy-banner .ui.toggle.disabled.checkbox label,
+.gdpr-privacy-banner .ui.toggle.checkbox input:focus:checked ~ label,
+.gdpr-privacy-banner .ui.toggle.checkbox input:checked ~ label,
+.gdpr-privacy-banner .ui.toggle.checkbox input:focus ~ label {
+    color: #000 !important;
+    opacity: 1;
+}
+
+.gdpr-privacy-banner .ui.toggle.checkbox input:focus ~ label::before {
+    background-color: rgb(149, 149, 149);
+    box-shadow: 1px 1px 2px 0px rgb(#f90, 0.2);
+    outline: 2px solid #f90;
+}
+
+.gdpr-privacy-banner .ui.toggle.checkbox label::before,
+.gdpr-privacy-banner .ui.toggle.checkbox input:checked ~ label:before {
+    background-color: rgb(149, 149, 149);
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.gdpr-privacy-banner .ui.toggle.checkbox label:hover::before {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.gdpr-privacy-banner .ui.toggle.disabled.checkbox label::before {
+    opacity: 0.5;
 }
 
 .gdpr-privacy-banner
@@ -104,8 +151,10 @@
     .settings-title
     .ui.toggle.checkbox
     label:before {
+    right: 0;
     width: 4.5rem;
     height: 2rem;
+    margin-left: auto;
 }
 
 .gdpr-privacy-banner
@@ -115,8 +164,11 @@
     .settings-title
     .ui.toggle.checkbox
     label:after {
+    right: 2.7rem;
     width: 2rem;
     height: 2rem;
+    margin-left: auto;
+    transition: background 0.3s ease, right 0.3s ease;
 }
 
 .gdpr-privacy-banner
@@ -127,7 +179,65 @@
     .ui.toggle.checkbox
     input:checked
     ~ label:after {
-    left: 2.7rem;
+    right: 0;
+}
+
+/* small labels */
+
+.gdpr-privacy-banner
+    .gdpr-privacy-content-wrapper
+    .gdpr-privacy-settings
+    .settings-column
+    .choices
+    .ui.toggle.checkbox {
+    width: 100%;
+}
+
+.gdpr-privacy-banner
+    .gdpr-privacy-content-wrapper
+    .gdpr-privacy-settings
+    .choices
+    .choice-title
+    .ui.toggle.checkbox
+    label {
+    width: 100%;
+    padding-left: 0;
+    font-weight: bold;
+}
+
+.gdpr-privacy-banner
+    .gdpr-privacy-content-wrapper
+    .gdpr-privacy-settings
+    .choices
+    .choice-title
+    .ui.toggle.checkbox
+    label:after {
+    right: 2.15rem;
+    margin-left: auto;
+    transition: background 0.3s ease, right 0.3s ease;
+}
+
+.gdpr-privacy-banner
+    .gdpr-privacy-content-wrapper
+    .gdpr-privacy-settings
+    .choices
+    .choice-title
+    .ui.toggle.checkbox
+    input:checked
+    ~ label:after {
+    right: 0;
+    margin-left: auto;
+}
+
+.gdpr-privacy-banner
+    .gdpr-privacy-content-wrapper
+    .gdpr-privacy-settings
+    .choices
+    .choice-title
+    .ui.toggle.checkbox
+    label:before {
+    right: 0;
+    margin-left: auto;
 }
 
 .gdpr-privacy-banner
@@ -164,7 +274,6 @@
     .choice
     .choice-title {
     margin-bottom: 0.5rem;
-    font-weight: bold;
 }
 
 .gdpr-privacy-banner
@@ -181,8 +290,8 @@
     .gdpr-privacy-settings
     .settings-column
     + .settings-column {
-    padding-right: 0;
-    padding-left: 2em;
+    padding-right: 2em;
+    padding-left: 0;
 }
 
 @media (min-width: 768px) {
@@ -237,6 +346,6 @@
         .gdpr-privacy-settings
         .settings-column
         + .settings-column {
-        padding-left: 0;
+        padding-right: 0;
     }
 }

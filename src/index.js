@@ -1,7 +1,7 @@
 import CookieBanner from './components/CookieBanner/CookieBanner';
 import Button from './components/CookieBanner/ui/Button';
 import Container from './components/CookieBanner/ui/Container';
-import Radio from './components/CookieBanner/ui/Radio';
+import Checkbox from './components/CookieBanner/ui/Checkbox';
 import GdprPrivacyManager from './components/GdprPrivacyManager/GdprPrivacyManager';
 import ConditionalEmbed from './components/ConditionalEmbed/ConditionalEmbed';
 import { gdprPrivacyConsent, gdprPrivacyConfig } from './reducers';
@@ -13,7 +13,7 @@ export {
   ConditionalEmbed,
   Button,
   Container,
-  Radio,
+  Checkbox,
   displayBanner,
 };
 

@@ -7,6 +7,7 @@ const CookieSettings = ({ preferences, setPreferences, panelConfig }) => {
       {/******** TECHNICAL ********/}
       <div className="settings-column technical">
         <CookieGroupSettings
+          id="technical"
           groupConfig={panelConfig.technical}
           disabled={true}
           preferences={preferences}
@@ -17,6 +18,7 @@ const CookieSettings = ({ preferences, setPreferences, panelConfig }) => {
       {/******** PROFILING ********/}
       <div className="settings-column profiling">
         <CookieGroupSettings
+          id="profiling"
           groupConfig={panelConfig.profiling}
           disabled={false}
           preferences={preferences}
