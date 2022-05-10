@@ -1,3 +1,10 @@
+### [1.3.6](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.5...v1.3.6) (2022-05-10)
+
+
+### Bug Fixes
+
+* replaced radio buttons with checkbox and fixed a11y ([253c170](https://github.com/collective/volto-gdpr-privacy/commit/253c170aaa7d319fdf5cfa9ce42c750c9a6476ee))
+
 ### [1.3.5](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.4...v1.3.5) (2022-05-06)
 
 
