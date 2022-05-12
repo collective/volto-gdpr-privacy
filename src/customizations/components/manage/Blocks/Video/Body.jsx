@@ -3,13 +3,13 @@
  * @module components/manage/Blocks/Video/Body
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
-import { Embed, Message } from 'semantic-ui-react';
-import cx from 'classnames';
-import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers';
-import { ConditionalEmbed } from '../../../../../';
+import React from "react";
+import PropTypes from "prop-types";
+import { FormattedMessage } from "react-intl";
+import { Embed, Message } from "semantic-ui-react";
+import cx from "classnames";
+import { isInternalURL, flattenToAppURL } from "@plone/volto/helpers";
+import { ConditionalEmbed } from "../../../../../";
 
 /**
  * Body video block class.
@@ -27,12 +27,15 @@ const Body = ({ data, isEditMode }) => {
   let listID = null;
 
   if (!placeholder && data.url) {
-    if (data.url.match('youtu')) {
+    if (data.url.match("youtu")) {
       if (!placeholder) {
         //load video preview image from youtube
 
-        if (data.url.match('list')) {
-          listID = data.url.match(/^.*\?list=(.*)|^.*&list=(.*)$/)[1];       
+        if (data.url.match("list")) {
+          listID = data.url.match(/^.*\?list=(.*)|^.*&list=(.*)$/)[1];
+          if (data.url.match("v=")) {
+            videoID = data.url.match(/^.*\?v=(.*)&(.*)$/)?.[1] || null;
+          }
         } else {
           videoID = data.url.match(/.be\//)
             ? data.url.match(/^.*\.be\/(.*)/)[1]
@@ -40,11 +43,11 @@ const Body = ({ data, isEditMode }) => {
         }
 
         placeholder =
-          'https://img.youtube.com/vi/' + videoID + '/sddefault.jpg';
+          "https://img.youtube.com/vi/" + videoID + "/sddefault.jpg";
       }
-    } else if (data.url.match('vimeo')) {
+    } else if (data.url.match("vimeo")) {
       videoID = data.url.match(/^.*\.com\/(.*)/)[1];
-      placeholder = 'https://vumbnail.com/' + videoID + '.jpg';
+      placeholder = "https://vumbnail.com/" + videoID + ".jpg";
     }
   }
 
@@ -57,10 +60,10 @@ const Body = ({ data, isEditMode }) => {
 
   const embedSettings = {
     placeholder: placeholder,
-    icon: 'play',
+    icon: "play",
     defaultActive: false,
     autoplay: false,
-    aspectRatio: '16:9',
+    aspectRatio: "16:9",
     tabIndex: 0,
     onKeyPress: onKeyDown,
     ref: ref,
@@ -70,14 +73,14 @@ const Body = ({ data, isEditMode }) => {
     <>
       {data.url && (
         <div
-          className={cx('video-inner', {
-            'full-width': data.align === 'full',
+          className={cx("video-inner", {
+            "full-width": data.align === "full",
           })}
         >
           <ConditionalEmbed url={data.url}>
-            {data.url.match('youtu') ? (
+            {data.url.match("youtu") ? (
               <>
-                {data.url.match('list') ? (
+                {data.url.match("list") ? (
                   <Embed
                     url={`https://www.youtube.com/embed/videoseries?list=${listID}`}
                     {...embedSettings}
@@ -88,11 +91,11 @@ const Body = ({ data, isEditMode }) => {
               </>
             ) : (
               <>
-                {data.url.match('vimeo') ? (
+                {data.url.match("vimeo") ? (
                   <Embed id={videoID} source="vimeo" {...embedSettings} />
                 ) : (
                   <>
-                    {data.url.match('.mp4') ? (
+                    {data.url.match(".mp4") ? (
                       // eslint-disable-next-line jsx-a11y/media-has-caption
                       <video
                         src={
