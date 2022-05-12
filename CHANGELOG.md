@@ -1,3 +1,10 @@
+### [1.3.8](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.7...v1.3.8) (2022-05-12)
+
+
+### Bug Fixes
+
+* fixed video preview list ([3f51b03](https://github.com/collective/volto-gdpr-privacy/commit/3f51b0303c5ad7fa23bf7002ce7419d083a849f5))
+
 ### [1.3.7](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.6...v1.3.7) (2022-05-11)
 
 
