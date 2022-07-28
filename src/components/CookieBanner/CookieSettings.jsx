@@ -1,5 +1,5 @@
-import React from 'react';
-import CookieGroupSettings from './CookieGroupSettings';
+import React from "react";
+import CookieGroupSettings from "./CookieGroupSettings";
 
 const CookieSettings = ({ preferences, setPreferences, panelConfig }) => {
   return (
@@ -16,16 +16,18 @@ const CookieSettings = ({ preferences, setPreferences, panelConfig }) => {
       </div>
 
       {/******** PROFILING ********/}
-      <div className="settings-column profiling">
-        <CookieGroupSettings
-          id="profiling"
-          groupConfig={panelConfig.profiling}
-          disabled={false}
-          preferences={preferences}
-          setPreferences={setPreferences}
-          autofocus={true}
-        />
-      </div>
+      {panelConfig.profiling?.choices?.length > 0 && (
+        <div className="settings-column profiling">
+          <CookieGroupSettings
+            id="profiling"
+            groupConfig={panelConfig.profiling}
+            disabled={false}
+            preferences={preferences}
+            setPreferences={setPreferences}
+            autofocus={true}
+          />
+        </div>
+      )}
     </div>
   );
 };
