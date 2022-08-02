@@ -1,3 +1,10 @@
+### [1.3.9](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.8...v1.3.9) (2022-08-02)
+
+
+### Bug Fixes
+
+* handle empty profiling choices ([61aa805](https://github.com/collective/volto-gdpr-privacy/commit/61aa8054b484e1b7a9dbf81add62c5149b8fa4d4))
+
 ### [1.3.8](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.7...v1.3.8) (2022-05-12)
 
 
