@@ -19,12 +19,15 @@ const messages = defineMessages({
   },
   conditionalEmbedAcceptCookiesAcceptMessage: {
     id: 'volto-gdpr-privacy-conditional-embed-accept-message',
-    defaultMessage:
-      'Click {enable_cookie_button} to enable them, or click {manage_preferences_button} to manage your preferences.',
+    defaultMessage: '{enable_cookie_button}, or {manage_preferences_button}',
   },
-  here: {
-    id: 'volto-gdpr-privacy-conditional-embed-click-here',
-    defaultMessage: 'here',
+  specificCookieLink: {
+    id: 'volto-gdpr-privacy-conditional-embed-specific-cookie-link',
+    defaultMessage: 'Enable {cookie_type} cookies',
+  },
+  genericCookieLink: {
+    id: 'volto-gdpr-privacy-conditional-embed-generic-cookie-link',
+    defaultMessage: 'manage your cookie preferences',
   },
 });
 const ConditionalEmbed = ({ code, url, children }) => {
@@ -93,7 +96,9 @@ const ConditionalEmbed = ({ code, url, children }) => {
                   );
                 }}
               >
-                {intl.formatMessage(messages.here)}
+                {intl.formatMessage(messages.specificCookieLink, {
+                  cookie_type: key,
+                })}
               </button>
             ),
             manage_preferences_button: (
@@ -103,7 +108,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
                   dispatch(displayBanner(true, true));
                 }}
               >
-                {intl.formatMessage(messages.here)}
+                {intl.formatMessage(messages.genericCookieLink)}
               </button>
             ),
           },
