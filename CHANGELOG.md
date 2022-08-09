@@ -1,3 +1,11 @@
+### [1.3.10](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.9...v1.3.10) (2022-08-09)
+
+
+### Bug Fixes
+
+* (a11y) fixed links words on disabled info banner ([70d6dce](https://github.com/collective/volto-gdpr-privacy/commit/70d6dce7fa9cc7c4788fcfd67914f860cc2f8103))
+* fixed banner show ([27cc10e](https://github.com/collective/volto-gdpr-privacy/commit/27cc10ebcdb75359a57a4ae272f4b6db6ce12a7d))
+
 ### [1.3.9](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.8...v1.3.9) (2022-08-02)
 
 
