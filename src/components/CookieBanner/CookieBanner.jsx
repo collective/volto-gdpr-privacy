@@ -96,7 +96,7 @@ const CookieBanner = ({ cookies }) => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [panelConfig, defaultPreferences]);
+  }, []);
 
   const update = (newPreferences) => {
     //set cookies
@@ -157,6 +157,7 @@ const CookieBanner = ({ cookies }) => {
           basic
           icon
           onClick={(e) => {
+            e.preventDefault();
             acceptTechnicalCookies();
           }}
           className="close-button"
@@ -188,6 +189,7 @@ const CookieBanner = ({ cookies }) => {
             <Button
               color="black"
               onClick={(e) => {
+                e.preventDefault();
                 acceptTechnicalCookies();
               }}
             >
@@ -199,6 +201,7 @@ const CookieBanner = ({ cookies }) => {
                 <Button
                   className="primary"
                   onClick={(e) => {
+                    e.preventDefault();
                     acceptAllCookies();
                   }}
                 >
@@ -209,6 +212,7 @@ const CookieBanner = ({ cookies }) => {
                   <Button
                     color="black"
                     onClick={(e) => {
+                      e.preventDefault();
                       dispatch(displayBanner(true, true));
                     }}
                   >
@@ -218,6 +222,7 @@ const CookieBanner = ({ cookies }) => {
                   <Button
                     color="black"
                     onClick={(e) => {
+                      e.preventDefault();
                       acceptSettings();
                     }}
                   >

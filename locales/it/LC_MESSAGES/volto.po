@@ -47,19 +47,24 @@ msgid "volto-gdpr-privacy-close"
 msgstr "Accetta solo i cookies tecnici e chiudi"
 
 #: components/ConditionalEmbed/ConditionalEmbed
-# defaultMessage: Click {enable_cookie_button} to enable them, or click {manage_preferences_button} to manage your preferences.
+# defaultMessage: {enable_cookie_button}, or {manage_preferences_button}
 msgid "volto-gdpr-privacy-conditional-embed-accept-message"
-msgstr "Clicca {enable_cookie_button} per abilitarli, oppure clicca {manage_preferences_button} per gestire le tue preferenze."
-
-#: components/ConditionalEmbed/ConditionalEmbed
-# defaultMessage: here
-msgid "volto-gdpr-privacy-conditional-embed-click-here"
-msgstr "qui"
+msgstr "{enable_cookie_button}, oppure {manage_preferences_button}."
 
 #: components/ConditionalEmbed/ConditionalEmbed
 # defaultMessage: Please, accept {cookie_type} cookies to view this content.
 msgid "volto-gdpr-privacy-conditional-embed-default-description"
 msgstr "Per visualizzare questo contenuto, devi accettare i cookie {cookie_type}."
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: manage your cookie preferences
+msgid "volto-gdpr-privacy-conditional-embed-generic-cookie-link"
+msgstr "gestisci le tue preferenze sui cookie"
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: Enable {cookie_type} cookies
+msgid "volto-gdpr-privacy-conditional-embed-specific-cookie-link"
+msgstr "Abilita i cookie di {cookie_type}"
 
 #: components/CookieBanner/CookieGroupSettings
 # defaultMessage: Disabled
