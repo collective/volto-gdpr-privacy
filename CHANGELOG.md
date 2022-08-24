@@ -1,3 +1,10 @@
+### [1.3.11](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.10...v1.3.11) (2022-08-24)
+
+
+### Bug Fixes
+
+* fix display banner if 180 days have passed than last choice ([d39f039](https://github.com/collective/volto-gdpr-privacy/commit/d39f03929d63b54d12f5f3f3fdd1589733af0044))
+
 ### [1.3.10](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.9...v1.3.10) (2022-08-09)
 
 
