@@ -30,6 +30,13 @@ class GDPRCookies {
         expires: cookieExpiration || getExpirationDate(),
       }),
     );
+    this.cookies.set(
+      COOKIES_PREFIX + 'last_user_choice',
+      new Date().toISOString(),
+      getCookieOptions({
+        expires: cookieExpiration || getExpirationDate(),
+      }),
+    );
   }
 
   remove(name) {

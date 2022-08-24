@@ -51,6 +51,7 @@ const CookieBanner = ({ cookies }) => {
   const display = useSelector(
     (state) => state.gdprPrivacyConsent.display ?? false,
   );
+
   const showSettings = useSelector(
     (state) => state.gdprPrivacyConsent.displaySettings ?? false,
   );
@@ -83,7 +84,9 @@ const CookieBanner = ({ cookies }) => {
     if (panelConfig && defaultPreferences) {
       //if user hasn't yet accepted cookies, or cookies_version is changed, or 180 days have passed since the choice, ask user to accept new version
       let now = new Date();
-      let lastUpdated = new Date(panelConfig.last_updated);
+      let lastUpdated = new Date(
+        defaultPreferences?.last_user_choice || new Date('01-01-1970'),
+      );
       let passedDays = Math.ceil((now - lastUpdated) / (1000 * 60 * 60 * 24));
 
       if (
@@ -96,7 +99,7 @@ const CookieBanner = ({ cookies }) => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [panelConfig, defaultPreferences]);
 
   const update = (newPreferences) => {
     //set cookies

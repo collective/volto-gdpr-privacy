@@ -4,7 +4,10 @@ export const loadPreferences = (cookies, cookiesConfig) => {
   const technicalKeys = getCookiesKeys(cookiesConfig.technical);
   const profilingKeys = getCookiesKeys(cookiesConfig.profiling);
 
-  let preferences = { cookies_version: cookies.get('cookies_version') };
+  let preferences = {
+    cookies_version: cookies.get('cookies_version'),
+    last_user_choice: cookies.get('last_user_choice'),
+  };
   technicalKeys.forEach((k) => {
     const c = cookies.get(k);
     const v = c === 'true' ? true : c === 'false' ? false : c;
