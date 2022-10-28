@@ -15,15 +15,14 @@
     "i18n": "rm -rf build/messages && NODE_ENV=production i18n --addon",
     "release": "release-it"
   },
-  "dependencies": {
-    "@plone/scripts": "*"
-  },
+  "dependencies": {},
   "peerDependencies": {
-    "@plone/volto": ">=15.9.0"
+    "@plone/volto": ">=16.0.0-alpha.38"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.0.1",
     "@commitlint/config-conventional": "^16.0.0",
+    "@plone/scripts": "^2.0.0",
     "@release-it/conventional-changelog": "^3.3.0",
     "husky": "^7.0.4",
     "release-it": "^14.11.8"
