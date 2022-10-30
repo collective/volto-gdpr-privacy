@@ -1,3 +1,10 @@
+## [2.0.0](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.11...v2.0.0) (2022-10-30)
+
+
+### Changes
+
+* upgraded dependencies and babel config for volto 16 ([#15](https://github.com/collective/volto-gdpr-privacy/issues/15)) ([67d1fa5](https://github.com/collective/volto-gdpr-privacy/commit/67d1fa5f5cd5122333800a5fa8f87b9e7294591c))
+
 ### [1.3.11](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.10...v1.3.11) (2022-08-24)
 
 
