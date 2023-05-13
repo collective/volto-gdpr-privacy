@@ -1,0 +1,80 @@
+# Translation of volto.pot to Spanish
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: Plone\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-27T19:30:59.079Z\n"
+"PO-Revision-Date: 2023-05-13 11:04-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
+"Language: es\n"
+"Language-Team: ES <LL@li.org>\n"
+"Preferred-Encodings: utf-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Language-Code: es\n"
+"Language-Name: Español\n"
+"Domain: volto\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+
+#: components/CookieBanner/CookieBanner
+# defaultMessage: Accept all
+msgid "volto-gdpr-privacy-acceptAllCookies"
+msgstr "Aceptar todo"
+
+#: components/CookieBanner/CookieBanner
+# defaultMessage: Save my preferences
+msgid "volto-gdpr-privacy-acceptSettings"
+msgstr "Guardar mis preferencias"
+
+#: components/CookieBanner/CookieBanner
+# defaultMessage: Only necessary cookies
+msgid "volto-gdpr-privacy-acceptTechnicalCookies"
+msgstr "Solo cookies técnicas"
+
+#: components/ShowGdprBanner/ShowGdprBanner
+# defaultMessage: Show cookies settings
+msgid "volto-gdpr-privacy-buttonShowLabel"
+msgstr "Mostrar configuración de cookies"
+
+#: components/CookieBanner/CookieBanner
+# defaultMessage: Change settings
+msgid "volto-gdpr-privacy-changeSettings"
+msgstr "Cambiar la configuración"
+
+#: components/CookieBanner/CookieBanner
+# defaultMessage: Accept only necessary cookies and close
+msgid "volto-gdpr-privacy-close"
+msgstr "Acepte solo las cookies técnicas y cierre"
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: {enable_cookie_button}, or {manage_preferences_button}
+msgid "volto-gdpr-privacy-conditional-embed-accept-message"
+msgstr "{enable_cookie_button}, o {manage_preferences_button}."
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: Please, accept {cookie_type} cookies to view this content.
+msgid "volto-gdpr-privacy-conditional-embed-default-description"
+msgstr "Para ver este contenido, debe aceptar las cookies de {cookie_type}."
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: manage your cookie preferences
+msgid "volto-gdpr-privacy-conditional-embed-generic-cookie-link"
+msgstr "administrar sus preferencias de cookies"
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: Enable {cookie_type} cookies
+msgid "volto-gdpr-privacy-conditional-embed-specific-cookie-link"
+msgstr "Habilitar cookies de {cookie_type}"
+
+#: components/CookieBanner/CookieGroupSettings
+# defaultMessage: Disabled
+msgid "volto-gdpr-privacy-disabled"
+msgstr "Desactivado"
+
+#: components/CookieBanner/CookieGroupSettings
+# defaultMessage: Enabled
+msgid "volto-gdpr-privacy-enabled"
+msgstr "Activado"

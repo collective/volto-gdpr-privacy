@@ -96,6 +96,7 @@ This product has been translated into:
 - Italian
 - English
 - French
+- Spanish
 
 Please, contribute to this project adding translations for your language.
 
