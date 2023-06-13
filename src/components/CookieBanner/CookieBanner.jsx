@@ -16,6 +16,7 @@ import {
 import Button from 'volto-gdpr-privacy/components/CookieBanner/ui/Button';
 import Container from 'volto-gdpr-privacy/components/CookieBanner/ui/Container';
 import CookieSettings from './CookieSettings';
+import FocusLock from 'react-focus-lock';
 
 import './cookie-banner.css';
 
@@ -63,6 +64,7 @@ const CookieBanner = ({ cookies }) => {
 
   const [profilingKeys, setProfilingKeys] = useState(null);
   const [technicalKeys, setTechnicalKeys] = useState(null);
+  const [focusTrapActive, setFocusTrapActive] = useState(false);
   const [preferences, setPreferences] = useState(defaultPreferences);
 
   useEffect(() => {
@@ -71,6 +73,10 @@ const CookieBanner = ({ cookies }) => {
         setProfilingKeys(getCookiesKeys(panelConfig.profiling));
         setTechnicalKeys(getCookiesKeys(panelConfig.technical));
       }
+      // Need to set this only once. Calling update sets display
+      // as false, thus component is not actually shown. Trap remains
+      // active if set in config, will only change if config changes
+      setFocusTrapActive(panelConfig.focusTrapEnabled);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -154,90 +160,92 @@ const CookieBanner = ({ cookies }) => {
   }
 
   return display && panelConfig ? (
-    <div className="gdpr-privacy-banner">
-      <div className="gdpr-privacy-content-wrapper">
-        <Button
-          basic
-          icon
-          onClick={(e) => {
-            e.preventDefault();
-            acceptTechnicalCookies();
-          }}
-          className="close-button"
-        >
-          <Icon
-            name={clearSVG}
-            className="circled"
-            aria-label={intl.formatMessage(messages.close)}
-            size="30px"
-            title={intl.formatMessage(messages.close)}
-          />
-        </Button>
-        <Container className="gdpr-privacy-content">
-          <div className="title">{bannerText.title}</div>
-          <div
-            className="description"
-            dangerouslySetInnerHTML={{ __html: bannerText.description }}
-          />
-
-          {/********* SETTINGS *******/}
-          {showSettings && (
-            <CookieSettings
-              preferences={preferences}
-              setPreferences={setPreferences}
-              panelConfig={panelConfig}
+    <FocusLock disabled={!focusTrapActive}>
+      <div className="gdpr-privacy-banner">
+        <div className="gdpr-privacy-content-wrapper">
+          <Button
+            basic
+            icon
+            onClick={(e) => {
+              e.preventDefault();
+              acceptTechnicalCookies();
+            }}
+            className="close-button"
+          >
+            <Icon
+              name={clearSVG}
+              className="circled"
+              aria-label={intl.formatMessage(messages.close)}
+              size="30px"
+              title={intl.formatMessage(messages.close)}
             />
-          )}
-          <div className="buttons">
-            <Button
-              color="black"
-              onClick={(e) => {
-                e.preventDefault();
-                acceptTechnicalCookies();
-              }}
-            >
-              {intl.formatMessage(messages.acceptTechnicalCookies)}
-            </Button>
+          </Button>
+          <Container className="gdpr-privacy-content">
+            <div className="title">{bannerText.title}</div>
+            <div
+              className="description"
+              dangerouslySetInnerHTML={{ __html: bannerText.description }}
+            />
 
-            {profilingKeys?.length > 0 && (
-              <>
-                <Button
-                  className="primary"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    acceptAllCookies();
-                  }}
-                >
-                  {intl.formatMessage(messages.acceptAllCookies)}
-                </Button>
-
-                {!showSettings ? (
-                  <Button
-                    color="black"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      dispatch(displayBanner(true, true));
-                    }}
-                  >
-                    {intl.formatMessage(messages.changeSettings)}
-                  </Button>
-                ) : (
-                  <Button
-                    color="black"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      acceptSettings();
-                    }}
-                  >
-                    {intl.formatMessage(messages.acceptSettings)}
-                  </Button>
-                )}
-              </>
+            {/********* SETTINGS *******/}
+            {showSettings && (
+              <CookieSettings
+                preferences={preferences}
+                setPreferences={setPreferences}
+                panelConfig={panelConfig}
+              />
             )}
-          </div>
-        </Container>
+            <div className="buttons">
+              <Button
+                color="black"
+                onClick={(e) => {
+                  e.preventDefault();
+                  acceptTechnicalCookies();
+                }}
+              >
+                {intl.formatMessage(messages.acceptTechnicalCookies)}
+              </Button>
+
+              {profilingKeys?.length > 0 && (
+                <>
+                  <Button
+                    className="primary"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      acceptAllCookies();
+                    }}
+                  >
+                    {intl.formatMessage(messages.acceptAllCookies)}
+                  </Button>
+
+                  {!showSettings ? (
+                    <Button
+                      color="black"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        dispatch(displayBanner(true, true));
+                      }}
+                    >
+                      {intl.formatMessage(messages.changeSettings)}
+                    </Button>
+                  ) : (
+                    <Button
+                      color="black"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        acceptSettings();
+                      }}
+                    >
+                      {intl.formatMessage(messages.acceptSettings)}
+                    </Button>
+                  )}
+                </>
+              )}
+            </div>
+          </Container>
+        </div>
       </div>
-    </div>
+    </FocusLock>
   ) : (
     <></>
   );

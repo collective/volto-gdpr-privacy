@@ -1,6 +1,6 @@
 {
   "name": "volto-gdpr-privacy",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Volto GDPR privacy add-on",
   "main": "src/index.js",
   "author": "collective",
@@ -15,7 +15,9 @@
     "i18n": "rm -rf build/messages && NODE_ENV=production i18n --addon",
     "release": "release-it"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-focus-lock": "2.9.4"
+  },
   "peerDependencies": {
     "@plone/volto": ">=16.0.0-alpha.38"
   },
