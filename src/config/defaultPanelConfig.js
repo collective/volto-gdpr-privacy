@@ -1,6 +1,6 @@
 const defaultPanelConfig = {
   last_updated: '2022-01-11T10:36:28+00:00', //it is used to know whether to resubmit the banner to the user if the choices have changed.
-  focusTrapEnabled: true,
+  focusTrapEnabled: false,
   text: {
     //Text that is shown when the banner appears
     it: {
