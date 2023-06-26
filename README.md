@@ -85,6 +85,11 @@ config.settings['volto-gdpr-privacy] = {
   },
 ```
 
+#### Configurable focus trap (from v.2.1.0)
+
+Added a new configurable parameter called `focusTrapEnabled`, which defaults to false. This enables a focus trap provided by [react-focus-lock](https://www.npmjs.com/package/react-focus-lock)on cookie banner: user cannot tab their way out and has to perform an action via banner buttons to be able to navigate the site using keyboard.
+Custom panel configuration can be used to toggle this feature on or off, refer to previous section examples.
+
 ### Styling
 
 If you want to change or adapt styles, you should start adapting [cookie-banner.less](src/components/CookieBanner/cookie-banner.less).
