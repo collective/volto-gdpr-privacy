@@ -28,5 +28,6 @@
     "@release-it/conventional-changelog": "^3.3.0",
     "husky": "^7.0.4",
     "release-it": "^14.11.8"
-  }
+  },
+  "packageManager": "yarn@3.2.3"
 }
