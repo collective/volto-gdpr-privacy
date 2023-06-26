@@ -1,3 +1,16 @@
+## [2.1.0](https://github.com/collective/volto-gdpr-privacy/compare/v2.0.0...v2.1.0) (2023-06-26)
+
+
+### Features
+
+* add Spanish language ([3a8f901](https://github.com/collective/volto-gdpr-privacy/commit/3a8f9014403e05ed361c1f0f63c4c2c886367527))
+* added configurable focus trap ([#17](https://github.com/collective/volto-gdpr-privacy/issues/17)) ([36ed8e9](https://github.com/collective/volto-gdpr-privacy/commit/36ed8e9f73a3a4559cc70b2105e37f0200ddaadb))
+
+
+### Maintenance
+
+* upgrade to yarn 3 ([37b5428](https://github.com/collective/volto-gdpr-privacy/commit/37b5428349d55ec8caeaf7d453ad4e033f534869))
+
 ## [2.0.0](https://github.com/collective/volto-gdpr-privacy/compare/v1.3.11...v2.0.0) (2022-10-30)
 
 
