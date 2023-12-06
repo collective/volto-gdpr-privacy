@@ -1,11 +1,13 @@
 # volto-gdpr-privacy
 
-Volto GDPR Privacy addon to manage user consent.
-Display banner to user if gdprPrivacyConfiguration has changed or if 180 days have passed since last choice.
-It also insert in page a button to enable user to re-open the banner to change his preferences.
+Volto GDPR Privacy addon to manage user cookie consent.
 
-For now, gdprPrivacyConfiguration is definible from config.
-Next implementations step, is to make it configurable from Volto control panel.
+It requires [collective.volto.gdprcookie](https://github.com/collective/collective.volto.gdprcookie).
+
+Display a site banner if cookie configuration has changed or if 180 days have passed since last choice.
+Cookies and banner configuration is available from Volto's controlpanel.
+
+It also inserts in page a button to enable user to re-open the banner to change his preferences. You can hide this button from control panel.
 
 To be used with mrs-developer, see [Volto docs](https://docs.voltocms.com/customizing/add-ons/) for further usage informations.
 Otherwise, install it with:
@@ -41,49 +43,11 @@ export const settings = {
 
 ### Configuration
 
-In your config file, provide a configuration to define:
-
-- component to inject in page when user accept that type of cookie
-- default title and description suggested in control panel
-
-```jsx
-config.settings['volto-gdpr-privacy'] = {
-  defaultPanelConfig: defaultPanelConfig, //Default control-panel configuration.
-  settings: {
-    /******
-     * Example: dinamically include components based on user choices
-     * ******/
-    FACEBOOKPIXEL: {
-      component: () => {
-        return <>Facebook pixel</>;
-      },
-    },
-    // GTAGMANAGER:{....},
-    // MATOMO:{....},
-    //...your config keys...
-  },
-};
-```
+You can configure it from GDPR cookie control panel.
 
 #### Cookie expires
 
-It's possibile to define a cookie expire time. By default it's 6 month, but you could change your expiration days in the config:
-
-```jsx
-config.settings['volto-gdpr-privacy']?.cookieExpires = 1; //setting cookie expiration after 1 day
-```
-
-#### Panel configuration
-
-Until control panel is not available, a default control-panel configuration is used.
-You could extend [defaultPanelConfig.js](src/config/defaultPanelConfig.js) configuration, or create your configuration and pass it in the config file:
-
-```jsx
-config.settings['volto-gdpr-privacy] = {
-  defaultPanelConfig: defaultPanelConfig, //Default control-panel configuration.
-  //...
-  },
-```
+It's possibile to define a cookie expire time. By default it's 6 month, but you could change your expiration days in the control panel.
 
 #### Configurable focus trap (from v.2.1.0)
 
