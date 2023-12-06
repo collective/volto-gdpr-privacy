@@ -36,6 +36,20 @@ const applyConfig = (config) => {
     gdprPrivacyConfig,
   };
 
+  //add api-expander: 'gdpr-config'
+  let api_expanders = config.settings.apiExpanders.map(
+    (ae) => (ae.GET_CONTENT = (ae.GET_CONTENT ?? []).push('gdpr-config')),
+  );
+  if (api_expanders.filter((ae) => ae.match === '').length === 0) {
+    api_expanders.push({
+      match: '',
+      GET_CONTENT: ['gdpr-config'],
+    });
+  }
+
+  config.settings.apiExpanders = [...api_expanders];
+
+  //old settings [ToDo]: remove this
   config.settings['volto-gdpr-privacy'] = {
     defaultPanelConfig: defaultPanelConfig,
     settings: {
