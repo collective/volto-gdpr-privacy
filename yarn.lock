@@ -6522,10 +6522,20 @@ __metadata:
     husky: ^7.0.4
     react-focus-lock: 2.9.4
     release-it: ^14.11.8
+    volto-multilingual-widget: 3.0.0
   peerDependencies:
     "@plone/volto": ">=16.0.0-alpha.38"
   languageName: unknown
   linkType: soft
+
+"volto-multilingual-widget@npm:3.0.0":
+  version: 3.0.0
+  resolution: "volto-multilingual-widget@npm:3.0.0"
+  peerDependencies:
+    "@plone/volto": ">=16.0.0-alpha.38"
+  checksum: 3fa0611e7966ceeb22ea93e361b1811134ce67b5e1487c02a335601c0d77edb5aa9f5989e470a823794d24d70a963adad25f5d6a593354ada544c8d3ccc69a1e
+  languageName: node
+  linkType: hard
 
 "wcwidth@npm:^1.0.1":
   version: 1.0.1

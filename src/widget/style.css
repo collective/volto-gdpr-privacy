@@ -1,0 +1,22 @@
+.cookies-widget {
+    margin-bottom: 2rem;
+}
+.cookies-widget .ui.segment.attached {
+    border: 1px solid #d4d4d5 !important;
+    border-top: unset !important;
+}
+.cookies-widget .inline.field#text > .ui.grid > .row > .four.wide.column {
+    display: none;
+}
+.cookies-widget .inline.field#text > .ui.grid > .row > .eight.wide.column {
+    width: 100% !important;
+}
+
+.cookies-widget .choices-widget {
+    padding: 0 1rem;
+    margin-top: 1.5rem;
+}
+
+.cookies-widget .choices-widget h4 {
+    border-bottom: 1px solid #eee;
+}

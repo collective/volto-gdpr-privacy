@@ -7,6 +7,9 @@ import ConditionalEmbed from './components/ConditionalEmbed/ConditionalEmbed';
 import { gdprPrivacyConsent, gdprPrivacyConfig } from './reducers';
 import defaultPanelConfig from './config/defaultPanelConfig.js';
 import { displayBanner } from './actions';
+import cookiesSettingsSVG from './icons/cookies-settings.svg';
+import GDPRCookieSettingsWidget from './widget/GDPRCookieSettingsWidget';
+
 export {
   CookieBanner,
   GdprPrivacyManager,
@@ -34,6 +37,16 @@ const applyConfig = (config) => {
     ...config.addonReducers,
     gdprPrivacyConsent,
     gdprPrivacyConfig,
+  };
+
+  config.settings.controlPanelsIcons = {
+    ...config.settings.controlPanelsIcons,
+    'gdpr-cookie-settings': cookiesSettingsSVG,
+  };
+
+  config.widgets.id = {
+    ...config.widgets.id,
+    gdpr_cookie_settings: GDPRCookieSettingsWidget,
   };
 
   //add api-expander: 'gdpr-config'
