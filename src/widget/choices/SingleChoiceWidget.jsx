@@ -22,14 +22,14 @@ const messages = defineMessages({
   },
 });
 
+const SingleChoiceTextMultilingualWidget = MultilingualWidget(
+  ChoiceTextWidget,
+  {},
+);
+
 const SingleChoiceWidget = ({ value, onChange, type }) => {
   //type: [technical, profiling]
   const intl = useIntl();
-
-  const TextMultilingualWidget = MultilingualWidget(
-    ChoiceTextWidget(type),
-    value.text ?? {},
-  );
 
   return (
     <div className="single-choice-widget">
@@ -56,7 +56,7 @@ const SingleChoiceWidget = ({ value, onChange, type }) => {
           }}
         />
       )}
-      <TextMultilingualWidget
+      <SingleChoiceTextMultilingualWidget
         id="text"
         title={intl.formatMessage(messages.text)}
         value={value.text}

@@ -20,3 +20,7 @@
 .cookies-widget .choices-widget h4 {
     border-bottom: 1px solid #eee;
 }
+
+.cookies-widget .choices-widget .menu .item .move-buttons {
+    margin-right: 1rem;
+}

@@ -16,13 +16,13 @@ const messages = defineMessages({
   },
 });
 
+const CookiesTextMultilingualWidget = MultilingualWidget(CookiesTextWidget, {
+  title: '',
+  description: {},
+});
+
 const CookiesWidget = ({ value, id, title, onChange }) => {
   const intl = useIntl();
-
-  const CookiesTextMultilingualWidget = MultilingualWidget(CookiesTextWidget, {
-    title: '',
-    description: {},
-  });
 
   return (
     <div className="cookies-widget">

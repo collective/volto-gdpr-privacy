@@ -54,6 +54,11 @@ const messages = defineMessages({
   },
 });
 
+const MainTextMultilingualWidget = MultilingualWidget(MainTextWidget, {
+  title: '',
+  description: {},
+});
+
 const GDPRCookieSettingsWidget = ({
   value,
   id,
@@ -64,17 +69,12 @@ const GDPRCookieSettingsWidget = ({
 }) => {
   const intl = useIntl();
   const [settings, setSettings] = useState(JSON.parse(value) ?? {});
-  console.log(settings);
 
   const handleChangeSettings = (value) => {
     setSettings(value);
     onChange(id, JSON.stringify(value));
   };
 
-  const MainTextMultilingualWidget = MultilingualWidget(MainTextWidget, {
-    title: '',
-    description: {},
-  });
   return (
     <>
       <TextWidget

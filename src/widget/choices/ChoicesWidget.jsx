@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
-import { Grid, Tab } from 'semantic-ui-react';
-import { MultilingualWidget } from 'volto-multilingual-widget';
+import { Grid, Menu, Button, Icon } from 'semantic-ui-react';
 import { TextWidget, ArrayWidget } from '@plone/volto/components';
 import SlateRichTextWidget from '@plone/volto-slate/widgets/RichTextWidget';
 import ChoiceTextWidget from './ChoiceTextWidget';
@@ -24,6 +23,22 @@ const messages = defineMessages({
   referenceUrls: {
     id: 'gdprcookiesettings-choice_referenceUrls',
     defaultMessage: 'Reference URLs',
+  },
+  moveItemUp: {
+    id: 'gdprcookiesettings-choice-move-up',
+    defaultMessage: 'Move choice up',
+  },
+  moveItemDown: {
+    id: 'gdprcookiesettings-choice-move-down',
+    defaultMessage: 'Move choice down',
+  },
+  addChoice: {
+    id: 'gdprcookiesettings-choice-add',
+    defaultMessage: 'Add choice',
+  },
+  deleteChoice: {
+    id: 'gdprcookiesettings-choice-delete',
+    defaultMessage: 'Delete choice',
   },
 });
 
@@ -49,36 +64,110 @@ const ChoicesWidget = ({
 }) => {
   //type: [technical, profiling]
   const intl = useIntl();
+  const [activeChoice, setActiveChoice] = useState(0);
 
-  const panes = value?.map((choice, i) => ({
-    menuItem: choice.config_key,
-    render: () => (
-      <Tab.Pane id={`choice-${i}`} key={`choice-${i}`}>
-        <label htmlFor={`choice-${i}`} style={srOnlyStyles}>
-          {choice.config_key}
-        </label>
+  const moveChoice = (e, choiceIndex, direction) => {
+    e.preventDefault();
+    const up = direction === 'up';
+    let newValue = [...value];
 
-        <SingleChoiceWidget
-          value={choice}
-          type={type}
-          onChange={(v) => {
-            let new_value = [...value];
-            new_value[i] = v;
-            onChange(id, new_value);
-          }}
-        />
-      </Tab.Pane>
-    ),
-  }));
+    let choice = value[choiceIndex];
+    newValue.splice(choiceIndex, 1);
+    newValue.splice(choiceIndex + (up ? -1 : 1), 0, choice);
+
+    onChange(id, newValue);
+  };
+
+  const addChoice = (e) => {
+    e.preventDefault();
+    let new_value = [...value];
+    new_value.push(DEFAULT_CHOICE);
+
+    setActiveChoice(value.length);
+    onChange(id, new_value);
+  };
+
+  const deleteChoice = (e, index) => {
+    e.preventDefault();
+    let new_value = [...value];
+    new_value.splice(index, 1);
+
+    if (activeChoice === index) {
+      let new_index = index > 0 ? index - 1 : 0;
+      if (new_value.length == 0) {
+        new_value = [DEFAULT_CHOICE];
+      }
+      setTimeout(() => setActiveChoice(new_index), 0);
+    }
+
+    onChange(id, new_value);
+  };
 
   return (
     <div className="choices-widget">
       <h4>{intl.formatMessage(messages.cookies_choices)}</h4>
-
-      <Tab
-        menu={{ fluid: true, vertical: true, tabular: true }}
-        panes={panes}
-      />
+      <Grid>
+        <Grid.Column width={4}>
+          <Menu fluid vertical tabular className="choices-items-menu">
+            {value?.map((choice, idx) => (
+              <Menu.Item
+                key={`choices-item-${idx}`}
+                name={choice.config_key}
+                active={activeChoice === idx}
+                onClick={() => setActiveChoice(idx)}
+              >
+                <Button.Group vertical className="move-buttons">
+                  <Button
+                    disabled={idx === 0}
+                    size="tiny"
+                    icon={<Icon name="arrow up" />}
+                    title={intl.formatMessage(messages.moveItemUp)}
+                    onClick={(e) => moveChoice(e, idx, 'up')}
+                  />
+                  <Button
+                    disabled={idx === value.length - 1}
+                    size="tiny"
+                    icon={<Icon name="arrow down" />}
+                    title={intl.formatMessage(messages.moveItemDown)}
+                    onClick={(e) => moveChoice(e, idx, 'down')}
+                  />
+                </Button.Group>
+                <span>{choice.config_key ?? '?KEY?'}</span>
+              </Menu.Item>
+            ))}
+            <Menu.Item
+              name={intl.formatMessage(messages.addChoice)}
+              onClick={(e) => addChoice(e, activeChoice)}
+            >
+              <Icon name="plus" />
+            </Menu.Item>
+          </Menu>
+        </Grid.Column>
+        <Grid.Column stretched width={8}>
+          {activeChoice > -1 && activeChoice < value?.length ? (
+            <>
+              <SingleChoiceWidget
+                value={value[activeChoice]}
+                type={type}
+                onChange={(v) => {
+                  let new_value = [...value];
+                  new_value[activeChoice] = v;
+                  onChange(id, new_value);
+                }}
+              />
+              <br />
+              <Button
+                onClick={(e) => deleteChoice(e, activeChoice)}
+                negative
+                icon="trash"
+                content={intl.formatMessage(messages.deleteChoice)}
+              />
+            </>
+          ) : (
+            <></>
+          )}
+        </Grid.Column>
+      </Grid>
     </div>
   );
 };
