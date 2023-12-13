@@ -16,6 +16,159 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "X-Is-Fallback-For: fr-be fr-ca fr-ch fr-fr fr-lu fr-mc\n"
 
+#: widget/MainTextWidget
+# defaultMessage: Main banner text description
+msgid "gdprcookiesettings-banner-description"
+msgstr ""
+
+#: widget/MainTextWidget
+# defaultMessage: Main banner text description, where you can link privacy policy page for example.
+msgid "gdprcookiesettings-banner-description_description"
+msgstr ""
+
+#: widget/MainTextWidget
+# defaultMessage: Banner title
+msgid "gdprcookiesettings-banner-title"
+msgstr ""
+
+#: widget/choices/ChoicesWidget
+# defaultMessage: Add choice
+msgid "gdprcookiesettings-choice-add"
+msgstr ""
+
+#: widget/choices/ChoicesWidget
+# defaultMessage: Delete choice
+msgid "gdprcookiesettings-choice-delete"
+msgstr ""
+
+#: widget/choices/ChoicesWidget
+# defaultMessage: Move choice down
+msgid "gdprcookiesettings-choice-move-down"
+msgstr ""
+
+#: widget/choices/ChoicesWidget
+# defaultMessage: Move choice up
+msgid "gdprcookiesettings-choice-move-up"
+msgstr ""
+
+#: widget/choices/ChoiceTextWidget
+# defaultMessage: Conditional embed text
+msgid "gdprcookiesettings-choice-text-conditional_embed_text"
+msgstr ""
+
+#: widget/choices/ChoiceTextWidget
+# defaultMessage: This text is displayed as a placeholder if user hasn't accepted this cookie.
+msgid "gdprcookiesettings-choice-text-conditional_embed_text_description"
+msgstr ""
+
+#: widget/choices/ChoiceTextWidget
+# defaultMessage: Cookie description
+msgid "gdprcookiesettings-choice-text-description"
+msgstr ""
+
+#: widget/choices/ChoiceTextWidget
+# defaultMessage: Explain what this cookie does if the user enables it.
+msgid "gdprcookiesettings-choice-text-description_description"
+msgstr ""
+
+#: widget/choices/ChoiceTextWidget
+# defaultMessage: Cookie title
+msgid "gdprcookiesettings-choice-text-title"
+msgstr ""
+
+#: widget/choices/ChoicesWidget
+#: widget/choices/SingleChoiceWidget
+# defaultMessage: Key
+msgid "gdprcookiesettings-choice_config_key"
+msgstr ""
+
+#: widget/choices/ChoicesWidget
+#: widget/choices/SingleChoiceWidget
+# defaultMessage: Reference URLs
+msgid "gdprcookiesettings-choice_referenceUrls"
+msgstr ""
+
+#: widget/choices/SingleChoiceWidget
+# defaultMessage: Type URL domains like "google.com", "youtube.com", ...
+msgid "gdprcookiesettings-choice_referenceUrls_description"
+msgstr ""
+
+#: widget/choices/SingleChoiceWidget
+# defaultMessage: Type URL domains
+msgid "gdprcookiesettings-choice_referenceUrls_placeholder"
+msgstr ""
+
+#: widget/choices/ChoicesWidget
+#: widget/choices/SingleChoiceWidget
+# defaultMessage: Text
+msgid "gdprcookiesettings-choice_text"
+msgstr ""
+
+#: widget/GDPRCookieSettingsWidget
+# defaultMessage: Cookie prefix
+msgid "gdprcookiesettings-cookie_prefix"
+msgstr ""
+
+#: widget/GDPRCookieSettingsWidget
+# defaultMessage: Set a prefix for the cookie. By changing this value, the user's choices are invalidated, forcing the appearance of the banner and the related confirmation of the cookies. Useful when, for example, adding entries in technical cookies.
+msgid "gdprcookiesettings-cookie_prefix_description"
+msgstr ""
+
+#: widget/CookiesWidget
+# defaultMessage: Cookie
+msgid "gdprcookiesettings-cookies-choices"
+msgstr ""
+
+#: widget/CookiesTextWidget
+# defaultMessage: Description
+msgid "gdprcookiesettings-cookies-description"
+msgstr ""
+
+#: widget/CookiesTextWidget
+# defaultMessage: Cookie text description, where you can explain what are this type of cookie, for example.
+msgid "gdprcookiesettings-cookies-description_description"
+msgstr ""
+
+#: widget/CookiesWidget
+# defaultMessage: Text
+msgid "gdprcookiesettings-cookies-text"
+msgstr ""
+
+#: widget/CookiesTextWidget
+# defaultMessage: Title
+msgid "gdprcookiesettings-cookies-title"
+msgstr ""
+
+#: widget/choices/ChoicesWidget
+# defaultMessage: Cookie
+msgid "gdprcookiesettings-cookies_choices"
+msgstr ""
+
+#: widget/GDPRCookieSettingsWidget
+# defaultMessage: If enabled, user cannot tab their way out and has to perform an action via banner buttons to be able to navigate the site using keyboard.
+msgid "gdprcookiesettings-focusTrapDescription"
+msgstr ""
+
+#: widget/GDPRCookieSettingsWidget
+# defaultMessage: Enable focus trap
+msgid "gdprcookiesettings-focusTrapEnabled"
+msgstr ""
+
+#: widget/GDPRCookieSettingsWidget
+# defaultMessage: Profiling cookies
+msgid "gdprcookiesettings-profiling-cookies"
+msgstr ""
+
+#: widget/GDPRCookieSettingsWidget
+# defaultMessage: Technical cookies
+msgid "gdprcookiesettings-technical-cookies"
+msgstr ""
+
+#: widget/GDPRCookieSettingsWidget
+# defaultMessage: Main banner text
+msgid "gdprcookiesettings-text"
+msgstr ""
+
 #: components/CookieBanner/CookieBanner
 # defaultMessage: Accept all
 msgid "volto-gdpr-privacy-acceptAllCookies"

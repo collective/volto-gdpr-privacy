@@ -10,7 +10,7 @@ import SingleChoiceWidget from './SingleChoiceWidget';
 const messages = defineMessages({
   cookies_choices: {
     id: 'gdprcookiesettings-cookies_choices',
-    defaultMessage: 'Cookies',
+    defaultMessage: 'Cookie',
   },
   config_key: {
     id: 'gdprcookiesettings-choice_config_key',

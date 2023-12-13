@@ -16,7 +16,7 @@ const messages = defineMessages({
   description_description: {
     id: 'gdprcookiesettings-cookies-description_description',
     defaultMessage:
-      'Cookies text description, where you can explain what are this type of cookies, for example.',
+      'Cookie text description, where you can explain what are this type of cookie, for example.',
   },
 });
 

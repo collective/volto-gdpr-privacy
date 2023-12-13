@@ -12,7 +12,7 @@ const messages = defineMessages({
   },
   choices: {
     id: 'gdprcookiesettings-cookies-choices',
-    defaultMessage: 'Cookies',
+    defaultMessage: 'Cookie',
   },
 });
 
