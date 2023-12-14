@@ -184,6 +184,11 @@ msgstr "Salva le mie preferenze"
 msgid "volto-gdpr-privacy-acceptTechnicalCookies"
 msgstr "Solo cookies tecnici"
 
+#: components/CookieBanner/CookieBanner
+# defaultMessage: Accept necessary cookies
+msgid "volto-gdpr-privacy-acceptTechnicalCookiesOnly"
+msgstr "Accetta i cookie necessari"
+
 #: components/ShowGdprBanner/ShowGdprBanner
 # defaultMessage: Show cookies settings
 msgid "volto-gdpr-privacy-buttonShowLabel"

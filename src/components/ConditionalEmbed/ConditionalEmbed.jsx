@@ -8,7 +8,6 @@ import {
   GDPRCookies,
   getLocaleConf,
 } from '../../helpers';
-import defaultConfig from '../../config/temp_defaultConfig'; //[ToDo]: remove this when data is received from @cmponents
 
 import './conditional-embed.css';
 
@@ -33,22 +32,14 @@ const messages = defineMessages({
 });
 const ConditionalEmbed = ({ code, url, children }) => {
   const intl = useIntl();
-  const panel_config = useSelector(
-    (state) =>
-      state.content?.data?.['@components']?.['gdpr-cookie-infos'] ??
-      defaultConfig, ////[ToDo]: remove this when data is received from @cmponents and use this {} as default,
-  );
-
-  const cookies = new GDPRCookies(panel_config);
+  const cookies = new GDPRCookies();
+  const { defaultPreferences, panelConfig } =
+    usePanelConfigAndPreferences(cookies);
   const embed = code ?? url ?? '';
   const dispatch = useDispatch();
 
-  const { defaultPreferences } = usePanelConfigAndPreferences(cookies);
-
-  const profilingConfig = useSelector((state) =>
-    state.gdprPrivacyConfig?.config?.profiling?.choices?.filter(
-      (c) => c?.referenceUrls?.length > 0,
-    ),
+  const profilingConfig = panelConfig?.profiling?.choices?.filter(
+    (c) => c?.referenceUrls?.length > 0,
   );
   const gdprPreferences = useSelector(
     (state) => state.gdprPrivacyConsent.preferences ?? defaultPreferences,
@@ -95,11 +86,11 @@ const ConditionalEmbed = ({ code, url, children }) => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  cookies.set(key, true);
+                  cookies.set('prof_' + key, true);
                   dispatch(
                     updateGdprPrivacyConsent({
                       ...gdprPreferences,
-                      [key]: true,
+                      ['prof_' + key]: true,
                     }),
                   );
                 }}

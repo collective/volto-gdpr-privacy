@@ -4,7 +4,7 @@ import Container from './components/CookieBanner/ui/Container';
 import Checkbox from './components/CookieBanner/ui/Checkbox';
 import GdprPrivacyManager from './components/GdprPrivacyManager/GdprPrivacyManager';
 import ConditionalEmbed from './components/ConditionalEmbed/ConditionalEmbed';
-import { gdprPrivacyConsent, gdprPrivacyConfig } from './reducers';
+import { gdprPrivacyConsent } from './reducers';
 import defaultPanelConfig from './config/defaultPanelConfig.js';
 import { displayBanner } from './actions';
 import cookiesSettingsSVG from './icons/cookies-settings.svg';
@@ -36,7 +36,6 @@ const applyConfig = (config) => {
   config.addonReducers = {
     ...config.addonReducers,
     gdprPrivacyConsent,
-    gdprPrivacyConfig,
   };
 
   config.settings.controlPanelsIcons = {
@@ -49,7 +48,7 @@ const applyConfig = (config) => {
     gdpr_cookie_settings: GDPRCookieSettingsWidget,
   };
 
-  //add api-expander: 'gdpr-cookie-infos'
+  //add api-expander: 'gdpr-cookie-settings'
   let api_expanders = config.settings.apiExpanders.map(
     (ae) =>
       (ae.GET_CONTENT = (ae.GET_CONTENT ?? []).push('gdpr-cookie-settings')),
@@ -63,9 +62,7 @@ const applyConfig = (config) => {
 
   config.settings.apiExpanders = [...api_expanders];
 
-  //old settings [ToDo]: remove this
   config.settings['volto-gdpr-privacy'] = {
-    defaultPanelConfig: defaultPanelConfig,
     settings: {
       /******
        * Example: dinamically include components based on user choices

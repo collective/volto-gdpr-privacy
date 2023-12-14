@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom';
 import { Icon } from '@plone/volto/components';
 import clearSVG from '@plone/volto/icons/clear.svg';
 import { isCmsUi } from '@plone/volto/helpers';
+import { TextBlockView } from '@plone/volto-slate/blocks/Text';
+import { checkRichTextHasContent } from '../../helpers/richText';
 import { updateGdprPrivacyConsent, displayBanner } from '../../actions';
 import {
   usePanelConfigAndPreferences,
@@ -18,14 +20,16 @@ import Container from 'volto-gdpr-privacy/components/CookieBanner/ui/Container';
 import CookieSettings from './CookieSettings';
 import FocusLock from 'react-focus-lock';
 
-import defaultConfig from '../../config/temp_defaultConfig'; //[ToDo]: remove this when data is received from @cmponents
-
 import './cookie-banner.css';
 
 const messages = defineMessages({
   acceptTechnicalCookies: {
     id: 'volto-gdpr-privacy-acceptTechnicalCookies',
     defaultMessage: 'Only necessary cookies',
+  },
+  acceptTechnicalCookiesOnly: {
+    id: 'volto-gdpr-privacy-acceptTechnicalCookiesOnly',
+    defaultMessage: 'Accept necessary cookies',
   },
   acceptAllCookies: {
     id: 'volto-gdpr-privacy-acceptAllCookies',
@@ -52,10 +56,8 @@ const CookieBanner = ({ cookies }) => {
   const isCmsUI = isCmsUi(location.pathname);
   const gdpr_cookie_infos = useSelector(
     (state) =>
-      state.content?.data?.['@components']?.['gdpr-cookie-infos'] ??
-      defaultConfig, ////[ToDo]: remove this when data is received from @cmponents and use this {} as default,
+      state.content?.data?.['@components']?.['gdpr-cookie-settings'] ?? {},
   );
-  const banner_enabled = gdpr_cookie_infos.banner_enabled;
 
   const display = useSelector(
     (state) => state.gdprPrivacyConsent.display ?? false,
@@ -75,11 +77,12 @@ const CookieBanner = ({ cookies }) => {
   const [focusTrapActive, setFocusTrapActive] = useState(false);
   const [preferences, setPreferences] = useState(defaultPreferences);
 
+  const enabled = Object.keys(panelConfig ?? {}).length > 0;
   useEffect(() => {
-    if (panelConfig && banner_enabled) {
+    if (enabled) {
       if (!profilingKeys && !technicalKeys) {
-        setProfilingKeys(getCookiesKeys(panelConfig.profiling));
-        setTechnicalKeys(getCookiesKeys(panelConfig.technical));
+        setProfilingKeys(getCookiesKeys(panelConfig.profiling) ?? []);
+        setTechnicalKeys(getCookiesKeys(panelConfig.technical) ?? []);
       }
       // Need to set this only once. Calling update sets display
       // as false, thus component is not actually shown. Trap remains
@@ -95,19 +98,13 @@ const CookieBanner = ({ cookies }) => {
   }, [defaultPreferences]);
 
   useEffect(() => {
-    if (panelConfig && defaultPreferences && banner_enabled) {
-      //if user hasn't yet accepted cookies, or cookies_version is changed, or conofigured 'cookie_expires' days from control panel have passed since the choice, ask user to accept new version
-      let now = new Date();
-      let lastUpdated = new Date(
-        defaultPreferences?.last_user_choice || new Date('01-01-1970'),
-      );
-      let passedDays = Math.ceil((now - lastUpdated) / (1000 * 60 * 60 * 24));
-
-      if (
-        !defaultPreferences.cookies_version ||
-        panelConfig.last_updated !== defaultPreferences.cookies_version ||
-        passedDays >= gdpr_cookie_infos.cookie_expires
-      ) {
+    if (enabled && defaultPreferences) {
+      /*
+      if user hasn't yet accepted cookies, or 'cookie_version' from control panel is changed,
+      or configured 'cookie_expires' days from control panel have passed since the choice,
+      it means that the cookie isn't set and we have to ask user to accept new version
+      */
+      if (cookies.get() === '') {
         dispatch(displayBanner(true));
       }
     }
@@ -127,26 +124,24 @@ const CookieBanner = ({ cookies }) => {
   };
 
   const acceptTechnicalCookies = () => {
-    let newPreferences = { cookies_version: panelConfig.last_updated };
+    let newPreferences = {};
     technicalKeys.forEach((k) => {
-      newPreferences[k] = true;
+      newPreferences['tech_' + k] = true;
     });
     profilingKeys.forEach((k) => {
-      cookies.set(k, false);
-      newPreferences[k] = false;
+      newPreferences['prof_' + k] = false;
     });
 
     update(newPreferences);
   };
 
   const acceptAllCookies = () => {
-    let newPreferences = { cookies_version: panelConfig.last_updated };
+    let newPreferences = {};
     technicalKeys.forEach((k) => {
-      newPreferences[k] = true;
+      newPreferences['tech_' + k] = true;
     });
     profilingKeys.forEach((k) => {
-      cookies.set(k, false);
-      newPreferences[k] = true;
+      newPreferences['prof_' + k] = true;
     });
 
     update(newPreferences);
@@ -155,19 +150,18 @@ const CookieBanner = ({ cookies }) => {
   const acceptSettings = () => {
     const newPreferences = {
       ...preferences,
-      cookies_version: panelConfig.last_updated,
     };
 
     update(newPreferences);
   };
 
-  const bannerText = getLocaleConf(panelConfig?.text, intl.locale);
+  const bannerText = getLocaleConf(panelConfig?.text, intl.locale) ?? {};
 
   if (__SERVER__ || isCmsUI || isPageSpeedBot()) {
     return <></>;
   }
 
-  return banner_enabled && display && panelConfig ? (
+  return display && enabled ? (
     <FocusLock disabled={!focusTrapActive}>
       <div className="gdpr-privacy-banner">
         <div className="gdpr-privacy-content-wrapper">
@@ -190,10 +184,11 @@ const CookieBanner = ({ cookies }) => {
           </Button>
           <Container className="gdpr-privacy-content">
             <div className="title">{bannerText.title}</div>
-            <div
-              className="description"
-              dangerouslySetInnerHTML={{ __html: bannerText.description }}
-            />
+            {checkRichTextHasContent(bannerText.description) && (
+              <div className="description">
+                <TextBlockView data={{ value: bannerText.description }} />
+              </div>
+            )}
 
             {/********* SETTINGS *******/}
             {showSettings && (
@@ -211,7 +206,9 @@ const CookieBanner = ({ cookies }) => {
                   acceptTechnicalCookies();
                 }}
               >
-                {intl.formatMessage(messages.acceptTechnicalCookies)}
+                {profilingKeys?.length > 0
+                  ? intl.formatMessage(messages.acceptTechnicalCookies)
+                  : intl.formatMessage(messages.acceptTechnicalCookiesOnly)}
               </Button>
 
               {profilingKeys?.length > 0 && (

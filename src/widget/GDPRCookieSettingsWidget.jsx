@@ -27,17 +27,6 @@ const messages = defineMessages({
     defaultMessage:
       'If enabled, user cannot tab their way out and has to perform an action via banner buttons to be able to navigate the site using keyboard.',
   },
-
-  cookie_prefix: {
-    id: 'gdprcookiesettings-cookie_prefix',
-    defaultMessage: 'Cookie prefix',
-  },
-  cookie_prefix_description: {
-    id: 'gdprcookiesettings-cookie_prefix_description',
-    defaultMessage:
-      "Set a prefix for the cookie. By changing this value, the user's choices are invalidated, forcing the appearance of the banner and the related confirmation of the cookies. Useful when, for example, adding entries in technical cookies.",
-  },
-
   text: {
     id: 'gdprcookiesettings-text',
     defaultMessage: 'Main banner text',
@@ -77,15 +66,6 @@ const GDPRCookieSettingsWidget = ({
 
   return (
     <>
-      <TextWidget
-        id="cookie_prefix"
-        title={intl.formatMessage(messages.cookie_prefix)}
-        description={intl.formatMessage(messages.cookie_prefix_description)}
-        value={settings.cookie_prefix}
-        onChange={(name, value) => {
-          handleChangeSettings({ ...settings, [name]: value });
-        }}
-      />
       <CheckboxWidget
         id="focusTrapEnabled"
         title={intl.formatMessage(messages.focusTrapEnabled)}

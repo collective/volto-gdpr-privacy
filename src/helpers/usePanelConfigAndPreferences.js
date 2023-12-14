@@ -1,36 +1,42 @@
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getGdprPrivacyConfig } from '../actions';
+import { useSelector } from 'react-redux';
 import { loadPreferences } from './banner';
 
 const usePanelConfigAndPreferences = (cookies, forceLoad) => {
-  const dispatch = useDispatch();
-  const panelConfigStatus = useSelector((state) => state.gdprPrivacyConfig);
-  const panelConfig = useSelector((state) => state.gdprPrivacyConfig.config);
+  const panelConfig = useSelector(
+    (state) =>
+      state.content?.data?.['@components']?.['gdpr-cookie-settings'] ?? {},
+  );
+  const panelConfigStatus = useSelector((state) => state.content.get);
   const [defaultPreferences, setDefaultPreferences] = useState(null);
 
   useEffect(() => {
-    if (!panelConfigStatus.loaded && !panelConfigStatus.loading) {
-      dispatch(getGdprPrivacyConfig());
+    if (cookies) {
+      cookies.setPanelConfig(panelConfig);
     }
+  }, [panelConfig]);
 
+  useEffect(() => {
     if (
       panelConfigStatus.loaded &&
       !panelConfigStatus.loading &&
-      !defaultPreferences
+      !defaultPreferences &&
+      cookies
     ) {
-      setDefaultPreferences(loadPreferences(cookies, panelConfigStatus.config));
+      setDefaultPreferences(loadPreferences(cookies, panelConfig));
     }
-  }, [dispatch, panelConfigStatus, cookies, defaultPreferences]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [panelConfigStatus]);
 
   useEffect(() => {
     if (
       forceLoad &&
       panelConfigStatus.loaded &&
       !panelConfigStatus.loading &&
-      defaultPreferences
+      defaultPreferences &&
+      cookies
     ) {
-      setDefaultPreferences(loadPreferences(cookies, panelConfigStatus.config));
+      setDefaultPreferences(loadPreferences(cookies, panelConfig));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [forceLoad]);
