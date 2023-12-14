@@ -49,14 +49,15 @@ const applyConfig = (config) => {
     gdpr_cookie_settings: GDPRCookieSettingsWidget,
   };
 
-  //add api-expander: 'gdpr-config'
+  //add api-expander: 'gdpr-cookie-infos'
   let api_expanders = config.settings.apiExpanders.map(
-    (ae) => (ae.GET_CONTENT = (ae.GET_CONTENT ?? []).push('gdpr-config')),
+    (ae) =>
+      (ae.GET_CONTENT = (ae.GET_CONTENT ?? []).push('gdpr-cookie-settings')),
   );
   if (api_expanders.filter((ae) => ae.match === '').length === 0) {
     api_expanders.push({
       match: '',
-      GET_CONTENT: ['gdpr-config'],
+      GET_CONTENT: ['gdpr-cookie-settings'],
     });
   }
 

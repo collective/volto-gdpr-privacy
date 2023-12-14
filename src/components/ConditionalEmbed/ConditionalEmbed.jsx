@@ -8,6 +8,7 @@ import {
   GDPRCookies,
   getLocaleConf,
 } from '../../helpers';
+import defaultConfig from '../../config/temp_defaultConfig'; //[ToDo]: remove this when data is received from @cmponents
 
 import './conditional-embed.css';
 
@@ -32,11 +33,18 @@ const messages = defineMessages({
 });
 const ConditionalEmbed = ({ code, url, children }) => {
   const intl = useIntl();
-  const cookies = new GDPRCookies();
+  const panel_config = useSelector(
+    (state) =>
+      state.content?.data?.['@components']?.['gdpr-cookie-infos'] ??
+      defaultConfig, ////[ToDo]: remove this when data is received from @cmponents and use this {} as default,
+  );
+
+  const cookies = new GDPRCookies(panel_config);
   const embed = code ?? url ?? '';
   const dispatch = useDispatch();
 
   const { defaultPreferences } = usePanelConfigAndPreferences(cookies);
+
   const profilingConfig = useSelector((state) =>
     state.gdprPrivacyConfig?.config?.profiling?.choices?.filter(
       (c) => c?.referenceUrls?.length > 0,

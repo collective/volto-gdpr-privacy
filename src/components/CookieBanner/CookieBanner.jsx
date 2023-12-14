@@ -18,6 +18,8 @@ import Container from 'volto-gdpr-privacy/components/CookieBanner/ui/Container';
 import CookieSettings from './CookieSettings';
 import FocusLock from 'react-focus-lock';
 
+import defaultConfig from '../../config/temp_defaultConfig'; //[ToDo]: remove this when data is received from @cmponents
+
 import './cookie-banner.css';
 
 const messages = defineMessages({
@@ -48,6 +50,12 @@ const CookieBanner = ({ cookies }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const isCmsUI = isCmsUi(location.pathname);
+  const gdpr_cookie_infos = useSelector(
+    (state) =>
+      state.content?.data?.['@components']?.['gdpr-cookie-infos'] ??
+      defaultConfig, ////[ToDo]: remove this when data is received from @cmponents and use this {} as default,
+  );
+  const banner_enabled = gdpr_cookie_infos.banner_enabled;
 
   const display = useSelector(
     (state) => state.gdprPrivacyConsent.display ?? false,
@@ -68,7 +76,7 @@ const CookieBanner = ({ cookies }) => {
   const [preferences, setPreferences] = useState(defaultPreferences);
 
   useEffect(() => {
-    if (panelConfig) {
+    if (panelConfig && banner_enabled) {
       if (!profilingKeys && !technicalKeys) {
         setProfilingKeys(getCookiesKeys(panelConfig.profiling));
         setTechnicalKeys(getCookiesKeys(panelConfig.technical));
@@ -87,8 +95,8 @@ const CookieBanner = ({ cookies }) => {
   }, [defaultPreferences]);
 
   useEffect(() => {
-    if (panelConfig && defaultPreferences) {
-      //if user hasn't yet accepted cookies, or cookies_version is changed, or 180 days have passed since the choice, ask user to accept new version
+    if (panelConfig && defaultPreferences && banner_enabled) {
+      //if user hasn't yet accepted cookies, or cookies_version is changed, or conofigured 'cookie_expires' days from control panel have passed since the choice, ask user to accept new version
       let now = new Date();
       let lastUpdated = new Date(
         defaultPreferences?.last_user_choice || new Date('01-01-1970'),
@@ -98,7 +106,7 @@ const CookieBanner = ({ cookies }) => {
       if (
         !defaultPreferences.cookies_version ||
         panelConfig.last_updated !== defaultPreferences.cookies_version ||
-        passedDays >= 180
+        passedDays >= gdpr_cookie_infos.cookie_expires
       ) {
         dispatch(displayBanner(true));
       }
@@ -159,7 +167,7 @@ const CookieBanner = ({ cookies }) => {
     return <></>;
   }
 
-  return display && panelConfig ? (
+  return banner_enabled && display && panelConfig ? (
     <FocusLock disabled={!focusTrapActive}>
       <div className="gdpr-privacy-banner">
         <div className="gdpr-privacy-content-wrapper">

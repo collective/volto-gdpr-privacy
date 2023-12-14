@@ -1,9 +1,9 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { defineMessages, useIntl } from 'react-intl';
 import { displayBanner } from '../../actions';
 import cookieSVG from './user-lock-solid.svg';
-
+import defaultConfig from '../../config/temp_defaultConfig'; //[ToDo]: remove this when data is received from @cmponents
 import './show-gdpr-banner.css';
 
 const messages = defineMessages({
@@ -16,8 +16,14 @@ const messages = defineMessages({
 const ShowGdprBanner = () => {
   const intl = useIntl();
   const dispatch = useDispatch();
+  const gdpr_cookie_infos = useSelector(
+    (state) =>
+      state.content.data?.['@components']?.['gdpr-cookie-infos'] ??
+      defaultConfig, ////[ToDo]: remove this when data is received from @cmponents and use this {} as default,,
+  );
 
-  return (
+  const show = gdpr_cookie_infos.banner_enabled && gdpr_cookie_infos.show_icon;
+  return show ? (
     <button
       className="gdpr-privacy-show-banner"
       onClick={(e) => {
@@ -28,6 +34,8 @@ const ShowGdprBanner = () => {
     >
       <img src={cookieSVG} alt={intl.formatMessage(messages.buttonShowLabel)} />
     </button>
+  ) : (
+    <></>
   );
 };
 

@@ -2,7 +2,7 @@ import Cookies from 'universal-cookie';
 import { getCookieOptions } from '@plone/volto/helpers';
 import config from '@plone/volto/registry';
 
-export const COOKIES_PREFIX = 'vgdpr_';
+export const DEFAULT_COOKIES_PREFIX = 'vgdpr';
 
 export const getExpirationDate = (date = null, expiringDays) => {
   const days =
@@ -15,32 +15,62 @@ export const getExpirationDate = (date = null, expiringDays) => {
 };
 
 class GDPRCookies {
-  constructor() {
+  constructor(panel_config) {
     this.cookies = new Cookies();
+    //this.panel_config = panel_config;
+    this.prefix = panel_config?.cookie_version ?? DEFAULT_COOKIES_PREFIX;
+    this.cookie_name = this.prefix + '_accepted_providers';
   }
+  //OLD getter and setter
   get(name) {
-    return this.cookies.get(COOKIES_PREFIX + name);
+    return this.cookies.get(this.prefix + name);
   }
 
   set(name, value, cookieExpiration) {
     this.cookies.set(
-      COOKIES_PREFIX + name,
+      this.prefix + name,
       value,
       getCookieOptions({
         expires: cookieExpiration || getExpirationDate(),
       }),
     );
     this.cookies.set(
-      COOKIES_PREFIX + 'last_user_choice',
+      this.prefix + 'last_user_choice',
       new Date().toISOString(),
       getCookieOptions({
         expires: cookieExpiration || getExpirationDate(),
       }),
     );
   }
+  // NEW getter, fix setter
+  // get(name = null) {
+  //   const cookie_value = this.cookies.get(this.cookie_name) ?? '';
+  //   if (name) {
+  //     const isAccepted = cookie_value.split(',').indexOf(name) >= 0;
+  //     return isAccepted ? name : null;
+  //   }
+  //   return cookie_value;
+  // }
+
+  // set(name, value, cookieExpiration) {
+  //   this.cookies.set(
+  //     this.cookie_name,
+  //     value,
+  //     getCookieOptions({
+  //       expires: cookieExpiration || getExpirationDate(),
+  //     }),
+  //   );
+  //   this.cookies.set(
+  //     DEFAULT_COOKIES_PREFIX + 'last_user_choice',
+  //     new Date().toISOString(),
+  //     getCookieOptions({
+  //       expires: cookieExpiration || getExpirationDate(),
+  //     }),
+  //   );
+  // }
 
   remove(name) {
-    this.cookies.remove(COOKIES_PREFIX + name, { path: '/' });
+    this.cookies.remove(this.prefix + name, { path: '/' });
   }
 }
 
