@@ -35,6 +35,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
   const cookies = new GDPRCookies();
   const { defaultPreferences, panelConfig } =
     usePanelConfigAndPreferences(cookies);
+
   const embed = code ?? url ?? '';
   const dispatch = useDispatch();
 
@@ -64,7 +65,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
 
   embedDisabled =
     urlReferenceConfig != null &&
-    !gdprPreferences[urlReferenceConfig.config_key];
+    !gdprPreferences['prof_' + urlReferenceConfig.config_key];
 
   if (__SERVER__ || !gdprPreferences) {
     return <></>;
@@ -77,7 +78,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
         {text.conditional_embed_text ??
           intl.formatMessage(
             messages.conditionalEmbedAcceptCookiesDefaultDescription,
-            { cookie_type: key },
+            { cookie_type: text.title },
           )}{' '}
         {intl.formatMessage(
           messages.conditionalEmbedAcceptCookiesAcceptMessage,
@@ -86,6 +87,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
+
                   cookies.set('prof_' + key, true);
                   dispatch(
                     updateGdprPrivacyConsent({
@@ -96,7 +98,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
                 }}
               >
                 {intl.formatMessage(messages.specificCookieLink, {
-                  cookie_type: key,
+                  cookie_type: text.title,
                 })}
               </button>
             ),

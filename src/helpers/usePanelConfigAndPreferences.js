@@ -11,10 +11,10 @@ const usePanelConfigAndPreferences = (cookies, forceLoad) => {
   const [defaultPreferences, setDefaultPreferences] = useState(null);
 
   useEffect(() => {
-    if (cookies) {
+    if (cookies && panelConfig) {
       cookies.setPanelConfig(panelConfig);
     }
-  }, [panelConfig]);
+  }, [panelConfig, cookies]);
 
   useEffect(() => {
     if (

@@ -28,44 +28,45 @@ const messages = defineMessages({
   },
 });
 
-const ChoiceTextWidget = ({ value, id, onChange, type }) => {
-  const intl = useIntl();
+const ChoiceTextWidget =
+  (type) =>
+  ({ value, id, onChange }) => {
+    const intl = useIntl();
 
-  return (
-    <>
-      <TextWidget
-        id="title"
-        title={intl.formatMessage(messages.title)}
-        value={value.title}
-        onChange={(n, v) => {
-          onChange(id, { ...value, [n]: v });
-        }}
-      />
-
-      <SlateRichTextWidget
-        id="description"
-        title={intl.formatMessage(messages.description)}
-        description={intl.formatMessage(messages.description_description)}
-        value={value.description}
-        onChange={(n, v) => {
-          onChange(id, { ...value, [n]: v });
-        }}
-      />
-      {type === 'profiling' && (
-        <TextareaWidget
-          id="conditional_embed_text"
-          title={intl.formatMessage(messages.conditional_embed_text)}
-          description={intl.formatMessage(
-            messages.conditional_embed_text_description,
-          )}
-          value={value.conditional_embed_text}
+    return (
+      <>
+        <TextWidget
+          id="title"
+          title={intl.formatMessage(messages.title)}
+          value={value.title}
           onChange={(n, v) => {
             onChange(id, { ...value, [n]: v });
           }}
         />
-      )}
-    </>
-  );
-};
+        <SlateRichTextWidget
+          id="description"
+          title={intl.formatMessage(messages.description)}
+          description={intl.formatMessage(messages.description_description)}
+          value={value.description}
+          onChange={(n, v) => {
+            onChange(id, { ...value, [n]: v });
+          }}
+        />
+        {type === 'profiling' && (
+          <TextareaWidget
+            id="conditional_embed_text"
+            title={intl.formatMessage(messages.conditional_embed_text)}
+            description={intl.formatMessage(
+              messages.conditional_embed_text_description,
+            )}
+            value={value.conditional_embed_text}
+            onChange={(n, v) => {
+              onChange(id, { ...value, [n]: v });
+            }}
+          />
+        )}
+      </>
+    );
+  };
 
 export default ChoiceTextWidget;

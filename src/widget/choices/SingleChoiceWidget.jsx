@@ -31,8 +31,12 @@ const messages = defineMessages({
   },
 });
 
-const SingleChoiceTextMultilingualWidget = MultilingualWidget(
-  ChoiceTextWidget,
+const SingleChoiceTextMultilingualWidget_tech = MultilingualWidget(
+  ChoiceTextWidget('technical'),
+  {},
+);
+const SingleChoiceTextMultilingualWidget_prof = MultilingualWidget(
+  ChoiceTextWidget('profiling'),
   {},
 );
 
@@ -55,27 +59,39 @@ const SingleChoiceWidget = ({ value, onChange, type }) => {
         }}
       />
 
-      {type === 'profiling' && (
-        <TokenWidget
-          id="referenceUrls"
-          title={intl.formatMessage(messages.referenceUrls)}
-          value={value.referenceUrls}
+      {type === 'profiling' ? (
+        <>
+          <TokenWidget
+            id="referenceUrls"
+            title={intl.formatMessage(messages.referenceUrls)}
+            value={value.referenceUrls}
+            onChange={(n, v) => {
+              onChange({ ...value, [n]: v });
+            }}
+            placeholder={intl.formatMessage(messages.referenceUrls_placeholder)}
+            description={intl.formatMessage(messages.referenceUrls_description)}
+          />
+          <SingleChoiceTextMultilingualWidget_prof
+            id="text"
+            title={intl.formatMessage(messages.text)}
+            value={value.text}
+            onChange={(n, v) => {
+              onChange({ ...value, [n]: JSON.parse(v) });
+            }}
+            type={type}
+          />
+        </>
+      ) : (
+        <SingleChoiceTextMultilingualWidget_tech
+          id="text"
+          title={intl.formatMessage(messages.text)}
+          value={value.text}
           onChange={(n, v) => {
-            onChange({ ...value, [n]: v });
+            onChange({ ...value, [n]: JSON.parse(v) });
           }}
-          placeholder={intl.formatMessage(messages.referenceUrls_placeholder)}
-          description={intl.formatMessage(messages.referenceUrls_description)}
+          type={type}
         />
       )}
-      <SingleChoiceTextMultilingualWidget
-        id="text"
-        title={intl.formatMessage(messages.text)}
-        value={value.text}
-        onChange={(n, v) => {
-          onChange({ ...value, [n]: JSON.parse(v) });
-        }}
-        type={type}
-      />
     </div>
   );
 };

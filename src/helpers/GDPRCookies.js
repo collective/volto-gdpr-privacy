@@ -37,6 +37,7 @@ class GDPRCookies {
   }
 
   set(name, value) {
+    console.log(name, value, this.cookie_name);
     if (!this.cookie_name) {
       return;
     }
