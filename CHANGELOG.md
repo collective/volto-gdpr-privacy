@@ -1,3 +1,10 @@
+### [2.1.1](https://github.com/collective/volto-gdpr-privacy/compare/v2.1.0...v2.1.1) (2023-12-15)
+
+
+### Bug Fixes
+
+* condiitinoal embed in diffView ([471ffe7](https://github.com/collective/volto-gdpr-privacy/commit/471ffe768e0bae3e56916d68cc67de7fdff7c607))
+
 ## [2.1.0](https://github.com/collective/volto-gdpr-privacy/compare/v2.0.0...v2.1.0) (2023-06-26)
 
 
