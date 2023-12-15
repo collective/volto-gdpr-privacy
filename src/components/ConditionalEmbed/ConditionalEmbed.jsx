@@ -61,13 +61,28 @@ const ConditionalEmbed = ({ code, url, children }) => {
 
   //return value
   let ret = <></>;
-  let embedDisabled = true;
-
-  embedDisabled =
+  let embedDisabled =
     urlReferenceConfig != null &&
     !gdprPreferences[urlReferenceConfig.config_key];
 
-  if (__SERVER__ || !gdprPreferences) {
+  if (__SERVER__) {
+    return <></>;
+  }
+  if (!gdprPreferences && !urlReferenceConfig) {
+    //we are in diffView (content history)
+    return (
+      <div
+        className="volto-gdpr-embed-disabled"
+        style={{ 'text-align': 'left' }}
+      >
+        <strong>Embed: </strong>
+        <br />
+        {embed}
+      </div>
+    );
+  }
+
+  if (!gdprPreferences) {
     return <></>;
   } else if (embedDisabled) {
     //embed disabled
