@@ -32,10 +32,6 @@ const GdprPrivacyManagerIncludeComponents = ({ cookies }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gdprPreferences]);
 
-  if (__SERVER__) {
-    return <></>;
-  }
-
   return (
     <>
       {Object.keys(includeComponents).map((k) => {

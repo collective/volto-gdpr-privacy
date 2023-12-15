@@ -61,21 +61,39 @@ const ConditionalEmbed = ({ code, url, children }) => {
 
   //return value
   let ret = <></>;
-  let embedDisabled = true;
-
-  embedDisabled =
+  let cookieConsentEnabled = Object.keys(panelConfig ?? {}).length > 0;
+  let embedDisabled =
+    cookieConsentEnabled &&
     urlReferenceConfig != null &&
     !gdprPreferences['prof_' + urlReferenceConfig.config_key];
 
-  if (__SERVER__ || !gdprPreferences) {
+  if (cookieConsentEnabled && __SERVER__) {
     return <></>;
-  } else if (embedDisabled) {
+  }
+  if (cookieConsentEnabled && !gdprPreferences && !urlReferenceConfig) {
+    //we are in diffView (content history)
+    return (
+      <div
+        className="volto-gdpr-embed-disabled"
+        style={{ 'text-align': 'left' }}
+      >
+        <strong>Embed: </strong>
+        <br />
+        {embed}
+      </div>
+    );
+  }
+
+  if (cookieConsentEnabled && !gdprPreferences) {
+    return <></>;
+  }
+  if (embedDisabled) {
     //embed disabled
     const text = getLocaleConf(urlReferenceConfig.text, intl.locale);
     const key = urlReferenceConfig.config_key;
     ret = (
       <div className="volto-gdpr-embed-disabled">
-        {text.conditional_embed_text ??
+        {text?.conditional_embed_text ??
           intl.formatMessage(
             messages.conditionalEmbedAcceptCookiesDefaultDescription,
             { cookie_type: text.title },

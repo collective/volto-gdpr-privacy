@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { defineMessages, useIntl } from 'react-intl';
-import { useLocation } from 'react-router-dom';
 import { Icon } from '@plone/volto/components';
 import clearSVG from '@plone/volto/icons/clear.svg';
-import { isCmsUi } from '@plone/volto/helpers';
 import { TextBlockView } from '@plone/volto-slate/blocks/Text';
 import { checkRichTextHasContent } from '../../helpers/richText';
 import { updateGdprPrivacyConsent, displayBanner } from '../../actions';
@@ -12,7 +10,6 @@ import {
   usePanelConfigAndPreferences,
   getLocaleConf,
   getCookiesKeys,
-  isPageSpeedBot,
 } from '../../helpers';
 
 import Button from 'volto-gdpr-privacy/components/CookieBanner/ui/Button';
@@ -51,22 +48,13 @@ const messages = defineMessages({
 
 const CookieBanner = ({ cookies }) => {
   const intl = useIntl();
-  const location = useLocation();
   const dispatch = useDispatch();
-  const isCmsUI = isCmsUi(location.pathname);
-  const gdpr_cookie_infos = useSelector(
-    (state) =>
-      state.content?.data?.['@components']?.['gdpr-cookie-settings'] ?? {},
-  );
-
   const display = useSelector(
     (state) => state.gdprPrivacyConsent.display ?? false,
   );
-
   const showSettings = useSelector(
     (state) => state.gdprPrivacyConsent.displaySettings ?? false,
   );
-
   const { panelConfig, defaultPreferences } = usePanelConfigAndPreferences(
     cookies,
     display,
@@ -156,10 +144,6 @@ const CookieBanner = ({ cookies }) => {
   };
 
   const bannerText = getLocaleConf(panelConfig?.text, intl.locale) ?? {};
-
-  if (__SERVER__ || isCmsUI || isPageSpeedBot()) {
-    return <></>;
-  }
 
   return display && enabled ? (
     <FocusLock disabled={!focusTrapActive}>

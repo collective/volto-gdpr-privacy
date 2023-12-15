@@ -7,6 +7,8 @@ const usePanelConfigAndPreferences = (cookies, forceLoad) => {
     (state) =>
       state.content?.data?.['@components']?.['gdpr-cookie-settings'] ?? {},
   );
+  const content = useSelector((state) => state.content.data);
+
   const panelConfigStatus = useSelector((state) => state.content.get);
   const [defaultPreferences, setDefaultPreferences] = useState(null);
 
@@ -26,7 +28,7 @@ const usePanelConfigAndPreferences = (cookies, forceLoad) => {
       setDefaultPreferences(loadPreferences(cookies, panelConfig));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [panelConfigStatus]);
+  }, [panelConfigStatus, defaultPreferences, cookies]);
 
   useEffect(() => {
     if (
