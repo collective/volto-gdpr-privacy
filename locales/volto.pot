@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2023-12-14T14:17:01.840Z\n"
+"POT-Creation-Date: 2023-12-20T09:46:18.802Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -79,6 +79,11 @@ msgstr ""
 msgid "gdprcookiesettings-choice_config_key"
 msgstr ""
 
+#: widget/choices/SingleChoiceWidget
+# defaultMessage: Technical identifier of the cookie. You can choose it as you like.
+msgid "gdprcookiesettings-choice_config_key_description"
+msgstr ""
+
 #: widget/choices/ChoicesWidget
 #: widget/choices/SingleChoiceWidget
 # defaultMessage: Reference URLs
@@ -99,16 +104,6 @@ msgstr ""
 #: widget/choices/SingleChoiceWidget
 # defaultMessage: Text
 msgid "gdprcookiesettings-choice_text"
-msgstr ""
-
-#: widget/GDPRCookieSettingsWidget
-# defaultMessage: Cookie prefix
-msgid "gdprcookiesettings-cookie_prefix"
-msgstr ""
-
-#: widget/GDPRCookieSettingsWidget
-# defaultMessage: Set a prefix for the cookie. By changing this value, the user's choices are invalidated, forcing the appearance of the banner and the related confirmation of the cookies. Useful when, for example, adding entries in technical cookies.
-msgid "gdprcookiesettings-cookie_prefix_description"
 msgstr ""
 
 #: widget/CookiesWidget

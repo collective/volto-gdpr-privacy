@@ -13,6 +13,11 @@ const messages = defineMessages({
     id: 'gdprcookiesettings-choice_config_key',
     defaultMessage: 'Key',
   },
+  config_key_description: {
+    id: 'gdprcookiesettings-choice_config_key_description',
+    defaultMessage:
+      'Technical identifier of the cookie. You can choose it as you like.',
+  },
   text: {
     id: 'gdprcookiesettings-choice_text',
     defaultMessage: 'Text',
@@ -49,6 +54,7 @@ const SingleChoiceWidget = ({ value, onChange, type }) => {
       <TextWidget
         id="config_key"
         title={intl.formatMessage(messages.config_key)}
+        description={intl.formatMessage(messages.config_key_description)}
         value={value.config_key}
         onChange={(n, v) => {
           //replace spacial characters and spaces with '_', and transform to uppercase

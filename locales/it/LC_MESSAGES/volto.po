@@ -82,6 +82,11 @@ msgstr "Titolo del cookie"
 msgid "gdprcookiesettings-choice_config_key"
 msgstr "Chiave (KEY)"
 
+#: widget/choices/SingleChoiceWidget
+# defaultMessage: Technical identifier of the cookie. You can choose it as you like.
+msgid "gdprcookiesettings-choice_config_key_description"
+msgstr "Identificativo tecnico del cookie. Puoi sceglierlo a piacimento."
+
 #: widget/choices/ChoicesWidget
 #: widget/choices/SingleChoiceWidget
 # defaultMessage: Reference URLs
@@ -91,7 +96,7 @@ msgstr "Url di riferimento"
 #: widget/choices/SingleChoiceWidget
 # defaultMessage: Type URL domains like "google.com", "youtube.com", ...
 msgid "gdprcookiesettings-choice_referenceUrls_description"
-msgstr "Scrivi i domini degli URL che verrano gestiti da questa opzionoe. Ad esempio: 'google.com', 'youtube.com',..."
+msgstr "Scrivi i domini degli URL che verrano gestiti da questa opzione. Ad esempio: 'google.com', 'youtube.com',..."
 
 #: widget/choices/SingleChoiceWidget
 # defaultMessage: Type URL domains
@@ -103,16 +108,6 @@ msgstr "Inserisci i domini degli URL"
 # defaultMessage: Text
 msgid "gdprcookiesettings-choice_text"
 msgstr "Testo"
-
-#: widget/GDPRCookieSettingsWidget
-# defaultMessage: Cookie prefix
-msgid "gdprcookiesettings-cookie_prefix"
-msgstr "Prefisso del cookie"
-
-#: widget/GDPRCookieSettingsWidget
-# defaultMessage: Set a prefix for the cookie. By changing this value, the user's choices are invalidated, forcing the appearance of the banner and the related confirmation of the cookies. Useful when, for example, adding entries in technical cookies.
-msgid "gdprcookiesettings-cookie_prefix_description"
-msgstr "Imposta un prefisso per il cookie. Cambiando questo valore, le scelte dell'utente verranno invalidate, forzando la comparsa del banner e la relativa conferma dei cookie. Utile quando, per esempio, vengono aggiunte opzioni nei cookie tecnici."
 
 #: widget/CookiesWidget
 # defaultMessage: Cookie
