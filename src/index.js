@@ -49,18 +49,20 @@ const applyConfig = (config) => {
   };
 
   //add api-expander: 'gdpr-cookie-settings'
-  let api_expanders = config.settings.apiExpanders.map(
-    (ae) =>
-      (ae.GET_CONTENT = (ae.GET_CONTENT ?? []).push('gdpr-cookie-settings')),
-  );
-  if (api_expanders.filter((ae) => ae.match === '').length === 0) {
-    api_expanders.push({
+  config.settings.apiExpanders.forEach((ae) => {
+    if (!ae.GET_CONTENT) {
+      ae.GET_CONTENT = [];
+    }
+    ae.GET_CONTENT.push('gdpr-cookie-settings');
+  });
+  if (
+    config.settings.apiExpanders.filter((ae) => ae.match === '').length === 0
+  ) {
+    config.settings.apiExpanders.push({
       match: '',
       GET_CONTENT: ['gdpr-cookie-settings'],
     });
   }
-
-  config.settings.apiExpanders = [...api_expanders];
 
   config.settings['volto-gdpr-privacy'] = {
     settings: {
