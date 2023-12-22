@@ -33,8 +33,9 @@ const messages = defineMessages({
 const ConditionalEmbed = ({ code, url, children }) => {
   const intl = useIntl();
   const cookies = new GDPRCookies();
-  const { defaultPreferences, panelConfig } =
-    usePanelConfigAndPreferences(cookies);
+  const { defaultPreferences, panelConfig } = usePanelConfigAndPreferences(
+    cookies,
+  );
 
   const embed = code ?? url ?? '';
   const dispatch = useDispatch();
@@ -43,8 +44,9 @@ const ConditionalEmbed = ({ code, url, children }) => {
     (c) => c?.referenceUrls?.length > 0,
   );
   const gdprPreferences = useSelector(
-    (state) => state.gdprPrivacyConsent.preferences ?? defaultPreferences,
+    (state) => state.gdprPrivacyConsent.preferences ?? defaultPreferences ?? {},
   );
+
   const [urlReferenceConfig, setUrlReferenceConfig] = useState(null);
 
   useEffect(() => {
