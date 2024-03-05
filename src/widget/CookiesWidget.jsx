@@ -18,7 +18,7 @@ const messages = defineMessages({
 
 const CookiesTextMultilingualWidget = MultilingualWidget(CookiesTextWidget, {
   title: '',
-  description: {},
+  description: undefined, //undefined is needed for Slate editor
 });
 
 const CookiesWidget = ({ value, id, title, onChange }) => {

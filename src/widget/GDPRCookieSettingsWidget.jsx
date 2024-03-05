@@ -45,7 +45,7 @@ const messages = defineMessages({
 
 const MainTextMultilingualWidget = MultilingualWidget(MainTextWidget, {
   title: '',
-  description: {},
+  description: undefined, //undefined is needed for Slate editor
 });
 
 const GDPRCookieSettingsWidget = ({
