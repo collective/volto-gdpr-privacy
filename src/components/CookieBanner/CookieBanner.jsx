@@ -26,7 +26,7 @@ const messages = defineMessages({
   },
   acceptTechnicalCookiesOnly: {
     id: 'volto-gdpr-privacy-acceptTechnicalCookiesOnly',
-    defaultMessage: 'Accept necessary cookies',
+    defaultMessage: 'Ok',
   },
   acceptAllCookies: {
     id: 'volto-gdpr-privacy-acceptAllCookies',

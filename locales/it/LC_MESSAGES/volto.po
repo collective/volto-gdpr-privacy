@@ -182,7 +182,7 @@ msgstr "Solo cookies tecnici"
 #: components/CookieBanner/CookieBanner
 # defaultMessage: Accept necessary cookies
 msgid "volto-gdpr-privacy-acceptTechnicalCookiesOnly"
-msgstr "Accetta i cookie necessari"
+msgstr "Ok"
 
 #: components/ShowGdprBanner/ShowGdprBanner
 # defaultMessage: Show cookies settings
