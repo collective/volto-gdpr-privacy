@@ -8,7 +8,14 @@ import { gdprPrivacyConsent } from './reducers';
 import defaultPanelConfig from './config/defaultPanelConfig.js';
 import { displayBanner } from './actions';
 import cookiesSettingsSVG from './icons/cookies-settings.svg';
-import GDPRCookieSettingsWidget from './widget/GDPRCookieSettingsWidget';
+import loadable from '@loadable/component';
+
+const GDPRCookieSettingsWidget = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "GDPRCookieSettingsWidget" */ './widget/GDPRCookieSettingsWidget'
+    ),
+);
 
 export {
   CookieBanner,
