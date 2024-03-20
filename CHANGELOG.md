@@ -1,3 +1,25 @@
+## [2.2.0](https://github.com/collective/volto-gdpr-privacy/compare/v2.1.1...v2.2.0) (2024-03-20)
+
+
+### Bug Fixes
+
+* added description and fix translations for some panel fields ([94aa4d4](https://github.com/collective/volto-gdpr-privacy/commit/94aa4d4c30a7af238ebf7d0a0c3578aced13eb74))
+* api expandersù ([dfc41da](https://github.com/collective/volto-gdpr-privacy/commit/dfc41daebd4e9821121f6725afd0f04e4c9fdcdc))
+* banner ([6b7b1fc](https://github.com/collective/volto-gdpr-privacy/commit/6b7b1fc103f111caf4f837b00c87f3f160f4df30))
+* cookie banner with only technical cookies ([f91d3e6](https://github.com/collective/volto-gdpr-privacy/commit/f91d3e6bcea028d3cbd4994cae25d72878112588))
+* default value for slate fields ([34bbc42](https://github.com/collective/volto-gdpr-privacy/commit/34bbc42c691a37d70cc88889edabf1cc7520034e))
+* disable banner if is __SERVER__ and handle diffView ([46a825e](https://github.com/collective/volto-gdpr-privacy/commit/46a825e4182905e56986a92e9dd0ffe78cd4f8ce))
+* empty defaultPreferences ([a8a060a](https://github.com/collective/volto-gdpr-privacy/commit/a8a060a244581918812485daa08d969268642701))
+* loadable Contorlpanel component ([2bf5d6e](https://github.com/collective/volto-gdpr-privacy/commit/2bf5d6eaede705739bc91bb4db762deff2175a72))
+* new banner ([d0dc208](https://github.com/collective/volto-gdpr-privacy/commit/d0dc208087ea63de2ba5217991571ee81b189985))
+* singleChoiceWidget e conditionalEmbed ([6de6840](https://github.com/collective/volto-gdpr-privacy/commit/6de6840fdf2706673f8f038b0b42bc243708ea6b))
+
+
+### Maintenance
+
+* added api-expander ([cda15bc](https://github.com/collective/volto-gdpr-privacy/commit/cda15bc13bae44705b8e3a31291dffdecf19f6ef))
+* updated locales ([2fdd2c8](https://github.com/collective/volto-gdpr-privacy/commit/2fdd2c839aac619c25d5d97213fa5af55a427188))
+
 ### [2.1.1](https://github.com/collective/volto-gdpr-privacy/compare/v2.1.0...v2.1.1) (2023-12-15)
 
 
