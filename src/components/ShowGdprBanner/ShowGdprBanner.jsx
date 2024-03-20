@@ -1,9 +1,9 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { defineMessages, useIntl } from 'react-intl';
 import { displayBanner } from '../../actions';
+import { usePanelConfigAndPreferences } from '../../helpers';
 import cookieSVG from './user-lock-solid.svg';
-
 import './show-gdpr-banner.css';
 
 const messages = defineMessages({
@@ -16,8 +16,10 @@ const messages = defineMessages({
 const ShowGdprBanner = () => {
   const intl = useIntl();
   const dispatch = useDispatch();
+  const { panelConfig } = usePanelConfigAndPreferences();
 
-  return (
+  const show = panelConfig.show_icon;
+  return show ? (
     <button
       className="gdpr-privacy-show-banner"
       onClick={(e) => {
@@ -28,6 +30,8 @@ const ShowGdprBanner = () => {
     >
       <img src={cookieSVG} alt={intl.formatMessage(messages.buttonShowLabel)} />
     </button>
+  ) : (
+    <></>
   );
 };
 

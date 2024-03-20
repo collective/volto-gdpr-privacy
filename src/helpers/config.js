@@ -2,7 +2,9 @@ import config from '@plone/volto/registry';
 
 export const getCookiesKeys = (config) => {
   return (
-    config?.choices?.map((c) => c.config_key)?.filter((k) => k != null) ?? null
+    config?.choices
+      ?.map((c) => c.config_key)
+      ?.filter((k) => k != null && k?.length > 0) ?? null
   );
 };
 

@@ -1,32 +1,30 @@
 import { getCookiesKeys } from './config';
 
 export const loadPreferences = (cookies, cookiesConfig) => {
-  const technicalKeys = getCookiesKeys(cookiesConfig.technical);
-  const profilingKeys = getCookiesKeys(cookiesConfig.profiling);
+  const technicalKeys = getCookiesKeys(cookiesConfig.technical) ?? [];
+  const profilingKeys = getCookiesKeys(cookiesConfig.profiling) ?? [];
 
-  let preferences = {
-    cookies_version: cookies.get('cookies_version'),
-    last_user_choice: cookies.get('last_user_choice'),
-  };
+  let preferences = {};
   technicalKeys.forEach((k) => {
-    const c = cookies.get(k);
-    const v = c === 'true' ? true : c === 'false' ? false : c;
-    preferences[k] = v ?? true;
+    const c = cookies.get('tech_' + k);
+    const v = c ? true : false;
+    preferences['tech_' + k] = v || true; //force profiling cookies to be true (default selected)
   });
   profilingKeys.forEach((k) => {
-    const c = cookies.get(k);
-    const v = c === 'true' ? true : c === 'false' ? false : c;
-    preferences[k] = v ?? false;
+    const c = cookies.get('prof_' + k);
+    const v = c ? true : false;
+    preferences['prof_' + k] = v;
   });
+
   return preferences;
 };
 
-export const groupIsAccepted = (groupConfig, preferences) => {
+export const groupIsAccepted = (groupConfig, preferences, prefix) => {
   const keys = getCookiesKeys(groupConfig);
   let ret = true;
   keys.forEach((k) => {
-    if (!preferences?.[k]) {
-      ret = preferences?.[k] ?? false;
+    if (!preferences?.[prefix + k]) {
+      ret = preferences?.[prefix + k] ?? false;
     }
   });
 

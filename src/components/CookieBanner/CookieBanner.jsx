@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { defineMessages, useIntl } from 'react-intl';
-import { useLocation } from 'react-router-dom';
 import { Icon } from '@plone/volto/components';
 import clearSVG from '@plone/volto/icons/clear.svg';
-import { isCmsUi } from '@plone/volto/helpers';
+import { TextBlockView } from '@plone/volto-slate/blocks/Text';
+import { checkRichTextHasContent } from '../../helpers/richText';
 import { updateGdprPrivacyConsent, displayBanner } from '../../actions';
 import {
   usePanelConfigAndPreferences,
   getLocaleConf,
   getCookiesKeys,
-  isPageSpeedBot,
 } from '../../helpers';
 
 import Button from 'volto-gdpr-privacy/components/CookieBanner/ui/Button';
@@ -24,6 +23,10 @@ const messages = defineMessages({
   acceptTechnicalCookies: {
     id: 'volto-gdpr-privacy-acceptTechnicalCookies',
     defaultMessage: 'Only necessary cookies',
+  },
+  acceptTechnicalCookiesOnly: {
+    id: 'volto-gdpr-privacy-acceptTechnicalCookiesOnly',
+    defaultMessage: 'Ok',
   },
   acceptAllCookies: {
     id: 'volto-gdpr-privacy-acceptAllCookies',
@@ -45,18 +48,13 @@ const messages = defineMessages({
 
 const CookieBanner = ({ cookies }) => {
   const intl = useIntl();
-  const location = useLocation();
   const dispatch = useDispatch();
-  const isCmsUI = isCmsUi(location.pathname);
-
   const display = useSelector(
     (state) => state.gdprPrivacyConsent.display ?? false,
   );
-
   const showSettings = useSelector(
     (state) => state.gdprPrivacyConsent.displaySettings ?? false,
   );
-
   const { panelConfig, defaultPreferences } = usePanelConfigAndPreferences(
     cookies,
     display,
@@ -67,11 +65,12 @@ const CookieBanner = ({ cookies }) => {
   const [focusTrapActive, setFocusTrapActive] = useState(false);
   const [preferences, setPreferences] = useState(defaultPreferences);
 
+  const enabled = Object.keys(panelConfig ?? {}).length > 0;
   useEffect(() => {
-    if (panelConfig) {
+    if (enabled) {
       if (!profilingKeys && !technicalKeys) {
-        setProfilingKeys(getCookiesKeys(panelConfig.profiling));
-        setTechnicalKeys(getCookiesKeys(panelConfig.technical));
+        setProfilingKeys(getCookiesKeys(panelConfig.profiling) ?? []);
+        setTechnicalKeys(getCookiesKeys(panelConfig.technical) ?? []);
       }
       // Need to set this only once. Calling update sets display
       // as false, thus component is not actually shown. Trap remains
@@ -87,19 +86,13 @@ const CookieBanner = ({ cookies }) => {
   }, [defaultPreferences]);
 
   useEffect(() => {
-    if (panelConfig && defaultPreferences) {
-      //if user hasn't yet accepted cookies, or cookies_version is changed, or 180 days have passed since the choice, ask user to accept new version
-      let now = new Date();
-      let lastUpdated = new Date(
-        defaultPreferences?.last_user_choice || new Date('01-01-1970'),
-      );
-      let passedDays = Math.ceil((now - lastUpdated) / (1000 * 60 * 60 * 24));
-
-      if (
-        !defaultPreferences.cookies_version ||
-        panelConfig.last_updated !== defaultPreferences.cookies_version ||
-        passedDays >= 180
-      ) {
+    if (enabled && defaultPreferences) {
+      /*
+      if user hasn't yet accepted cookies, or 'cookie_version' from control panel is changed,
+      or configured 'cookie_expires' days from control panel have passed since the choice,
+      it means that the cookie isn't set and we have to ask user to accept new version
+      */
+      if (cookies.get() === '') {
         dispatch(displayBanner(true));
       }
     }
@@ -119,26 +112,24 @@ const CookieBanner = ({ cookies }) => {
   };
 
   const acceptTechnicalCookies = () => {
-    let newPreferences = { cookies_version: panelConfig.last_updated };
+    let newPreferences = {};
     technicalKeys.forEach((k) => {
-      newPreferences[k] = true;
+      newPreferences['tech_' + k] = true;
     });
     profilingKeys.forEach((k) => {
-      cookies.set(k, false);
-      newPreferences[k] = false;
+      newPreferences['prof_' + k] = false;
     });
 
     update(newPreferences);
   };
 
   const acceptAllCookies = () => {
-    let newPreferences = { cookies_version: panelConfig.last_updated };
+    let newPreferences = {};
     technicalKeys.forEach((k) => {
-      newPreferences[k] = true;
+      newPreferences['tech_' + k] = true;
     });
     profilingKeys.forEach((k) => {
-      cookies.set(k, false);
-      newPreferences[k] = true;
+      newPreferences['prof_' + k] = true;
     });
 
     update(newPreferences);
@@ -147,19 +138,14 @@ const CookieBanner = ({ cookies }) => {
   const acceptSettings = () => {
     const newPreferences = {
       ...preferences,
-      cookies_version: panelConfig.last_updated,
     };
 
     update(newPreferences);
   };
 
-  const bannerText = getLocaleConf(panelConfig?.text, intl.locale);
+  const bannerText = getLocaleConf(panelConfig?.text, intl.locale) ?? {};
 
-  if (__SERVER__ || isCmsUI || isPageSpeedBot()) {
-    return <></>;
-  }
-
-  return display && panelConfig ? (
+  return display && enabled ? (
     <FocusLock disabled={!focusTrapActive}>
       <div className="gdpr-privacy-banner">
         <div className="gdpr-privacy-content-wrapper">
@@ -182,10 +168,11 @@ const CookieBanner = ({ cookies }) => {
           </Button>
           <Container className="gdpr-privacy-content">
             <div className="title">{bannerText.title}</div>
-            <div
-              className="description"
-              dangerouslySetInnerHTML={{ __html: bannerText.description }}
-            />
+            {checkRichTextHasContent(bannerText.description) && (
+              <div className="description">
+                <TextBlockView data={{ value: bannerText.description }} />
+              </div>
+            )}
 
             {/********* SETTINGS *******/}
             {showSettings && (
@@ -203,7 +190,9 @@ const CookieBanner = ({ cookies }) => {
                   acceptTechnicalCookies();
                 }}
               >
-                {intl.formatMessage(messages.acceptTechnicalCookies)}
+                {profilingKeys?.length > 0
+                  ? intl.formatMessage(messages.acceptTechnicalCookies)
+                  : intl.formatMessage(messages.acceptTechnicalCookiesOnly)}
               </Button>
 
               {profilingKeys?.length > 0 && (

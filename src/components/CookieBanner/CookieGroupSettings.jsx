@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
+import { TextBlockView } from '@plone/volto-slate/blocks/Text';
 import { getLocaleConf, getCookiesKeys, groupIsAccepted } from '../../helpers';
 import Checkbox from 'volto-gdpr-privacy/components/CookieBanner/ui/Checkbox';
+import { checkRichTextHasContent } from '../../helpers/richText';
 
 const messages = defineMessages({
   enabled: {
@@ -25,13 +27,15 @@ const CookieGroupSettings = ({
   const intl = useIntl();
 
   const text = getLocaleConf(groupConfig.text, intl.locale);
-  const isAccepted = groupIsAccepted(groupConfig, preferences);
+  const prefix = id === 'technical' ? 'tech_' : 'prof_';
+  const isAccepted = groupIsAccepted(groupConfig, preferences, prefix);
 
   const onChangeGroup = (groupConfig, value) => {
     const keys = getCookiesKeys(groupConfig);
     let newPreferences = { ...preferences };
+
     keys.forEach((k) => {
-      newPreferences[k] = value;
+      newPreferences[prefix + k] = value;
     });
 
     setPreferences(newPreferences);
@@ -75,17 +79,15 @@ const CookieGroupSettings = ({
         </div>
       </div>
 
-      {text.description && (
-        <div
-          id={'desc_' + id}
-          className="settings-description"
-          dangerouslySetInnerHTML={{ __html: text.description }}
-        />
+      {checkRichTextHasContent(text.description) && (
+        <div id={'desc_' + id} className="settings-description">
+          <TextBlockView data={{ value: text.description }} />
+        </div>
       )}
 
       <div className="choices">
         {groupConfig.choices.map((choiceConfig, i) => {
-          const key = choiceConfig.config_key;
+          const key = prefix + choiceConfig.config_key;
           const choice = getLocaleConf(choiceConfig.text, intl.locale);
 
           return (
@@ -124,12 +126,10 @@ const CookieGroupSettings = ({
                 </div>
               </div>
 
-              {choice.description && (
-                <div
-                  id={'desc_' + id + '_' + i}
-                  className="choice-description"
-                  dangerouslySetInnerHTML={{ __html: choice.description }}
-                />
+              {checkRichTextHasContent(choice.description) && (
+                <div id={'desc_' + id + '_' + i} className="choice-description">
+                  <TextBlockView data={{ value: choice.description }} />
+                </div>
               )}
             </div>
           );

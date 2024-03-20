@@ -53,7 +53,13 @@
     max-height: 40vh;
     margin-bottom: 2rem;
 }
-
+.gdpr-privacy-banner
+    .gdpr-privacy-content-wrapper
+    .gdpr-privacy-content
+    .description
+    p:last-of-type {
+    margin-bottom: 0;
+}
 .gdpr-privacy-banner
     .gdpr-privacy-content-wrapper
     .gdpr-privacy-content
@@ -168,7 +174,9 @@
     width: 2rem;
     height: 2rem;
     margin-left: auto;
-    transition: background 0.3s ease, right 0.3s ease;
+    transition:
+        background 0.3s ease,
+        right 0.3s ease;
 }
 
 .gdpr-privacy-banner
@@ -214,7 +222,9 @@
     label:after {
     right: 2.15rem;
     margin-left: auto;
-    transition: background 0.3s ease, right 0.3s ease;
+    transition:
+        background 0.3s ease,
+        right 0.3s ease;
 }
 
 .gdpr-privacy-banner
@@ -247,6 +257,14 @@
     .settings-description {
     margin-bottom: 2rem;
     font-size: 0.9em;
+}
+.gdpr-privacy-banner
+    .gdpr-privacy-content-wrapper
+    .gdpr-privacy-settings
+    .settings-column
+    .settings-description
+    p:last-of-type {
+    margin-bottom: 0;
 }
 
 .gdpr-privacy-banner
@@ -283,6 +301,15 @@
     .choice
     .choice-description {
     font-size: 0.8em;
+}
+.gdpr-privacy-banner
+    .gdpr-privacy-content-wrapper
+    .gdpr-privacy-settings
+    .settings-column
+    .choice
+    .choice-description
+    p:last-of-type {
+    margin-bottom: 0;
 }
 
 .gdpr-privacy-banner
