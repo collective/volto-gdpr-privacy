@@ -54,6 +54,10 @@ It's possibile to define a cookie expire time. By default it's 6 month, but you 
 Added a new configurable parameter called `focusTrapEnabled`, which defaults to true. This enables a focus trap provided by [react-focus-lock](https://www.npmjs.com/package/react-focus-lock)on cookie banner: user cannot tab their way out and has to perform an action via banner buttons to be able to navigate the site using keyboard.
 Control panel configuration can be used to toggle this feature on or off.
 
+#### Upgrade to v2.2.0
+
+Before v2.2.0, the configuration could only be hardcoded in your project or theme config. [See the example here](src/config/defaultPanelConfig.js). If this configuration is set, it will still be used instead of the one from the controlpanel. In order to use the controlpanel configuration, you need to remove the hardcoded configuration from your project by setting `config.settings['volto-gdpr-privacy'].defaultPanelConfig = null;` in your project or theme config.
+
 ### Styling
 
 If you want to change or adapt styles, you should start adapting [cookie-banner.less](src/components/CookieBanner/cookie-banner.less).

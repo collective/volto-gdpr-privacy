@@ -65,6 +65,7 @@ const CookieBanner = ({ cookies }) => {
   const [focusTrapActive, setFocusTrapActive] = useState(false);
   const [preferences, setPreferences] = useState(defaultPreferences);
 
+  // No config is received from the backend when the banner is disabled
   const enabled = Object.keys(panelConfig ?? {}).length > 0;
   useEffect(() => {
     if (enabled) {
@@ -168,11 +169,18 @@ const CookieBanner = ({ cookies }) => {
           </Button>
           <Container className="gdpr-privacy-content">
             <div className="title">{bannerText.title}</div>
-            {checkRichTextHasContent(bannerText.description) && (
-              <div className="description">
-                <TextBlockView data={{ value: bannerText.description }} />
-              </div>
+            {panelConfig.oldStyle && bannerText.description && (
+              <div
+                className="description"
+                dangerouslySetInnerHTML={{ __html: bannerText.description }}
+              />
             )}
+            {!panelConfig.oldStyle &&
+              checkRichTextHasContent(bannerText.description) && (
+                <div className="description">
+                  <TextBlockView data={{ value: bannerText.description }} />
+                </div>
+              )}
 
             {/********* SETTINGS *******/}
             {showSettings && (

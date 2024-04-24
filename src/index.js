@@ -5,16 +5,14 @@ import Checkbox from './components/CookieBanner/ui/Checkbox';
 import GdprPrivacyManager from './components/GdprPrivacyManager/GdprPrivacyManager';
 import ConditionalEmbed from './components/ConditionalEmbed/ConditionalEmbed';
 import { gdprPrivacyConsent } from './reducers';
-import defaultPanelConfig from './config/defaultPanelConfig.js';
 import { displayBanner } from './actions';
 import cookiesSettingsSVG from './icons/cookies-settings.svg';
 import loadable from '@loadable/component';
 
-const GDPRCookieSettingsWidget = loadable(
-  () =>
-    import(
-      /* webpackChunkName: "GDPRCookieSettingsWidget" */ './widget/GDPRCookieSettingsWidget'
-    ),
+const GDPRCookieSettingsWidget = loadable(() =>
+  import(
+    /* webpackChunkName: "GDPRCookieSettingsWidget" */ './widget/GDPRCookieSettingsWidget'
+  ),
 );
 
 export {

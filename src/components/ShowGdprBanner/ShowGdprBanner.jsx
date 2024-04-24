@@ -18,7 +18,7 @@ const ShowGdprBanner = () => {
   const dispatch = useDispatch();
   const { panelConfig } = usePanelConfigAndPreferences();
 
-  const show = panelConfig.show_icon;
+  const show = panelConfig.show_icon || panelConfig.oldStyle;
   return show ? (
     <button
       className="gdpr-privacy-show-banner"

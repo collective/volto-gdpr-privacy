@@ -15,6 +15,7 @@ const CookieSettings = ({ preferences, setPreferences, panelConfig }) => {
           disabled={true}
           preferences={preferences}
           setPreferences={setPreferences}
+          oldStyle={panelConfig.oldStyle}
         />
       </div>
 
@@ -28,6 +29,7 @@ const CookieSettings = ({ preferences, setPreferences, panelConfig }) => {
             preferences={preferences}
             setPreferences={setPreferences}
             autofocus={true}
+            oldStyle={panelConfig.oldStyle}
           />
         </div>
       )}

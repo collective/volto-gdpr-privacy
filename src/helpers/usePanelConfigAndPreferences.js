@@ -1,12 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { loadPreferences } from './banner';
+import config from '@plone/volto/registry';
 
 const usePanelConfigAndPreferences = (cookies, forceLoad) => {
-  const panelConfig = useSelector(
+  // BBB for sites that had the old version with hardcoded panelConfig
+  const oldStylePanelConfig = useMemo(
+    () =>
+      config.settings['volto-gdpr-privacy'].defaultPanelConfig
+        ? {
+            oldStyle: true,
+            ...config.settings['volto-gdpr-privacy'].defaultPanelConfig,
+          }
+        : null,
+    [config.settings['volto-gdpr-privacy'].defaultPanelConfig],
+  );
+
+  if (oldStylePanelConfig) {
+    console.warn(
+      'DEPRECATED: volto-gdpr-privacy: Using old-style hardcoded panelConfig. Please update your site to use the new style. This will be removed in version 3. See the README for more information. https://github.com/collective/volto-gdpr-privacy#readme',
+    );
+  }
+
+  const _panelConfig = useSelector(
     (state) =>
       state.content?.data?.['@components']?.['gdpr-cookie-settings'] ?? {},
   );
+  const panelConfig = oldStylePanelConfig ?? _panelConfig;
   const content = useSelector((state) => state.content.data);
 
   const panelConfigStatus = useSelector((state) => state.content.get);

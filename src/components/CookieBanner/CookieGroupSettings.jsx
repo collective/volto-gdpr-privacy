@@ -23,6 +23,7 @@ const CookieGroupSettings = ({
   preferences,
   setPreferences,
   autofocus = false,
+  oldStyle = false,
 }) => {
   const intl = useIntl();
 
@@ -79,7 +80,14 @@ const CookieGroupSettings = ({
         </div>
       </div>
 
-      {checkRichTextHasContent(text.description) && (
+      {oldStyle && text.description && (
+        <div
+          id={'desc_' + id}
+          className="settings-description"
+          dangerouslySetInnerHTML={{ __html: text.description }}
+        />
+      )}
+      {!oldStyle && checkRichTextHasContent(text.description) && (
         <div id={'desc_' + id} className="settings-description">
           <TextBlockView data={{ value: text.description }} />
         </div>
@@ -126,7 +134,14 @@ const CookieGroupSettings = ({
                 </div>
               </div>
 
-              {checkRichTextHasContent(choice.description) && (
+              {oldStyle && choice.description && (
+                <div
+                  id={'desc_' + id + '_' + i}
+                  className="choice-description"
+                  dangerouslySetInnerHTML={{ __html: choice.description }}
+                />
+              )}
+              {!oldStyle && checkRichTextHasContent(choice.description) && (
                 <div id={'desc_' + id + '_' + i} className="choice-description">
                   <TextBlockView data={{ value: choice.description }} />
                 </div>
