@@ -1,3 +1,10 @@
+### [2.2.1](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.0...v2.2.1) (2024-04-24)
+
+
+### Bug Fixes
+
+* use old configuration as default to avoid breaking change ([1f97dbc](https://github.com/collective/volto-gdpr-privacy/commit/1f97dbc59adbb9a1aa29c65c9d4ca25b6fd5cf30))
+
 ## [2.2.0](https://github.com/collective/volto-gdpr-privacy/compare/v2.1.1...v2.2.0) (2024-03-20)
 
 
