@@ -8314,20 +8314,20 @@ __metadata:
     husky: ^7.0.4
     react-focus-lock: 2.9.4
     release-it: ^14.11.8
-    volto-multilingual-widget: 3.2.0
+    volto-multilingual-widget: 3.2.1
   peerDependencies:
     "@plone/volto": ">=16.0.0-alpha.38"
   languageName: unknown
   linkType: soft
 
-"volto-multilingual-widget@npm:3.2.0":
-  version: 3.2.0
-  resolution: "volto-multilingual-widget@npm:3.2.0"
+"volto-multilingual-widget@npm:3.2.1":
+  version: 3.2.1
+  resolution: "volto-multilingual-widget@npm:3.2.1"
   dependencies:
     "@plone/components": 2.0.0-alpha.7
   peerDependencies:
     "@plone/volto": ">=16.0.0-alpha.38"
-  checksum: 4c1e3c0e968513bc476c7be4529d2145f662e9540811f7c9d631bf6ee30568aa7e7b39bfc3477da6913b06c469ff95138b874c9af4e01993ec28da1a891d98a4
+  checksum: c24fd5379cc7bc80d31031a6d76003779a43bcd2c5343ba525e596d13c522fd82cf56fdaac97c80b6bf386740ee33624260f1ae7b54bcd465564b6e00dfd8258
   languageName: node
   linkType: hard
 

@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "react-focus-lock": "2.9.4",
-    "volto-multilingual-widget": "3.2.0"
+    "volto-multilingual-widget": "3.2.1"
   },
   "peerDependencies": {
     "@plone/volto": ">=16.0.0-alpha.38"
