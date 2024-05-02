@@ -1,3 +1,10 @@
+### [2.2.5](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.4...v2.2.5) (2024-05-02)
+
+
+### Maintenance
+
+* only print deprecation warning on the client to avoid bloating server logs ([96d5c11](https://github.com/collective/volto-gdpr-privacy/commit/96d5c11234b00844f48d8949dbaec20504c1c7dd))
+
 ### [2.2.4](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.3...v2.2.4) (2024-05-02)
 
 
