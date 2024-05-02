@@ -1,3 +1,10 @@
+### [2.2.3](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.2...v2.2.3) (2024-05-02)
+
+
+### Maintenance
+
+* updated volto-multilingual-widget ([781a6b7](https://github.com/collective/volto-gdpr-privacy/commit/781a6b7b3dee5838511ea6bc03e148b3c4227303))
+
 ### [2.2.2](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.1...v2.2.2) (2024-05-02)
 
 ### [2.2.1](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.0...v2.2.1) (2024-04-24)

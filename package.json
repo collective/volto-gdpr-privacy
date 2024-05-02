@@ -1,6 +1,6 @@
 {
   "name": "volto-gdpr-privacy",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Volto GDPR privacy add-on",
   "main": "src/index.js",
   "author": "collective",
