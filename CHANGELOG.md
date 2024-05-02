@@ -1,3 +1,10 @@
+### [2.2.4](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.3...v2.2.4) (2024-05-02)
+
+
+### Maintenance
+
+* updated volto-multilingual-widget: removed semantic-ui dependencies ([3d9a0a3](https://github.com/collective/volto-gdpr-privacy/commit/3d9a0a337dc47e6fdfea74c23fe322a92cd7ce36))
+
 ### [2.2.3](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.2...v2.2.3) (2024-05-02)
 
 
