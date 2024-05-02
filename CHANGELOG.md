@@ -1,3 +1,5 @@
+### [2.2.2](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.1...v2.2.2) (2024-05-02)
+
 ### [2.2.1](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.0...v2.2.1) (2024-04-24)
 
 
