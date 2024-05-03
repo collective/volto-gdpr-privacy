@@ -1,3 +1,11 @@
+### [2.2.6](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.5...v2.2.6) (2024-05-03)
+
+
+### Bug Fixes
+
+* add volto-multtilingual-widget as addon ([494855a](https://github.com/collective/volto-gdpr-privacy/commit/494855a2dc9befdd21b9fb6b202d43992a349c98))
+* add volto-multtilingual-widget as addon ([ec38180](https://github.com/collective/volto-gdpr-privacy/commit/ec3818059a29d270572b63813ccadf33aedbcd9e))
+
 ### [2.2.5](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.4...v2.2.5) (2024-05-02)
 
 
