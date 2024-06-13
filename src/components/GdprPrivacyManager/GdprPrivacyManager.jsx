@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { isCmsUi } from '@plone/volto/helpers';
 import {
@@ -15,7 +14,7 @@ import GdprPrivacyManagerIncludeComponents from './GdprPrivacyManagerIncludeComp
 const GdprPrivacyManager = () => {
   const location = useLocation();
   const isCmsUI = isCmsUi(location.pathname);
-  if (__SERVER__ || isCmsUI || isPageSpeedBot()) {
+  if (isCmsUI || isPageSpeedBot()) {
     return <></>;
   }
 
