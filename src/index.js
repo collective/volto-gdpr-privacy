@@ -9,10 +9,11 @@ import { displayBanner } from './actions';
 import cookiesSettingsSVG from './icons/cookies-settings.svg';
 import loadable from '@loadable/component';
 
-const GDPRCookieSettingsWidget = loadable(() =>
-  import(
-    /* webpackChunkName: "GDPRCookieSettingsWidget" */ './widget/GDPRCookieSettingsWidget'
-  ),
+const GDPRCookieSettingsWidget = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "GDPRCookieSettingsWidget" */ './widget/GDPRCookieSettingsWidget'
+    ),
 );
 
 export {
