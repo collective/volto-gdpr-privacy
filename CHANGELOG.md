@@ -1,3 +1,10 @@
+### [2.2.7](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.6...v2.2.7) (2024-06-14)
+
+
+### Bug Fixes
+
+* ssr error that cause no-hydrating of bodyclasses ([#20](https://github.com/collective/volto-gdpr-privacy/issues/20)) ([d1df666](https://github.com/collective/volto-gdpr-privacy/commit/d1df6663f7e8402c24a5b3d5a002b3041615c3ee))
+
 ### [2.2.6](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.5...v2.2.6) (2024-05-03)
 
 
