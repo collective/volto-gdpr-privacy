@@ -2,9 +2,9 @@ import React from 'react';
 import CookieGroupSettings from './CookieGroupSettings';
 
 const CookieSettings = ({ preferences, setPreferences, panelConfig }) => {
-  const profiling_choices = panelConfig.profiling?.choices.filter(
-    (c) => c.config_key?.length > 0,
-  );
+  const profiling_choices =
+    panelConfig.profiling?.choices.filter((c) => c.config_key?.length > 0) ??
+    [];
   return (
     <div className="gdpr-privacy-settings">
       {/******** TECHNICAL ********/}
