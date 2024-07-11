@@ -1,3 +1,10 @@
+### [2.2.8](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.7...v2.2.8) (2024-07-11)
+
+
+### Bug Fixes
+
+* order of hooks ([976b1a5](https://github.com/collective/volto-gdpr-privacy/commit/976b1a545c7c2093047146e77d4cbc73513b7f0d))
+
 ### [2.2.7](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.6...v2.2.7) (2024-06-14)
 
 
