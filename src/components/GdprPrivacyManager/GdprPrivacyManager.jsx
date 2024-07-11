@@ -14,12 +14,12 @@ import GdprPrivacyManagerIncludeComponents from './GdprPrivacyManagerIncludeComp
 const GdprPrivacyManager = () => {
   const location = useLocation();
   const isCmsUI = isCmsUi(location.pathname);
+  const cookies = new GDPRCookies();
+  usePanelConfigAndPreferences(cookies); //to init data from panel
+
   if (isCmsUI || isPageSpeedBot()) {
     return <></>;
   }
-
-  const cookies = new GDPRCookies();
-  usePanelConfigAndPreferences(cookies); //to init data from panel
 
   return (
     <>

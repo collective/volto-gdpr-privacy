@@ -5,6 +5,7 @@ import config from '@plone/volto/registry';
 
 const usePanelConfigAndPreferences = (cookies, forceLoad) => {
   // BBB for sites that had the old version with hardcoded panelConfig
+
   const hasOldStyleConfig =
     !!config.settings['volto-gdpr-privacy']?.defaultPanelConfig;
   const oldStylePanelConfig = useMemo(() => {
