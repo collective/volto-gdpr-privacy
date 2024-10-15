@@ -1,3 +1,10 @@
+### [2.2.10](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.9...v2.2.10) (2024-10-15)
+
+
+### Bug Fixes
+
+* added condition to identify if the file URL has or not @[@download](https://github.com/download) ([#22](https://github.com/collective/volto-gdpr-privacy/issues/22)) ([a30551e](https://github.com/collective/volto-gdpr-privacy/commit/a30551ebd99d60c14b52a7fb0662e742f50fb684))
+
 ### [2.2.9](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.8...v2.2.9) (2024-07-11)
 
 
