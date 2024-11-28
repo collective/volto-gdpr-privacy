@@ -5,7 +5,7 @@
  * Customizations: added ConditionalEmbed wrapper component
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { defineMessages, injectIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -24,33 +24,47 @@ const messages = defineMessages({
  * @extends Component
  */
 
-const View = ({ data, intl }) => (
-  <div
-    className={cx(
-      'block maps align',
-      {
-        center: !Boolean(data.align),
-      },
-      data.align,
-    )}
-  >
+const View = React.memo(({ data, intl }) => {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, [data.url]);
+
+  return data.url ? (
     <div
-      className={cx('maps-inner', {
-        'full-width': data.align === 'full',
-      })}
+      className={cx(
+        'block maps align',
+        {
+          center: !Boolean(data.align),
+        },
+        data.align,
+      )}
     >
-      <ConditionalEmbed code={data.url}>
-        <iframe
-          title={intl.formatMessage(messages.EmbededGoogleMaps)}
-          src={data.url}
-          className="google-map"
-          frameBorder="0"
-          allowFullScreen
-        />
-      </ConditionalEmbed>
+      <div
+        className={cx('maps-inner', {
+          'full-width': data.align === 'full',
+        })}
+      >
+        <ConditionalEmbed code={data.url}>
+          {isClient ? (
+            <iframe
+              title={intl.formatMessage(messages.EmbededGoogleMaps)}
+              src={data.url}
+              className="google-map"
+              frameBorder="0"
+              allowFullScreen
+            />
+          ) : (
+            <></>
+          )}
+        </ConditionalEmbed>
+        )
+      </div>
     </div>
-  </div>
-);
+  ) : (
+    <></>
+  );
+});
 
 /**
  * Property types.
