@@ -1,3 +1,10 @@
+### [2.2.11](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.10...v2.2.11) (2024-11-28)
+
+
+### Bug Fixes
+
+* hidration failure for maps block ([1648f84](https://github.com/collective/volto-gdpr-privacy/commit/1648f843c16004d8a55cf6a247b7788d930dd6ed))
+
 ### [2.2.10](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.9...v2.2.10) (2024-10-15)
 
 
