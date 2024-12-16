@@ -33,9 +33,8 @@ const messages = defineMessages({
 const ConditionalEmbed = ({ code, url, children }) => {
   const intl = useIntl();
   const cookies = new GDPRCookies();
-  const { defaultPreferences, panelConfig } = usePanelConfigAndPreferences(
-    cookies,
-  );
+  const { defaultPreferences, panelConfig } =
+    usePanelConfigAndPreferences(cookies);
 
   const embed = code ?? url ?? '';
   const dispatch = useDispatch();
@@ -70,7 +69,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
     !gdprPreferences['prof_' + urlReferenceConfig.config_key];
 
   if (cookieConsentEnabled && __SERVER__) {
-    return <></>;
+    return <div></div>; // it has to return something (and not a simple React.fragment) because client-rendering will replace it with next block confusing rendering
   }
   if (cookieConsentEnabled && !gdprPreferences && !urlReferenceConfig) {
     //we are in diffView (content history)
