@@ -1,3 +1,16 @@
+### [2.2.12](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.11...v2.2.12) (2024-12-16)
+
+
+### Bug Fixes
+
+* client rendering ([32f2d46](https://github.com/collective/volto-gdpr-privacy/commit/32f2d466824bb0355b3e0d8f3597eee87a9f56a3))
+
+
+### Maintenance
+
+* Update Body.jsx ([f3a381f](https://github.com/collective/volto-gdpr-privacy/commit/f3a381f3f18b67f3de0e8758f98612409c2382fc))
+* updated ignore files ([da102be](https://github.com/collective/volto-gdpr-privacy/commit/da102beffd6e2683279778a664e146a452a30be3))
+
 ### [2.2.11](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.10...v2.2.11) (2024-11-28)
 
 
