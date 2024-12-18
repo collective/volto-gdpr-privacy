@@ -74,8 +74,8 @@
     .gdpr-privacy-content
     .buttons
     button.gdpr-privacy-banner-button:focus {
-    box-shadow: 1px 1px 2px 0px rgb(#f90, 0.2);
     outline: 2px solid #f90;
+    box-shadow: 1px 1px 2px 0px #ff990033; /* #f90 + 20% opacity */
 }
 
 /*settings*/
@@ -132,7 +132,7 @@
 
 .gdpr-privacy-banner .ui.toggle.checkbox input:focus ~ label::before {
     background-color: rgb(149, 149, 149);
-    box-shadow: 1px 1px 2px 0px rgb(#f90, 0.2);
+    box-shadow: 1px 1px 2px 0px #ff990033; /* #f90 + 20% opacity */
     outline: 2px solid #f90;
 }
 
