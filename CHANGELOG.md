@@ -1,3 +1,15 @@
+### [2.2.13](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.12...v2.2.13) (2024-12-24)
+
+
+### Bug Fixes
+
+* invalid css ([#23](https://github.com/collective/volto-gdpr-privacy/issues/23)) ([471a99e](https://github.com/collective/volto-gdpr-privacy/commit/471a99ef40de07c3ec5b993a0473ff29dc4466e3))
+
+
+### Maintenance
+
+* removed imports from volto barrel files ([7d26d72](https://github.com/collective/volto-gdpr-privacy/commit/7d26d72acb6dd51a705192653d03ec0b1d112530))
+
 ### [2.2.12](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.11...v2.2.12) (2024-12-16)
 
 
