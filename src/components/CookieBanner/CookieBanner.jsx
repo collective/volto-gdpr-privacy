@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { defineMessages, useIntl } from 'react-intl';
-import { Icon } from '@plone/volto/components/theme/Icon/Icon';
+import Icon from '@plone/volto/components/theme/Icon/Icon';
 import clearSVG from '@plone/volto/icons/clear.svg';
 import { TextBlockView } from '@plone/volto-slate/blocks/Text';
 import { checkRichTextHasContent } from '../../helpers/richText';
