@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { Grid, Menu, Button, Icon } from 'semantic-ui-react';
-import { TextWidget, ArrayWidget } from '@plone/volto/components';
-import SlateRichTextWidget from '@plone/volto-slate/widgets/RichTextWidget';
-import ChoiceTextWidget from './ChoiceTextWidget';
-import ReferenceUrlsWidget from './ReferenceUrlsWidget';
 import SingleChoiceWidget from './SingleChoiceWidget';
 
 const messages = defineMessages({

@@ -1,5 +1,5 @@
 import Cookies from 'universal-cookie';
-import { getCookieOptions } from '@plone/volto/helpers';
+import { getCookieOptions } from '@plone/volto/helpers/Cookies/cookies';
 import config from '@plone/volto/registry';
 
 export const DEFAULT_COOKIES_PREFIX = 'vgdpr';

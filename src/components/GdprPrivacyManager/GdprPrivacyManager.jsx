@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { isCmsUi } from '@plone/volto/helpers';
+import { isCmsUi } from '@plone/volto/helpers/Url/Url';
 import {
   usePanelConfigAndPreferences,
   GDPRCookies,

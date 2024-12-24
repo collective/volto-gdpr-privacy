@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
-import {
-  Icon,
-  Grid,
-  Menu,
-  Form,
-  Button,
-  Segment,
-  Header,
-} from 'semantic-ui-react';
-import { TextWidget, CheckboxWidget } from '@plone/volto/components';
+
+import { CheckboxWidget } from '@plone/volto/components/manage/Widgets';
 import { MultilingualWidget } from 'volto-multilingual-widget';
-import { flattenToAppURL } from '@plone/volto/helpers/Url/Url';
-import SlateRichTextWidget from '@plone/volto-slate/widgets/RichTextWidget';
+
 import MainTextWidget from './MainTextWidget';
 import CookiesWidget from './CookiesWidget';
 import './style.css';

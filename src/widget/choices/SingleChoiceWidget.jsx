@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { defineMessages, useIntl } from 'react-intl';
-import { Grid, Segment, Header } from 'semantic-ui-react';
 import { MultilingualWidget } from 'volto-multilingual-widget';
-import { TextWidget } from '@plone/volto/components';
+import { TextWidget } from '@plone/volto/components/manage/Widgets';
 import TokenWidget from '@plone/volto/components/manage/Widgets/TokenWidget';
-import SlateRichTextWidget from '@plone/volto-slate/widgets/RichTextWidget';
 import ChoiceTextWidget from './ChoiceTextWidget';
-import ReferenceUrlsWidget from './ReferenceUrlsWidget';
 
 const messages = defineMessages({
   config_key: {
