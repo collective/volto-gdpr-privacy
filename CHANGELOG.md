@@ -1,3 +1,10 @@
+### [2.2.15](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.14...v2.2.15) (2025-05-19)
+
+
+### Bug Fixes
+
+* display arrows on move-buttons in cookies-widget ([eb4cf15](https://github.com/collective/volto-gdpr-privacy/commit/eb4cf15f948e04ca425237cf4f2696002c388ca5))
+
 ### [2.2.14](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.13...v2.2.14) (2024-12-24)
 
 
