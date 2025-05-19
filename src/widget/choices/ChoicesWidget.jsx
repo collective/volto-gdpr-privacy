@@ -116,14 +116,14 @@ const ChoicesWidget = ({
                   <Button
                     disabled={idx === 0}
                     size="tiny"
-                    icon={<Icon name="arrow up" />}
+                    icon={<Icon name="arrow left" />}
                     title={intl.formatMessage(messages.moveItemUp)}
                     onClick={(e) => moveChoice(e, idx, 'up')}
                   />
                   <Button
                     disabled={idx === value.length - 1}
                     size="tiny"
-                    icon={<Icon name="arrow down" />}
+                    icon={<Icon name="arrow right" />}
                     title={intl.formatMessage(messages.moveItemDown)}
                     onClick={(e) => moveChoice(e, idx, 'down')}
                   />

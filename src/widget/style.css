@@ -24,3 +24,15 @@
 .cookies-widget .choices-widget .menu .item .move-buttons {
     margin-right: 1rem;
 }
+.cookies-widget
+    .choices-widget
+    .menu
+    .item
+    .move-buttons
+    button.ui.button
+    i.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(90deg);
+}
