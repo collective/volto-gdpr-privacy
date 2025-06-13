@@ -70,6 +70,7 @@ This product has been translated into:
 - English
 - French
 - Spanish
+- German
 
 Please, contribute to this project adding translations for your language.
 

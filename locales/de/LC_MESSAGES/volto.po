@@ -1,16 +1,20 @@
+# Translation of volto.pot to German
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2025-06-13T08:27:39.105Z\n"
-"Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
-"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
-"MIME-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-27T19:30:59.079Z\n"
+"PO-Revision-Date: 2023-05-13 11:04-0400\n"
+"Last-Translator: Steffen Lindner <lindner@starzel.de>\n"
+"Language: de\n"
+"Language-Team: DE <LL@li.org>\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Preferred-Encodings: utf-8\n"
+"MIME-Version: 1.0\n"
+"Language-Code: de\n"
+"Language-Name: German\n"
 "Domain: volto\n"
 
 #: widget/MainTextWidget
@@ -164,17 +168,17 @@ msgstr ""
 #: components/CookieBanner/CookieBanner
 # defaultMessage: Accept all
 msgid "volto-gdpr-privacy-acceptAllCookies"
-msgstr ""
+msgstr "Alle akzeptieren"
 
 #: components/CookieBanner/CookieBanner
 # defaultMessage: Save my preferences
 msgid "volto-gdpr-privacy-acceptSettings"
-msgstr ""
+msgstr "Einstellungen speichern"
 
 #: components/CookieBanner/CookieBanner
 # defaultMessage: Only necessary cookies
 msgid "volto-gdpr-privacy-acceptTechnicalCookies"
-msgstr ""
+msgstr "Nur notwendige Cookies"
 
 #: components/CookieBanner/CookieBanner
 # defaultMessage: Ok
@@ -184,44 +188,44 @@ msgstr ""
 #: components/ShowGdprBanner/ShowGdprBanner
 # defaultMessage: Show cookies settings
 msgid "volto-gdpr-privacy-buttonShowLabel"
-msgstr ""
+msgstr "Cookie-Einstellungen anzeigen"
 
 #: components/CookieBanner/CookieBanner
 # defaultMessage: Change settings
 msgid "volto-gdpr-privacy-changeSettings"
-msgstr ""
+msgstr "Einstellungen ändern"
 
 #: components/CookieBanner/CookieBanner
 # defaultMessage: Accept only necessary cookies and close
 msgid "volto-gdpr-privacy-close"
-msgstr ""
+msgstr "Nur notwendige Cookies akzeptieren und schließen"
 
 #: components/ConditionalEmbed/ConditionalEmbed
 # defaultMessage: {enable_cookie_button}, or {manage_preferences_button}
 msgid "volto-gdpr-privacy-conditional-embed-accept-message"
-msgstr ""
+msgstr "{enable_cookie_button}, o {manage_preferences_button}."
 
 #: components/ConditionalEmbed/ConditionalEmbed
 # defaultMessage: Please, accept {cookie_type} cookies to view this content.
 msgid "volto-gdpr-privacy-conditional-embed-default-description"
-msgstr ""
+msgstr "Bitte akzeptieren Sie {cookie_type} Cookies, um diesen Inhalt zu sehen."
 
 #: components/ConditionalEmbed/ConditionalEmbed
 # defaultMessage: manage your cookie preferences
 msgid "volto-gdpr-privacy-conditional-embed-generic-cookie-link"
-msgstr ""
+msgstr "Ihre Cookie-Einstellungen verwalten"
 
 #: components/ConditionalEmbed/ConditionalEmbed
 # defaultMessage: Enable {cookie_type} cookies
 msgid "volto-gdpr-privacy-conditional-embed-specific-cookie-link"
-msgstr ""
+msgstr "Aktivieren Sie {cookie_type} Cookies"
 
 #: components/CookieBanner/CookieGroupSettings
 # defaultMessage: Disabled
 msgid "volto-gdpr-privacy-disabled"
-msgstr ""
+msgstr "Deaktiviert"
 
 #: components/CookieBanner/CookieGroupSettings
 # defaultMessage: Enabled
 msgid "volto-gdpr-privacy-enabled"
-msgstr ""
+msgstr "Aktiviert"
