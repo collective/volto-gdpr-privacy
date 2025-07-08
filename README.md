@@ -30,6 +30,12 @@ Change settings for GDPR Cookie Banner
 
 ![Change settings for GDPR Cookie Banner!](https://raw.githubusercontent.com/collective/volto-gdpr-privacy/refs/heads/master/docs/images/gdpr-cookie-banner-change-settings.png "Change settings for GDPR Cookie Banner")
 
+### GDPR Cookie Settings
+
+The access for GDPR Cookie Settings
+
+![GDPR Cookie Settings](https://raw.githubusercontent.com/collective/volto-gdpr-privacy/refs/heads/master/docs/images/gdpr-cookie-settings.png "GDPR Cookie Settings")
+
 ### Technical cookies
 
 Technical cookies for GDPR Cookie Settings
@@ -77,7 +83,7 @@ It's possible to define a cookie expire time. By default it's 6 month, but you c
 
 #### Configurable focus trap (from v.2.1.0)
 
-Added a new configurable parameter called `focusTrapEnabled`, which defaults to true. This enables a focus trap provided by [react-focus-lock](https://www.npmjs.com/package/react-focus-lock)on cookie banner: user cannot tab their way out and has to perform an action via banner buttons to be able to navigate the site using keyboard.
+Added a new configurable parameter called `focusTrapEnabled`, which defaults to true. This enables a focus trap provided by [react-focus-lock](https://www.npmjs.com/package/react-focus-lock) on cookie banner: user cannot tab their way out and has to perform an action via banner buttons to be able to navigate the site using keyboard.
 Control panel configuration can be used to toggle this feature on or off.
 
 #### Upgrade to v2.2.0
@@ -86,7 +92,7 @@ Before v2.2.0, the configuration could only be hardcoded in your project or them
 
 ### Styling
 
-If you want to change or adapt styles, you should start adapting [cookie-banner.less](src/components/CookieBanner/cookie-banner.less).
+If you want to change or adapt styles, you should start adapting [cookie-banner.css](src/components/CookieBanner/cookie-banner.css).
 
 ## Translations
 
@@ -102,6 +108,14 @@ Please, contribute to this project adding translations for your language.
 
 ## Versions
 
-If you want to use it with a version of Volto <= 15.0.0-alpha.3, use volto-gdpr-privacy 1.3.0 version.
-If you want to use it with a version of Volto < 15.7.0, use volto-gdpr-privacy 1.3.3 version.
+### Volto < 16
+
 If you want to use it with a version of Volto < 16, use volto-gdpr-privacy 1.3.11 version.
+
+### Volto < 15.7.0
+
+If you want to use it with a version of Volto < 15.7.0, use volto-gdpr-privacy 1.3.3 version.
+
+### Volto <= 15.0.0-alpha.3
+
+If you want to use it with a version of Volto <= 15.0.0-alpha.3, use volto-gdpr-privacy 1.3.0 version.
