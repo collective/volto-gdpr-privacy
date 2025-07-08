@@ -5,229 +5,230 @@ msgstr ""
 "Project-Id-Version: Plone\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27T19:30:59.079Z\n"
-"PO-Revision-Date: 2023-05-13 11:04-0400\n"
+"PO-Revision-Date: 2025-07-08 01:44+0200\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language: es\n"
 "Language-Team: ES <LL@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Preferred-Encodings: utf-8\n"
-"MIME-Version: 1.0\n"
 "Language-Code: es\n"
 "Language-Name: Español\n"
 "Domain: volto\n"
 "X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"X-Generator: Poedit 3.6\n"
 
-#: widget/MainTextWidget
 # defaultMessage: Main banner text description
+#: widget/MainTextWidget
 msgid "gdprcookiesettings-banner-description"
-msgstr ""
+msgstr "Descripción del texto del banner principal"
 
-#: widget/MainTextWidget
 # defaultMessage: Main banner text description, where you can link privacy policy page for example.
-msgid "gdprcookiesettings-banner-description_description"
-msgstr ""
-
 #: widget/MainTextWidget
+msgid "gdprcookiesettings-banner-description_description"
+msgstr "Descripción del texto del banner principal, donde puede enlazar la página de política de privacidad, por ejemplo."
+
 # defaultMessage: Banner title
+#: widget/MainTextWidget
 msgid "gdprcookiesettings-banner-title"
-msgstr ""
+msgstr "Título del banner"
 
-#: widget/choices/ChoicesWidget
 # defaultMessage: Add choice
+#: widget/choices/ChoicesWidget
 msgid "gdprcookiesettings-choice-add"
-msgstr ""
+msgstr "Añadir opción"
 
-#: widget/choices/ChoicesWidget
 # defaultMessage: Delete choice
+#: widget/choices/ChoicesWidget
 msgid "gdprcookiesettings-choice-delete"
-msgstr ""
+msgstr "Eliminar opción"
 
-#: widget/choices/ChoicesWidget
 # defaultMessage: Move choice down
+#: widget/choices/ChoicesWidget
 msgid "gdprcookiesettings-choice-move-down"
-msgstr ""
+msgstr "Mover la elección hacia abajo"
 
-#: widget/choices/ChoicesWidget
 # defaultMessage: Move choice up
+#: widget/choices/ChoicesWidget
 msgid "gdprcookiesettings-choice-move-up"
-msgstr ""
+msgstr "Mover la elección hacia arriba"
 
-#: widget/choices/ChoiceTextWidget
 # defaultMessage: Conditional embed text
+#: widget/choices/ChoiceTextWidget
 msgid "gdprcookiesettings-choice-text-conditional_embed_text"
-msgstr ""
+msgstr "Texto incrustado condicional"
 
-#: widget/choices/ChoiceTextWidget
 # defaultMessage: This text is displayed as a placeholder if user hasn't accepted this cookie.
+#: widget/choices/ChoiceTextWidget
 msgid "gdprcookiesettings-choice-text-conditional_embed_text_description"
-msgstr ""
+msgstr "Este texto se muestra como un marcador de posición si el usuario no ha aceptado esta cookie."
 
-#: widget/choices/ChoiceTextWidget
 # defaultMessage: Cookie description
+#: widget/choices/ChoiceTextWidget
 msgid "gdprcookiesettings-choice-text-description"
-msgstr ""
+msgstr "Descripción de la cookie"
 
-#: widget/choices/ChoiceTextWidget
 # defaultMessage: Explain what this cookie does if the user enables it.
-msgid "gdprcookiesettings-choice-text-description_description"
-msgstr ""
-
 #: widget/choices/ChoiceTextWidget
+msgid "gdprcookiesettings-choice-text-description_description"
+msgstr "Explique qué hace esta cookie si el usuario la activa."
+
 # defaultMessage: Cookie title
+#: widget/choices/ChoiceTextWidget
 msgid "gdprcookiesettings-choice-text-title"
-msgstr ""
+msgstr "Título de la cookie"
 
-#: widget/choices/ChoicesWidget
-#: widget/choices/SingleChoiceWidget
 # defaultMessage: Key
+#: widget/choices/ChoicesWidget
+#: widget/choices/SingleChoiceWidget
 msgid "gdprcookiesettings-choice_config_key"
-msgstr ""
+msgstr "Clave"
 
-#: widget/choices/SingleChoiceWidget
 # defaultMessage: Technical identifier of the cookie. You can choose it as you like.
+#: widget/choices/SingleChoiceWidget
 msgid "gdprcookiesettings-choice_config_key_description"
-msgstr ""
+msgstr "Identificador técnico de la cookie. Puede elegirlo como desee."
 
-#: widget/choices/ChoicesWidget
-#: widget/choices/SingleChoiceWidget
 # defaultMessage: Reference URLs
+#: widget/choices/ChoicesWidget
+#: widget/choices/SingleChoiceWidget
 msgid "gdprcookiesettings-choice_referenceUrls"
-msgstr ""
+msgstr "URL de referencia"
 
-#: widget/choices/SingleChoiceWidget
 # defaultMessage: Type URL domains like "google.com", "youtube.com", ...
+#: widget/choices/SingleChoiceWidget
 msgid "gdprcookiesettings-choice_referenceUrls_description"
-msgstr ""
+msgstr "Escribe URL de dominios como \"google.com\", \"youtube.com\", ..."
 
-#: widget/choices/SingleChoiceWidget
 # defaultMessage: Type URL domains
+#: widget/choices/SingleChoiceWidget
 msgid "gdprcookiesettings-choice_referenceUrls_placeholder"
-msgstr ""
+msgstr "Escriba los dominios URL"
 
+# defaultMessage: Text
 #: widget/choices/ChoicesWidget
 #: widget/choices/SingleChoiceWidget
-# defaultMessage: Text
 msgid "gdprcookiesettings-choice_text"
-msgstr ""
+msgstr "Texto"
 
-#: widget/CookiesWidget
 # defaultMessage: Cookie
+#: widget/CookiesWidget
 msgid "gdprcookiesettings-cookies-choices"
-msgstr ""
+msgstr "Cookie"
 
-#: widget/CookiesTextWidget
 # defaultMessage: Description
+#: widget/CookiesTextWidget
 msgid "gdprcookiesettings-cookies-description"
-msgstr ""
+msgstr "Descripción"
 
-#: widget/CookiesTextWidget
 # defaultMessage: Cookie text description, where you can explain what are this type of cookie, for example.
-msgid "gdprcookiesettings-cookies-description_description"
-msgstr ""
-
-#: widget/CookiesWidget
-# defaultMessage: Text
-msgid "gdprcookiesettings-cookies-text"
-msgstr ""
-
 #: widget/CookiesTextWidget
+msgid "gdprcookiesettings-cookies-description_description"
+msgstr "Descripción del texto de la cookie, donde puede explicar qué son este tipo de cookies, por ejemplo."
+
+# defaultMessage: Text
+#: widget/CookiesWidget
+msgid "gdprcookiesettings-cookies-text"
+msgstr "Texto"
+
 # defaultMessage: Title
+#: widget/CookiesTextWidget
 msgid "gdprcookiesettings-cookies-title"
-msgstr ""
+msgstr "Título"
 
-#: widget/choices/ChoicesWidget
 # defaultMessage: Cookie
+#: widget/choices/ChoicesWidget
 msgid "gdprcookiesettings-cookies_choices"
-msgstr ""
+msgstr "Cookie"
 
-#: widget/GDPRCookieSettingsWidget
 # defaultMessage: If enabled, user cannot tab their way out and has to perform an action via banner buttons to be able to navigate the site using keyboard.
+#: widget/GDPRCookieSettingsWidget
 msgid "gdprcookiesettings-focusTrapDescription"
-msgstr ""
+msgstr "Si se activa, el usuario no puede salir por tabulador y tiene que realizar una acción a través de los botones del banner para poder navegar por el sitio utilizando el teclado."
 
-#: widget/GDPRCookieSettingsWidget
 # defaultMessage: Enable focus trap
+#: widget/GDPRCookieSettingsWidget
 msgid "gdprcookiesettings-focusTrapEnabled"
-msgstr ""
+msgstr "Activar trampa de enfoque"
 
-#: widget/GDPRCookieSettingsWidget
 # defaultMessage: Profiling cookies
+#: widget/GDPRCookieSettingsWidget
 msgid "gdprcookiesettings-profiling-cookies"
-msgstr ""
+msgstr "Cookies de perfiles"
 
-#: widget/GDPRCookieSettingsWidget
 # defaultMessage: Technical cookies
-msgid "gdprcookiesettings-technical-cookies"
-msgstr ""
-
 #: widget/GDPRCookieSettingsWidget
-# defaultMessage: Main banner text
-msgid "gdprcookiesettings-text"
-msgstr ""
+msgid "gdprcookiesettings-technical-cookies"
+msgstr "Cookies técnicas"
 
-#: components/CookieBanner/CookieBanner
+# defaultMessage: Main banner text
+#: widget/GDPRCookieSettingsWidget
+msgid "gdprcookiesettings-text"
+msgstr "Texto principal del banner"
+
 # defaultMessage: Accept all
+#: components/CookieBanner/CookieBanner
 msgid "volto-gdpr-privacy-acceptAllCookies"
 msgstr "Aceptar todo"
 
-#: components/CookieBanner/CookieBanner
 # defaultMessage: Save my preferences
+#: components/CookieBanner/CookieBanner
 msgid "volto-gdpr-privacy-acceptSettings"
 msgstr "Guardar mis preferencias"
 
-#: components/CookieBanner/CookieBanner
 # defaultMessage: Only necessary cookies
+#: components/CookieBanner/CookieBanner
 msgid "volto-gdpr-privacy-acceptTechnicalCookies"
 msgstr "Solo cookies técnicas"
 
-#: components/CookieBanner/CookieBanner
 # defaultMessage: Accept necessary cookies
+#: components/CookieBanner/CookieBanner
 msgid "volto-gdpr-privacy-acceptTechnicalCookiesOnly"
-msgstr ""
+msgstr "Aceptar las cookies necesarias"
 
-#: components/ShowGdprBanner/ShowGdprBanner
 # defaultMessage: Show cookies settings
+#: components/ShowGdprBanner/ShowGdprBanner
 msgid "volto-gdpr-privacy-buttonShowLabel"
 msgstr "Mostrar configuración de cookies"
 
-#: components/CookieBanner/CookieBanner
 # defaultMessage: Change settings
+#: components/CookieBanner/CookieBanner
 msgid "volto-gdpr-privacy-changeSettings"
 msgstr "Cambiar la configuración"
 
-#: components/CookieBanner/CookieBanner
 # defaultMessage: Accept only necessary cookies and close
+#: components/CookieBanner/CookieBanner
 msgid "volto-gdpr-privacy-close"
 msgstr "Acepte solo las cookies técnicas y cierre"
 
-#: components/ConditionalEmbed/ConditionalEmbed
 # defaultMessage: {enable_cookie_button}, or {manage_preferences_button}
+#: components/ConditionalEmbed/ConditionalEmbed
 msgid "volto-gdpr-privacy-conditional-embed-accept-message"
 msgstr "{enable_cookie_button}, o {manage_preferences_button}."
 
-#: components/ConditionalEmbed/ConditionalEmbed
 # defaultMessage: Please, accept {cookie_type} cookies to view this content.
+#: components/ConditionalEmbed/ConditionalEmbed
 msgid "volto-gdpr-privacy-conditional-embed-default-description"
 msgstr "Para ver este contenido, debe aceptar las cookies de {cookie_type}."
 
-#: components/ConditionalEmbed/ConditionalEmbed
 # defaultMessage: manage your cookie preferences
+#: components/ConditionalEmbed/ConditionalEmbed
 msgid "volto-gdpr-privacy-conditional-embed-generic-cookie-link"
 msgstr "administrar sus preferencias de cookies"
 
-#: components/ConditionalEmbed/ConditionalEmbed
 # defaultMessage: Enable {cookie_type} cookies
+#: components/ConditionalEmbed/ConditionalEmbed
 msgid "volto-gdpr-privacy-conditional-embed-specific-cookie-link"
 msgstr "Habilitar cookies de {cookie_type}"
 
-#: components/CookieBanner/CookieGroupSettings
 # defaultMessage: Disabled
+#: components/CookieBanner/CookieGroupSettings
 msgid "volto-gdpr-privacy-disabled"
 msgstr "Desactivado"
 
-#: components/CookieBanner/CookieGroupSettings
 # defaultMessage: Enabled
+#: components/CookieBanner/CookieGroupSettings
 msgid "volto-gdpr-privacy-enabled"
 msgstr "Activado"
