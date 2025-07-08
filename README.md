@@ -22,25 +22,25 @@ yarn add volto-gdpr-privacy -W
 
 GDPR Cookie Banner
 
-![GDPR Cookie Banner!](https://raw.githubusercontent.com/collective/volto-gdpr-privacy/refs/heads/master/docs/docs/_static/gdpr-cookie-banner.png "GDPR Cookie Banner")
+![GDPR Cookie Banner!](https://raw.githubusercontent.com/collective/volto-gdpr-privacy/refs/heads/master/docs/images/gdpr-cookie-banner.png "GDPR Cookie Banner")
 
 ### Change the Cookie Banner
 
 Change settings for GDPR Cookie Banner
 
-![Change settings for GDPR Cookie Banner!](https://raw.githubusercontent.com/collective/volto-gdpr-privacy/refs/heads/master/docs/docs/_static/gdpr-cookie-banner-change-settings.png "Change settings for GDPR Cookie Banner")
+![Change settings for GDPR Cookie Banner!](https://raw.githubusercontent.com/collective/volto-gdpr-privacy/refs/heads/master/docs/images/gdpr-cookie-banner-change-settings.png "Change settings for GDPR Cookie Banner")
 
 ### Technical cookies
 
 Technical cookies for GDPR Cookie Settings
 
-![Technical cookies for GDPR Cookie Settings!](https://raw.githubusercontent.com/collective/volto-gdpr-privacy/refs/heads/master/docs/docs/_static/gdpr-cookie-settings-profiling-cookies.png "Technical cookies for GDPR Cookie Settings")
+![Technical cookies for GDPR Cookie Settings!](https://raw.githubusercontent.com/collective/volto-gdpr-privacy/refs/heads/master/docs/images/gdpr-cookie-settings-profiling-cookies.png "Technical cookies for GDPR Cookie Settings")
 
 ### Profiling cookies
 
 Profiling cookies for GDPR Cookie Settings
 
-![Profiling cookies for GDPR Cookie Settings!](https://raw.githubusercontent.com/collective/volto-gdpr-privacy/refs/heads/master/docs/docs/_static/gdpr-cookie-settings-technical-cookies.png "Profiling cookies for GDPR Cookie Settings")
+![Profiling cookies for GDPR Cookie Settings!](https://raw.githubusercontent.com/collective/volto-gdpr-privacy/refs/heads/master/docs/images/gdpr-cookie-settings-technical-cookies.png "Profiling cookies for GDPR Cookie Settings")
 
 ## Usage
 
