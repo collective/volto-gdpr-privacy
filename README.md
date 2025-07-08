@@ -5,16 +5,42 @@ Volto GDPR Privacy addon to manage user cookie consent.
 It requires [collective.volto.gdprcookie](https://github.com/collective/collective.volto.gdprcookie).
 
 Display a site banner if cookie configuration has changed or if 180 days have passed since last choice.
-Cookies and banner configuration is available from Volto's controlpanel.
+Cookies and banner configuration is available from Volto's control panel.
 
 It also inserts in page a button to enable user to re-open the banner to change his preferences. You can hide this button from control panel.
 
-To be used with mrs-developer, see [Volto docs](https://docs.voltocms.com/customizing/add-ons/) for further usage informations.
+To be used with mrs-developer, see [Volto docs](https://docs.voltocms.com/customizing/add-ons/) for further usage information.
 Otherwise, install it with:
 
 ```bash
 yarn add volto-gdpr-privacy -W
 ```
+
+## Screenshots
+
+### GDPR Cookie Banner
+
+GDPR Cookie Banner
+
+![GDPR Cookie Banner!](https://raw.githubusercontent.com/collective/volto-gdpr-privacy/refs/heads/master/docs/docs/_static/gdpr-cookie-banner.png "GDPR Cookie Banner")
+
+### Change the Cookie Banner
+
+Change settings for GDPR Cookie Banner
+
+![Change settings for GDPR Cookie Banner!](https://raw.githubusercontent.com/collective/volto-gdpr-privacy/refs/heads/master/docs/docs/_static/gdpr-cookie-banner-change-settings.png "Change settings for GDPR Cookie Banner")
+
+### Technical cookies
+
+Technical cookies for GDPR Cookie Settings
+
+![Technical cookies for GDPR Cookie Settings!](https://raw.githubusercontent.com/collective/volto-gdpr-privacy/refs/heads/master/docs/docs/_static/gdpr-cookie-settings-profiling-cookies.png "Technical cookies for GDPR Cookie Settings")
+
+### Profiling cookies
+
+Profiling cookies for GDPR Cookie Settings
+
+![Profiling cookies for GDPR Cookie Settings!](https://raw.githubusercontent.com/collective/volto-gdpr-privacy/refs/heads/master/docs/docs/_static/gdpr-cookie-settings-technical-cookies.png "Profiling cookies for GDPR Cookie Settings")
 
 ## Usage
 
@@ -47,7 +73,7 @@ You can configure it from GDPR cookie control panel.
 
 #### Cookie expires
 
-It's possibile to define a cookie expire time. By default it's 6 month, but you could change your expiration days in the control panel.
+It's possible to define a cookie expire time. By default it's 6 month, but you could change your expiration days in the control panel.
 
 #### Configurable focus trap (from v.2.1.0)
 
@@ -56,7 +82,7 @@ Control panel configuration can be used to toggle this feature on or off.
 
 #### Upgrade to v2.2.0
 
-Before v2.2.0, the configuration could only be hardcoded in your project or theme config. [See the example here](src/config/defaultPanelConfig.js). If this configuration is set, it will still be used instead of the one from the controlpanel. In order to use the controlpanel configuration, you need to remove the hardcoded configuration from your project by setting `config.settings['volto-gdpr-privacy'].defaultPanelConfig = null;` in your project or theme config.
+Before v2.2.0, the configuration could only be hardcoded in your project or theme config. [See the example here](src/config/defaultPanelConfig.js). If this configuration is set, it will still be used instead of the one from the control panel. In order to use the control panel configuration, you need to remove the hardcoded configuration from your project by setting `config.settings['volto-gdpr-privacy'].defaultPanelConfig = null;` in your project or theme config.
 
 ### Styling
 
