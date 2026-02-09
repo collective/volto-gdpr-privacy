@@ -8,6 +8,7 @@ export const DEFAULT_EXPIRES = 6 * 30; //default: 6 month
 class GDPRCookies {
   constructor() {
     this.cookies = new Cookies();
+    this.domain = config.settings['volto-gdpr-privacy']?.domain;
   }
 
   setPanelConfig(conf) {
@@ -57,14 +58,19 @@ class GDPRCookies {
     this.cookies.set(
       this.cookie_name,
       cookie_value.join(','),
+
       getCookieOptions({
         expires: this.getExpirationDate(),
+        ...(this.domain ? { domain: this.domain } : {}),
       }),
     );
   }
 
   remove() {
-    this.cookies.remove(this.cookie_name, { path: '/' });
+    this.cookies.remove(this.cookie_name, {
+      path: '/',
+      ...(this.domain ? { domain: this.domain } : {}),
+    });
   }
 }
 

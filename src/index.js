@@ -71,6 +71,7 @@ const applyConfig = (config) => {
   }
 
   config.settings['volto-gdpr-privacy'] = {
+    // domain: ".mydomain.it", // if you want your cookie banner is valid for a domain, and not only for a site
     settings: {
       /******
        * Example: dinamically include components based on user choices
