@@ -69,6 +69,18 @@ const getVideoIDAndPlaceholder = (url) => {
  * @extends Component
  */
 const Body = ({ data, isEditMode }) => {
+
+  const gdprPreferences = useSelector(
+    (state) => {
+      return state.gdprPrivacyConsent ? state.gdprPrivacyConsent?.preferences : [];
+    },
+  ); 
+
+  const embedAllowed =
+    gdprPreferences !== undefined &&
+    (gdprPreferences?.prof_VIMEO === true ||
+      gdprPreferences?.prof_YOUTUBE === true);
+
   let placeholder = data.preview_image
     ? isInternalURL(data.preview_image)
       ? `${flattenToAppURL(data.preview_image)}/@@images/image`
@@ -104,7 +116,7 @@ const Body = ({ data, isEditMode }) => {
           })}
         >
           <ConditionalEmbed url={data.url}>
-            {data.url.match('youtu') ? (
+            {embedAllowed && (data.url.match('youtu') ? (
               <>
                 {data.url.match('list') ? (
                   <Embed
@@ -152,7 +164,7 @@ const Body = ({ data, isEditMode }) => {
                   </>
                 )}
               </>
-            )}
+            ))}
           </ConditionalEmbed>
         </div>
       )}
