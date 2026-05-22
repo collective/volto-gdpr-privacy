@@ -129,7 +129,7 @@ const Body = ({ data, isEditMode }) => {
               </>
             ) : (
               <>
-                {data.url.match('vimeo') ? (
+                {embedAllowed && (data.url.match('vimeo') ? (
                   <Embed id={videoID} source="vimeo" {...embedSettings} />
                 ) : (
                   <>
@@ -162,7 +162,7 @@ const Body = ({ data, isEditMode }) => {
                       <div className="invalidVideoFormat" />
                     )}
                   </>
-                )}
+                ))}
               </>
             ))}
           </ConditionalEmbed>
