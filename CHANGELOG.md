@@ -1,3 +1,18 @@
+## [2.3.0](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.15...v2.3.0) (2026-05-25)
+
+
+### Features
+
+* add German language ([#24](https://github.com/collective/volto-gdpr-privacy/issues/24)) ([7bbf9b2](https://github.com/collective/volto-gdpr-privacy/commit/7bbf9b2636a6860254672a053c04d75fd63e5dfe))
+* added configurable domain for cookie ([babce48](https://github.com/collective/volto-gdpr-privacy/commit/babce48d2be4cb0f02a51561b9da54edc82b528f))
+* update README file with more the screenshots ([39addd9](https://github.com/collective/volto-gdpr-privacy/commit/39addd9dd209d2fd6eb00b203e92778fbbe67e38))
+* update Spanish language ([76f0810](https://github.com/collective/volto-gdpr-privacy/commit/76f08104a7f1f7eaa415014651f995f49f62c0be))
+
+
+### Bug Fixes
+
+* Us[#75601](https://github.com/collective/volto-gdpr-privacy/issues/75601) prevent video when cookie not accepted ([#25](https://github.com/collective/volto-gdpr-privacy/issues/25)) ([8fdaaf2](https://github.com/collective/volto-gdpr-privacy/commit/8fdaaf207e233f8c5ef11c70742165c07c53f168))
+
 ### [2.2.15](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.14...v2.2.15) (2025-05-19)
 
 
