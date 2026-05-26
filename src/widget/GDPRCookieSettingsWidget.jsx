@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 
-import { CheckboxWidget } from '@plone/volto/components/manage/Widgets';
+import CheckboxWidget from '@plone/volto/components/manage/Widgets/CheckboxWidget';
 import { MultilingualWidget } from 'volto-multilingual-widget';
 
 import MainTextWidget from './MainTextWidget';

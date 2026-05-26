@@ -1,9 +1,7 @@
 import React from 'react';
 import { defineMessages, useIntl } from 'react-intl';
-import {
-  TextWidget,
-  TextareaWidget,
-} from '@plone/volto/components/manage/Widgets';
+import TextWidget from '@plone/volto/components/manage/Widgets/TextWidget';
+import TextareaWidget from '@plone/volto/components/manage/Widgets/TextareaWidget';
 
 import SlateRichTextWidget from '@plone/volto-slate/widgets/RichTextWidget';
 
