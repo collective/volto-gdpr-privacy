@@ -1,3 +1,10 @@
+### [2.3.1](https://github.com/collective/volto-gdpr-privacy/compare/v2.3.0...v2.3.1) (2026-05-26)
+
+
+### Bug Fixes
+
+* fixing errors after release ([#26](https://github.com/collective/volto-gdpr-privacy/issues/26)) ([b529352](https://github.com/collective/volto-gdpr-privacy/commit/b529352acaad35edb6013f1a7fa716f048a19070))
+
 ## [2.3.0](https://github.com/collective/volto-gdpr-privacy/compare/v2.2.15...v2.3.0) (2026-05-25)
 
 
