@@ -1,3 +1,10 @@
+### [2.3.2](https://github.com/collective/volto-gdpr-privacy/compare/v2.3.1...v2.3.2) (2026-06-15)
+
+
+### Bug Fixes
+
+* conditional emebed if not cookie accepted, no render block ([50031c1](https://github.com/collective/volto-gdpr-privacy/commit/50031c1e0d0cfa0560c9d77a2c674b4d7e672cb5))
+
 ### [2.3.1](https://github.com/collective/volto-gdpr-privacy/compare/v2.3.0...v2.3.1) (2026-05-26)
 
 
