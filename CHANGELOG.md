@@ -1,3 +1,10 @@
+### [2.3.3](https://github.com/collective/volto-gdpr-privacy/compare/v2.3.2...v2.3.3) (2026-06-15)
+
+
+### Maintenance
+
+* removed console.log ([84b4d49](https://github.com/collective/volto-gdpr-privacy/commit/84b4d49a5ed798495c4b3d19d5471bf842df9dcf))
+
 ### [2.3.2](https://github.com/collective/volto-gdpr-privacy/compare/v2.3.1...v2.3.2) (2026-06-15)
 
 
