@@ -64,9 +64,18 @@ const ConditionalEmbed = ({ code, url, children }) => {
   let ret = <></>;
   let cookieConsentEnabled = Object.keys(panelConfig ?? {}).length > 0;
   let embedDisabled =
-    cookieConsentEnabled &&
-    urlReferenceConfig != null &&
-    !gdprPreferences['prof_' + urlReferenceConfig.config_key];
+    (cookieConsentEnabled &&
+      urlReferenceConfig != null &&
+      !gdprPreferences['prof_' + urlReferenceConfig.config_key]) ||
+    !urlReferenceConfig?.config_key;
+
+  console.log({
+    embedDisabled: embedDisabled,
+    cookieConsentEnabled: cookieConsentEnabled,
+    urlReferenceConfig: urlReferenceConfig,
+    gdprPreferences: gdprPreferences,
+    key: urlReferenceConfig?.config_key,
+  });
 
   if (cookieConsentEnabled && __SERVER__) {
     return <div></div>; // it has to return something (and not a simple React.fragment) because client-rendering will replace it with next block confusing rendering
@@ -85,9 +94,10 @@ const ConditionalEmbed = ({ code, url, children }) => {
     );
   }
 
-  if (cookieConsentEnabled && !gdprPreferences) {
+  if ((cookieConsentEnabled && !gdprPreferences) || !urlReferenceConfig) {
     return <></>;
   }
+
   if (embedDisabled) {
     //embed disabled
     const text = getLocaleConf(urlReferenceConfig.text, intl.locale);
