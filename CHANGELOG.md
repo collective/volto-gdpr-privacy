@@ -1,3 +1,10 @@
+### [2.3.4](https://github.com/collective/volto-gdpr-privacy/compare/v2.3.3...v2.3.4) (2026-06-16)
+
+
+### Bug Fixes
+
+* conditional embed when no profiling cookies are configured ([e6651c0](https://github.com/collective/volto-gdpr-privacy/commit/e6651c097e5460c9bcc63cce5633b8222874520f))
+
 ### [2.3.3](https://github.com/collective/volto-gdpr-privacy/compare/v2.3.2...v2.3.3) (2026-06-15)
 
 
