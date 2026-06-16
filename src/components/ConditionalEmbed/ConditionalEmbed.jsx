@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useIntl, defineMessages } from "react-intl";
-import { displayBanner, updateGdprPrivacyConsent } from "../../actions";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useIntl, defineMessages } from 'react-intl';
+import { displayBanner, updateGdprPrivacyConsent } from '../../actions';
 
 import {
   usePanelConfigAndPreferences,
   GDPRCookies,
   getLocaleConf,
-} from "../../helpers";
+} from '../../helpers';
 
-import "./conditional-embed.css";
+import './conditional-embed.css';
 
 const messages = defineMessages({
   conditionalEmbedAcceptCookiesDefaultDescription: {
-    id: "volto-gdpr-privacy-conditional-embed-default-description",
+    id: 'volto-gdpr-privacy-conditional-embed-default-description',
     defaultMessage:
-      "Please, accept {cookie_type} cookies to view this content.",
+      'Please, accept {cookie_type} cookies to view this content.',
   },
   conditionalEmbedAcceptCookiesAcceptMessage: {
-    id: "volto-gdpr-privacy-conditional-embed-accept-message",
-    defaultMessage: "{enable_cookie_button}, or {manage_preferences_button}",
+    id: 'volto-gdpr-privacy-conditional-embed-accept-message',
+    defaultMessage: '{enable_cookie_button}, or {manage_preferences_button}',
   },
   specificCookieLink: {
-    id: "volto-gdpr-privacy-conditional-embed-specific-cookie-link",
-    defaultMessage: "Enable {cookie_type} cookies",
+    id: 'volto-gdpr-privacy-conditional-embed-specific-cookie-link',
+    defaultMessage: 'Enable {cookie_type} cookies',
   },
   genericCookieLink: {
-    id: "volto-gdpr-privacy-conditional-embed-generic-cookie-link",
-    defaultMessage: "manage your cookie preferences",
+    id: 'volto-gdpr-privacy-conditional-embed-generic-cookie-link',
+    defaultMessage: 'manage your cookie preferences',
   },
 });
 const ConditionalEmbed = ({ code, url, children }) => {
@@ -36,7 +36,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
   const { defaultPreferences, panelConfig } =
     usePanelConfigAndPreferences(cookies);
 
-  const embed = code ?? url ?? "";
+  const embed = code ?? url ?? '';
   const dispatch = useDispatch();
 
   const profilingConfig = panelConfig?.profiling?.choices?.filter(
@@ -48,6 +48,8 @@ const ConditionalEmbed = ({ code, url, children }) => {
 
   const [urlReferenceConfig, setUrlReferenceConfig] = useState(null);
 
+  const isEmptyObj = (o) => Object.keys(o ?? {}).length === 0;
+
   useEffect(() => {
     if (profilingConfig && !urlReferenceConfig) {
       let conditionalConfig = profilingConfig.filter(
@@ -55,7 +57,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
           c.referenceUrls.filter((r) => embed?.indexOf(r) >= 0)?.length > 0,
       );
 
-      setUrlReferenceConfig(conditionalConfig?.[0] ?? null);
+      setUrlReferenceConfig(conditionalConfig?.[0] ?? {});
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profilingConfig, setUrlReferenceConfig, urlReferenceConfig, embed]);
@@ -63,22 +65,38 @@ const ConditionalEmbed = ({ code, url, children }) => {
   //return value
   let ret = <></>;
   let cookieConsentEnabled = Object.keys(panelConfig ?? {}).length > 0;
-  let embedDisabled =
-    (cookieConsentEnabled &&
-      urlReferenceConfig != null &&
-      !gdprPreferences["prof_" + urlReferenceConfig.config_key]) ||
-    !urlReferenceConfig?.config_key;
+  let embedDisabled = true;
+  if (
+    cookieConsentEnabled &&
+    urlReferenceConfig?.config_key &&
+    gdprPreferences.hasOwnProperty('prof_' + urlReferenceConfig.config_key)
+  ) {
+    //non sono stati accettati i cookie di profilazione necessari per questo embed
+    embedDisabled = !gdprPreferences['prof_' + urlReferenceConfig.config_key];
+  } else if (
+    cookieConsentEnabled &&
+    urlReferenceConfig !== null &&
+    isEmptyObj(urlReferenceConfig) &&
+    !isEmptyObj(gdprPreferences)
+  ) {
+    //non sono previsti cookie di profilazione per questo embed ma è comunque abilitato il consenso cookie
+    embedDisabled = false;
+  } else if (cookieConsentEnabled && isEmptyObj(gdprPreferences)) {
+    //non sono ancora state caricate le preferenze sui cookie, di default lo disabilitiamo per evitare di mostrare embed che potrebbero essere in violazione con le preferenze dell'utente
+    embedDisabled = true;
+  }
 
   if (cookieConsentEnabled && __SERVER__) {
     return <div></div>; // it has to return something (and not a simple React.fragment) because client-rendering will replace it with next block confusing rendering
   }
-  if (cookieConsentEnabled && !gdprPreferences && !urlReferenceConfig) {
+  if (
+    cookieConsentEnabled &&
+    isEmptyObj(gdprPreferences) &&
+    !urlReferenceConfig
+  ) {
     //we are in diffView (content history)
     return (
-      <div
-        className="volto-gdpr-embed-disabled"
-        style={{ "text-align": "left" }}
-      >
+      <div className="volto-gdpr-embed-disabled" style={{ textAlign: 'left' }}>
         <strong>Embed: </strong>
         <br />
         {embed}
@@ -86,7 +104,10 @@ const ConditionalEmbed = ({ code, url, children }) => {
     );
   }
 
-  if ((cookieConsentEnabled && !gdprPreferences) || !urlReferenceConfig) {
+  if (
+    (cookieConsentEnabled && isEmptyObj(gdprPreferences)) ||
+    (embedDisabled && !urlReferenceConfig?.config_key)
+  ) {
     return <></>;
   }
 
@@ -100,20 +121,21 @@ const ConditionalEmbed = ({ code, url, children }) => {
           intl.formatMessage(
             messages.conditionalEmbedAcceptCookiesDefaultDescription,
             { cookie_type: text.title },
-          )}{" "}
+          )}{' '}
         {intl.formatMessage(
           messages.conditionalEmbedAcceptCookiesAcceptMessage,
           {
             enable_cookie_button: (
               <button
+                key="enable_cookie_button"
                 onClick={(e) => {
                   e.preventDefault();
 
-                  cookies.set("prof_" + key, true);
+                  cookies.set('prof_' + key, true);
                   dispatch(
                     updateGdprPrivacyConsent({
                       ...gdprPreferences,
-                      ["prof_" + key]: true,
+                      ['prof_' + key]: true,
                     }),
                   );
                 }}
@@ -125,6 +147,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
             ),
             manage_preferences_button: (
               <button
+                key="manage_preferences_button"
                 onClick={(e) => {
                   e.preventDefault();
                   dispatch(displayBanner(true, true));
