@@ -47,8 +47,13 @@ const ConditionalEmbed = ({ code, url, children }) => {
   );
 
   const [urlReferenceConfig, setUrlReferenceConfig] = useState(null);
+  const [mounted, setMounted] = useState(false);
 
   const isEmptyObj = (o) => Object.keys(o ?? {}).length === 0;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (profilingConfig && !urlReferenceConfig) {
@@ -86,8 +91,14 @@ const ConditionalEmbed = ({ code, url, children }) => {
     embedDisabled = true;
   }
 
-  if (cookieConsentEnabled && __SERVER__) {
-    return <div></div>; // it has to return something (and not a simple React.fragment) because client-rendering will replace it with next block confusing rendering
+  if (cookieConsentEnabled && (__SERVER__ || !mounted)) {
+    // The server always renders an empty placeholder (it can't safely know
+    // the user's cookie consent), so the client's first hydration render has
+    // to match that exactly. Only compute the real conditional content once
+    // mounted (post-hydration), or React complains about a markup mismatch.
+    // It has to return something (and not a simple React.fragment) because
+    // client-rendering will replace it with next block confusing rendering.
+    return <div></div>;
   }
   if (
     cookieConsentEnabled &&
