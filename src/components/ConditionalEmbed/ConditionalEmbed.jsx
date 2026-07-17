@@ -45,6 +45,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
   const gdprPreferences = useSelector(
     (state) => state.gdprPrivacyConsent.preferences ?? defaultPreferences ?? {},
   );
+  console.log(panelConfig);
 
   const [urlReferenceConfig, setUrlReferenceConfig] = useState(null);
   const [mounted, setMounted] = useState(false);
@@ -71,6 +72,7 @@ const ConditionalEmbed = ({ code, url, children }) => {
   let ret = <></>;
   let cookieConsentEnabled = Object.keys(panelConfig ?? {}).length > 0;
   let embedDisabled = true;
+
   if (
     cookieConsentEnabled &&
     urlReferenceConfig?.config_key &&
@@ -80,11 +82,13 @@ const ConditionalEmbed = ({ code, url, children }) => {
     embedDisabled = !gdprPreferences['prof_' + urlReferenceConfig.config_key];
   } else if (
     cookieConsentEnabled &&
-    urlReferenceConfig !== null &&
-    isEmptyObj(urlReferenceConfig) &&
+    isEmptyObj(urlReferenceConfig ?? {}) &&
     !isEmptyObj(gdprPreferences)
   ) {
     //non sono previsti cookie di profilazione per questo embed ma è comunque abilitato il consenso cookie
+    embedDisabled = false;
+  } else if (cookieConsentEnabled && !profilingConfig) {
+    //non sono previsti cookie di profilazione nel banner (cookie non configurati o opzionee 'solo cookie tecnici' dal pannello di controllo)
     embedDisabled = false;
   } else if (cookieConsentEnabled && isEmptyObj(gdprPreferences)) {
     //non sono ancora state caricate le preferenze sui cookie, di default lo disabilitiamo per evitare di mostrare embed che potrebbero essere in violazione con le preferenze dell'utente
