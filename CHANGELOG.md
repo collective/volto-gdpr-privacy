@@ -1,3 +1,11 @@
+### [2.3.5](https://github.com/collective/volto-gdpr-privacy/compare/v2.3.4...v2.3.5) (2026-07-17)
+
+
+### Bug Fixes
+
+* ConditionalEmbed hydration mismatch on cookie-gated embeds ([#27](https://github.com/collective/volto-gdpr-privacy/issues/27)) ([bb24a31](https://github.com/collective/volto-gdpr-privacy/commit/bb24a31054715a3ec40336782f6b619f1761fc7f))
+* view embed if only tech cookie flag is set in ctrl panel ([b91d0a5](https://github.com/collective/volto-gdpr-privacy/commit/b91d0a5cdee3ac045eb7c62bffa0a69fa8b1ee90))
+
 ### [2.3.4](https://github.com/collective/volto-gdpr-privacy/compare/v2.3.3...v2.3.4) (2026-06-16)
 
 
