@@ -180,7 +180,7 @@ msgid "volto-gdpr-privacy-acceptTechnicalCookies"
 msgstr "Uniquement les cookies techniques"
 
 #: components/CookieBanner/CookieBanner
-# defaultMessage: Accept necessary cookies
+# defaultMessage: Ok
 msgid "volto-gdpr-privacy-acceptTechnicalCookiesOnly"
 msgstr ""
 
@@ -213,6 +213,11 @@ msgstr "Veuillez accepter les cookies {cookie_type} pour voir ce contenu."
 # defaultMessage: manage your cookie preferences
 msgid "volto-gdpr-privacy-conditional-embed-generic-cookie-link"
 msgstr "gérer vos préférences en matière de cookies"
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: Profiling Cookie config is empty. Are you sure you want to enable only technical cookie? Please check your
+msgid "volto-gdpr-privacy-conditional-embed-profilingConfigIsEmpty"
+msgstr ""
 
 #: components/ConditionalEmbed/ConditionalEmbed
 # defaultMessage: Enable {cookie_type} cookies

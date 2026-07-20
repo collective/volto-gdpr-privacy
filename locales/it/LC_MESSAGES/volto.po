@@ -180,7 +180,7 @@ msgid "volto-gdpr-privacy-acceptTechnicalCookies"
 msgstr "Solo cookies tecnici"
 
 #: components/CookieBanner/CookieBanner
-# defaultMessage: Accept necessary cookies
+# defaultMessage: Ok
 msgid "volto-gdpr-privacy-acceptTechnicalCookiesOnly"
 msgstr "Ok"
 
@@ -213,6 +213,11 @@ msgstr "Per visualizzare questo contenuto, devi accettare i cookie {cookie_type}
 # defaultMessage: manage your cookie preferences
 msgid "volto-gdpr-privacy-conditional-embed-generic-cookie-link"
 msgstr "gestisci le tue preferenze sui cookie"
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: Profiling Cookie config is empty. Are you sure you want to enable only technical cookie? Please check your
+msgid "volto-gdpr-privacy-conditional-embed-profilingConfigIsEmpty"
+msgstr "I Cookie di Profilazione non sono configurati. Sei sicuro di voler abilitare sul sito solamente i cookie tecnici? Verifica le impostazioni del banner nel pannello di controllo: "
 
 #: components/ConditionalEmbed/ConditionalEmbed
 # defaultMessage: Enable {cookie_type} cookies

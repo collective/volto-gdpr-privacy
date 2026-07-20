@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2025-06-13T08:27:39.105Z\n"
+"POT-Creation-Date: 2026-07-20T11:16:51.751Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -209,6 +209,11 @@ msgstr ""
 #: components/ConditionalEmbed/ConditionalEmbed
 # defaultMessage: manage your cookie preferences
 msgid "volto-gdpr-privacy-conditional-embed-generic-cookie-link"
+msgstr ""
+
+#: components/ConditionalEmbed/ConditionalEmbed
+# defaultMessage: Profiling Cookie config is empty. Are you sure you want to enable only technical cookie? Please check your
+msgid "volto-gdpr-privacy-conditional-embed-profilingConfigIsEmpty"
 msgstr ""
 
 #: components/ConditionalEmbed/ConditionalEmbed

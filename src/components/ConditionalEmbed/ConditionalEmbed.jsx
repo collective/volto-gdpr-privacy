@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useIntl, defineMessages } from 'react-intl';
+import { UniversalLink } from '@plone/volto/components';
 import { displayBanner, updateGdprPrivacyConsent } from '../../actions';
 
 import {
@@ -29,9 +30,16 @@ const messages = defineMessages({
     id: 'volto-gdpr-privacy-conditional-embed-generic-cookie-link',
     defaultMessage: 'manage your cookie preferences',
   },
+  profilingConfigIsEmpty: {
+    id: 'volto-gdpr-privacy-conditional-embed-profilingConfigIsEmpty',
+    defaultMessage:
+      'Profiling Cookie config is empty. Are you sure you want to enable only technical cookie? Please check your',
+  },
 });
 const ConditionalEmbed = ({ code, url, children }) => {
   const intl = useIntl();
+  const userLoggedToken = useSelector((state) => state.userSession?.token);
+
   const cookies = new GDPRCookies();
   const { defaultPreferences, panelConfig } =
     usePanelConfigAndPreferences(cookies);
@@ -45,7 +53,6 @@ const ConditionalEmbed = ({ code, url, children }) => {
   const gdprPreferences = useSelector(
     (state) => state.gdprPrivacyConsent.preferences ?? defaultPreferences ?? {},
   );
-  console.log(panelConfig);
 
   const [urlReferenceConfig, setUrlReferenceConfig] = useState(null);
   const [mounted, setMounted] = useState(false);
@@ -176,7 +183,23 @@ const ConditionalEmbed = ({ code, url, children }) => {
       </div>
     );
   } else {
-    ret = <>{children}</>;
+    ret = (
+      <>
+        {!profilingConfig && userLoggedToken && (
+          <div className="volto-gdpr-embed-alert-message">
+            {intl.formatMessage(messages.profilingConfigIsEmpty)}{' '}
+            <UniversalLink
+              target="_blank"
+              href="/controlpanel/gdpr-cookie-settings"
+            >
+              Cookie Banner configuration
+            </UniversalLink>
+            .
+          </div>
+        )}
+        {children}
+      </>
+    );
   }
 
   return ret;

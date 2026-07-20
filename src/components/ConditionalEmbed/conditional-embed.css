@@ -12,3 +12,23 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+.volto-gdpr-embed-alert-message {
+    height: auto !important;
+    padding: 1em 1.5em !important;
+
+    margin: 1em 0;
+
+    background-color: #fff8db;
+    color: #b58105;
+    box-shadow:
+        0 0 0 1px #b58105 inset,
+        0 0 0 0 transparent;
+
+    transition:
+        opacity 0.1s ease,
+        color 0.1s ease,
+        background 0.1s ease,
+        box-shadow 0.1s ease;
+    border-radius: 0.28571429rem;
+}
