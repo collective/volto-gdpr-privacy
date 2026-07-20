@@ -1,3 +1,10 @@
+## [2.4.0](https://github.com/collective/volto-gdpr-privacy/compare/v2.3.5...v2.4.0) (2026-07-20)
+
+
+### Features
+
+* added message if profiling cookie are not enable, only for editor users ([2495c57](https://github.com/collective/volto-gdpr-privacy/commit/2495c577381e2c5af2188ffb63982c8e380ede9a))
+
 ### [2.3.5](https://github.com/collective/volto-gdpr-privacy/compare/v2.3.4...v2.3.5) (2026-07-17)
 
 
