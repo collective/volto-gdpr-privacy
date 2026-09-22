@@ -23,10 +23,30 @@ const usePanelConfigAndPreferences = (cookies, forceLoad) => {
     } else return null;
   }, [hasOldStyleConfig]);
 
-  const _panelConfig = useSelector(
+  const rawPanelConfig = useSelector(
     (state) =>
       state.content?.data?.['@components']?.['gdpr-cookie-settings'] ?? {},
   );
+  // `state.content.data` is replaced on *any* successful content action
+  // (CREATE_CONTENT, UPDATE_CONTENT, DELETE_CONTENT, ORDER_CONTENT...), not
+  // only on GET_CONTENT. When that action's request didn't ask for the
+  // `gdpr-cookie-settings` expansion, Plone still includes the key in
+  // `@components`, but as an unexpanded stub containing only `@id` (e.g.
+  // `{"@id": ".../@gdpr-cookie-settings"}`) rather than an empty object.
+  // Without this, e.g. creating a new content item elsewhere in the app
+  // would replace `panelConfig` with that stub - still non-empty, but
+  // missing `cookie_version`/`profiling`/`technical` - which makes
+  // `cookies.setPanelConfig()` fall back to the default cookie name and the
+  // "has the user already consented?" check in CookieBanner re-arm, even
+  // though the real consent cookie was never actually cleared.
+  const isRealPanelConfig = (cfg) =>
+    !!cfg && Object.keys(cfg).some((k) => k !== '@id');
+  const [_panelConfig, setPanelConfig] = useState(rawPanelConfig);
+  useEffect(() => {
+    if (isRealPanelConfig(rawPanelConfig)) {
+      setPanelConfig(rawPanelConfig);
+    }
+  }, [rawPanelConfig]);
   const panelConfig = oldStylePanelConfig ?? _panelConfig;
 
   const panelConfigStatus = useSelector((state) => state.content.get);
