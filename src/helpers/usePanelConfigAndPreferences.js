@@ -29,16 +29,21 @@ const usePanelConfigAndPreferences = (cookies, forceLoad) => {
   );
   // `state.content.data` is replaced on *any* successful content action
   // (CREATE_CONTENT, UPDATE_CONTENT, DELETE_CONTENT, ORDER_CONTENT...), not
-  // only on GET_CONTENT, and those responses don't carry the
-  // `gdpr-cookie-settings` expansion. Without this, e.g. creating a new
-  // content item elsewhere in the app would momentarily blank `panelConfig`,
-  // flipping `enabled` false then true again once the next GET_CONTENT
-  // resolves - which re-arms the "has the user already consented" check in
-  // CookieBanner even though the consent cookie was never actually cleared.
-  // Keep the last non-empty config instead of flapping to `{}`.
+  // only on GET_CONTENT. When that action's request didn't ask for the
+  // `gdpr-cookie-settings` expansion, Plone still includes the key in
+  // `@components`, but as an unexpanded stub containing only `@id` (e.g.
+  // `{"@id": ".../@gdpr-cookie-settings"}`) rather than an empty object.
+  // Without this, e.g. creating a new content item elsewhere in the app
+  // would replace `panelConfig` with that stub - still non-empty, but
+  // missing `cookie_version`/`profiling`/`technical` - which makes
+  // `cookies.setPanelConfig()` fall back to the default cookie name and the
+  // "has the user already consented?" check in CookieBanner re-arm, even
+  // though the real consent cookie was never actually cleared.
+  const isRealPanelConfig = (cfg) =>
+    !!cfg && Object.keys(cfg).some((k) => k !== '@id');
   const [_panelConfig, setPanelConfig] = useState(rawPanelConfig);
   useEffect(() => {
-    if (Object.keys(rawPanelConfig ?? {}).length > 0) {
+    if (isRealPanelConfig(rawPanelConfig)) {
       setPanelConfig(rawPanelConfig);
     }
   }, [rawPanelConfig]);
