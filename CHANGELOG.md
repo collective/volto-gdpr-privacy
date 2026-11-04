@@ -1,3 +1,10 @@
+### [2.4.1](https://github.com/collective/volto-gdpr-privacy/compare/v2.4.0...v2.4.1) (2026-11-04)
+
+
+### Bug Fixes
+
+* import useSelector in the Video block Body customization ([#29](https://github.com/collective/volto-gdpr-privacy/issues/29)) ([abf58fa](https://github.com/collective/volto-gdpr-privacy/commit/abf58fa4cf07bac5f1a966164eb9acebda14f811))
+
 ## [2.4.0](https://github.com/collective/volto-gdpr-privacy/compare/v2.3.5...v2.4.0) (2026-07-20)
 
 
